@@ -17,7 +17,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen text-foreground flex flex-col">
       <div className="absolute inset-0 z-[-1]"></div>
-      <div className="flex-1 max-w-[1200px] mx-auto w-full">
+      <div className="flex-1 max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8">
         <AboutHero />
         <AboutContent />
       </div>

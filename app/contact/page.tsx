@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="min-h-screen flex flex-col">
-      <div className="flex-1 max-w-[1200px] mx-auto w-full">
+      <div className="flex-1 max-w-[1200px] mx-auto w-full  px-4 sm:px-6 lg:px-8">
         <ContactForm />
       </div>
     </main>
