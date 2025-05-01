@@ -1,5 +1,17 @@
+import { Metadata } from "next";
 import AboutHero from "@/components/about-hero";
 import AboutContent from "@/components/about-content";
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description:
+    "Learn more about Ghulam Abbas Ataie - Senior Software Developer and Technical Lead. Discover my journey, expertise, and passion for technology and software development.",
+  openGraph: {
+    title: "About Ghulam Abbas Ataie",
+    description:
+      "Learn more about Ghulam Abbas Ataie - Senior Software Developer and Technical Lead. Discover my journey, expertise, and passion for technology and software development.",
+  },
+};
 
 export default function AboutPage() {
   return (

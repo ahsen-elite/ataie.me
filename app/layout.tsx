@@ -35,6 +35,10 @@ export const metadata: Metadata = {
     "Cloud Solutions",
     "Technical Leadership",
     "Software Architecture",
+    "Senior Developer",
+    "Web Performance",
+    "System Design",
+    "API Development",
   ],
   authors: [{ name: "Ghulam Abbas Ataie", url: "https://ataie.me" }],
   creator: "Ghulam Abbas Ataie",
@@ -68,6 +72,7 @@ export const metadata: Metadata = {
       "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
     creator: "@abbasataie",
     images: ["/opengraph-image.png"],
+    site: "@abbasataie",
   },
   robots: {
     index: true,
@@ -101,11 +106,20 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  verification: {
-    google: "your-google-site-verification",
-  },
   category: "technology",
   classification: "Portfolio Website",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  applicationName: "Ghulam Abbas Ataie Portfolio",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 export default function RootLayout({
@@ -129,10 +143,44 @@ export default function RootLayout({
                 "Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
               sameAs: [
                 "https://twitter.com/abbasataie",
-                // Add other social media profiles here
+                "https://github.com/abbasatayee",
               ],
+              worksFor: {
+                "@type": "Organization",
+                name: "Tara Solutions Inc",
+              },
+              knowsAbout: [
+                "Full-Stack Development",
+                "Cloud Architecture",
+                "Technical Leadership",
+                "React",
+                "Node.js",
+                "TypeScript",
+                "AWS",
+                "Web Development",
+                "Software Architecture",
+              ],
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "University of Europe for Applied Sciences (UE)",
+              },
+              image: "https://ataie.me/opengraph-image.png",
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": "https://ataie.me",
+              },
             }),
           }}
+        />
+        <meta name="geo.region" content="DE" />
+        <meta name="geo.placename" content="Berlin" />
+        <meta name="geo.position" content="52.52;13.403" />
+        <meta name="ICBM" content="52.52, 13.403" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
         />
       </head>
       <body className={inter.className}>
