@@ -68,7 +68,7 @@ const Header = () => {
             whileHover={{ scale: 1.05, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-xl group-hover:from-blue-500/30 group-hover:via-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300 shadow-lg"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-blue-500/20 to-blue-600/20 rounded-xl group-hover:from-blue-400/30 group-hover:via-blue-500/30 group-hover:to-blue-600/30 transition-all duration-300 shadow-lg"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
                 className="relative"
@@ -91,7 +91,7 @@ const Header = () => {
                   A
                 </motion.span>
                 <motion.div
-                  className="absolute -right-1 -bottom-1 w-2 h-2 bg-pink-500 rounded-full"
+                  className="absolute -right-1 -bottom-1 w-2 h-2  rounded-full"
                   animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.5, 1, 0.5],
@@ -107,10 +107,10 @@ const Header = () => {
           </motion.div>
           <motion.div className="flex flex-col" whileHover={{ x: 2 }}>
             <motion.span
-              className="text-foreground/80 group-hover:text-foreground transition-colors text-sm font-medium"
+              className="text-foreground/60 group-hover:text-foreground transition-colors text-sm font-medium"
               whileHover={{ color: "#3B82F6" }}
             >
-              Abbas
+              Ghulam Abbas Ataie
             </motion.span>
             <motion.span
               className="text-foreground/60 group-hover:text-foreground/80 transition-colors text-xs"
@@ -195,7 +195,69 @@ const Header = () => {
             <SheetContent side="right" className="w-80">
               <SheetHeader className="mb-8">
                 <SheetTitle className="text-left">
-                  Ghulam Abbas Ataie
+                  <Link
+                    href="/"
+                    className="text-primary font-medium text-xl flex items-center gap-3 hover:opacity-80 transition-all duration-300 group"
+                  >
+                    <motion.div
+                      className="relative w-10 h-10"
+                      whileHover={{ scale: 1.05, rotate: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-blue-500/20 to-blue-600/20 rounded-xl group-hover:from-blue-400/30 group-hover:via-blue-500/30 group-hover:to-blue-600/30 transition-all duration-300 shadow-lg"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <motion.div
+                          className="relative"
+                          initial={{ opacity: 0.8 }}
+                          whileHover={{ opacity: 1 }}
+                        >
+                          <span className="text-blue-500 font-bold text-lg">
+                            G
+                          </span>
+                          <motion.span
+                            className="text-purple-500 font-bold text-lg absolute -right-1 -top-1"
+                            animate={{
+                              y: [0, -2, 0],
+                              rotate: [0, 5, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            A
+                          </motion.span>
+                          <motion.div
+                            className="absolute -right-1 -bottom-1 w-2 h-2  rounded-full"
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              opacity: [0.5, 1, 0.5],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          />
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                    <motion.div className="flex flex-col" whileHover={{ x: 2 }}>
+                      <motion.span
+                        className="text-foreground/60 group-hover:text-foreground transition-colors text-sm font-medium"
+                        whileHover={{ color: "#3B82F6" }}
+                      >
+                        Ghulam Abbas Ataie
+                      </motion.span>
+                      <motion.span
+                        className="text-foreground/60 group-hover:text-foreground/80 transition-colors text-xs"
+                        whileHover={{ color: "#3B82F6" }}
+                      >
+                        backend wizard & AI enthusiast 🧙‍♂️
+                      </motion.span>
+                    </motion.div>
+                  </Link>
                 </SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-4">
