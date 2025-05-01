@@ -15,38 +15,33 @@ export const metadata: Metadata = {
 
 const experiences = [
   {
-    year: "2023",
-    title: "Chief Technology Officer (CTO)",
+    title: "🎓 Master in Data Science",
     description:
-      "Leading technical vision and strategy at Tara Solutions Inc. Developing web and mobile applications, implementing cloud solutions, and leading an international development team.",
-    link: "https://tarasolutions.cloud",
-  },
-  {
-    year: "2022",
-    title: "Senior Full Stack Developer at Listoli LLC",
-    description:
-      "Designed and optimized PostgreSQL databases, developed RESTful APIs and microservices using NestJS and Next.js, implemented CI/CD with GitHub Actions and GCP.",
+      "University of Europe for Applied Sciences • High-Quality Master Program focusing on cutting-edge technologies • Core Subjects: Data Science, Data Engineering, Data Analytics, Machine Learning • Specialization: Cloud Computing, Decision Support Systems • Additional Qualifications: Entrepreneurial Thinking & Digital Business Models",
     link: "#",
   },
   {
-    year: "2021",
-    title: "Full Stack Developer at Click.af",
+    title: "💻 Bachelor in Computer Science",
     description:
-      "Developed web and mobile applications using React.js, Node.js, Next.js, and React Native. Integrated vendor APIs and implemented e-commerce features.",
+      "Kabul Polytechnic University • Graduated with second place in class • Mentoring and Support of fellow students in programming and algorithms • Focus Areas: Software Engineering, Databases, Networks and AI",
     link: "#",
   },
   {
-    year: "2021",
-    title: "Full Stack Developer at BlueBit Networking Services",
+    title: "🏆 Awards & Achievements",
     description:
-      "Developed high-traffic web applications using Python, Django, React Native, MySQL, and React.js. Created petition management system for the Ministry of Defense.",
+      "Asia Kabul Regional ACM/ICPC Competition 2018 (3rd place among 40 teams) • Duolingo English Test (Score: 120 out of 160)",
     link: "#",
   },
   {
-    year: "2020",
-    title: "Junior Web Developer at IAP",
+    title: "🚀 Tech Arsenal",
     description:
-      "Developed MOEC Socio-Economic Provincial Profiles Digitization System using PHP Laravel, MySQL, Vue.js. Maintained and optimized existing websites.",
+      "Programming: JavaScript, TypeScript, Python, HTML5, CSS3 • Frameworks: React.js, Next.js, Node.js, NestJS, Express.js, React Native, Django • Databases: PostgreSQL, MongoDB, MySQL, Redis, ElasticSearch • Cloud & DevOps: AWS, GCP, Docker, Kubernetes, CI/CD, Git, GitHub Actions • Architecture: Microservices, RESTful APIs, GraphQL, Event-Driven Architecture, Agile/Scrum, TDD",
+    link: "#",
+  },
+  {
+    title: "🌍 Language Skills",
+    description:
+      "Dari (Native) • English (Fluent - C1) • German (Basic - B1) • JavaScript (Also Native 😉)",
     link: "#",
   },
 ];
@@ -190,24 +185,21 @@ export default function AboutPage() {
       {/* Experience Section */}
       <section className="max-w-6xl mx-auto px-4 py-20">
         <h2 className="text-3xl font-bold mb-12">
-          What have I been{" "}
-          <span className="text-primary">exploring and learning</span>
+          My Journey Through{" "}
+          <span className="text-primary">Code & Knowledge</span>
         </h2>
         <div className="space-y-12">
           {experiences.map((exp, index) => (
             <div key={index} className="group">
               <Link href={exp.link}>
-                <div className="bg-card hover:bg-accent/50 rounded-2xl p-6 transition border border-border">
-                  <div className="flex flex-col md:flex-row gap-6 items-start">
-                    <div className="w-full md:w-32 shrink-0">
-                      <span className="text-primary">{exp.year}</span>
-                    </div>
-                    <div className="space-y-4">
-                      <h3 className="text-xl font-semibold group-hover:text-primary transition">
-                        {exp.title}
-                      </h3>
-                      <p className="text-muted-foreground">{exp.description}</p>
-                    </div>
+                <div className="bg-card hover:bg-accent/50 rounded-2xl p-6 transition border border-border transform hover:scale-105 hover:rotate-1 hover:shadow-lg">
+                  <div className="flex flex-col gap-4">
+                    <h3 className="text-2xl font-semibold group-hover:text-primary transition">
+                      {exp.title}
+                    </h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      {exp.description}
+                    </p>
                   </div>
                 </div>
               </Link>
