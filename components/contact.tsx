@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Copy } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Copy } from "lucide-react";
+import { motion } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
-  const email = "ishanipndy.ip@gmail.com";
+  const email = "abbas.ataie.montazer@gmail.com";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email);
@@ -19,14 +19,14 @@ const Contact = () => {
       description: "Email address copied to clipboard",
       duration: 3000,
     });
-    
+
     setTimeout(() => {
       setCopied(false);
     }, 2000);
   };
 
   return (
-    <motion.section 
+    <motion.section
       className="py-20 md:py-28"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -39,14 +39,14 @@ const Contact = () => {
         <h3 className="text-2xl md:text-3xl font-semibold mb-10">
           Get in touch
         </h3>
-        
+
         <div className="max-w-md mx-auto">
           <div className="mb-2 text-sm text-muted-foreground">Email</div>
           <div className="flex items-center justify-center gap-2 mb-10">
             <div className="text-lg font-medium">{email}</div>
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               className="h-8 w-8"
               onClick={copyToClipboard}
             >
@@ -54,18 +54,26 @@ const Contact = () => {
               <span className="sr-only">Copy email</span>
             </Button>
           </div>
-          
+
           <div className="text-sm text-muted-foreground">
-            This portfolio is featured on Cofolios
+            Connect with me on
           </div>
-          <div className="mt-2">
-            <a 
-              href="https://cofolios.com" 
-              target="_blank" 
+          <div className="mt-2 flex justify-center gap-4">
+            <a
+              href="https://github.com/abbasatayee"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-lg font-medium hover:text-primary transition-colors"
             >
-              Cofolios
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/abbas-ataie-72a4431b9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg font-medium hover:text-primary transition-colors"
+            >
+              LinkedIn
             </a>
           </div>
         </div>

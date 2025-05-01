@@ -1,51 +1,55 @@
-import ProjectCard from '@/components/project-card';
+import ProjectCard from "@/components/project-card";
 
 // Project data
 const projects = [
   {
-    title: "Microsoft Dynamics",
-    description: "Enhancing <strong>AI assistance</strong> for Customer Support Agents to facilitate <em>faster case resolution</em>",
-    tags: ["UI Design", "Research"],
+    title: "Tara Solutions Cloud",
+    description:
+      "Development of the official website for Tara Solutions Inc with focus on performance optimization and security",
+    tags: ["Next.js", "React.js", "Node.js"],
     image: "https://images.pexels.com/photos/7988086/pexels-photo-7988086.jpeg",
-    link: "#"
+    link: "https://www.tarasolutions.cloud",
   },
   {
-    title: "Ontario Digital Service",
-    subtitle: "(Coming soon)",
-    description: "Creating <strong>Digital First</strong> experiences for <em>Ministry of Human Rights, Finance and Long Term Care</em>",
-    tags: ["Service Design", "Research"],
+    title: "Cloud Station Platform",
+    description:
+      "Scalable Enterprise Cloud Services Platform with global user base. Implementation of Frontend and Backend with focus on performance",
+    tags: ["React.js", "Next.js", "Node.js", "Kafka", "Nats"],
     image: "https://images.pexels.com/photos/6266317/pexels-photo-6266317.jpeg",
-    link: "#"
+    link: "https://www.cloud-station.io",
   },
   {
-    title: "Life Through Design",
-    subtitle: "(Coming soon)",
-    description: "Collaboratively spearheaded 3 projects for creating <strong>Digital First</strong> experiences for <em>Ministries in Ontario</em>",
-    tags: ["Brand Design", "UGC app"],
+    title: "Plant Disease Detection System",
+    description:
+      "AI-powered deep learning system for plant disease detection using Raspberry Pi and camera for real-time diagnosis",
+    tags: ["Deep Learning", "Raspberry Pi", "Python", "Computer Vision"],
     image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
-    link: "#"
+    link: "#",
   },
   {
-    title: "Finbot",
-    description: "Designed <strong>Bot Assistance Tool</strong> for Streamlining Payment and Service Inquiries and enhancing Accessibility",
-    tags: ["Side Project", "Chatbot"],
+    title: "E-commerce System",
+    description:
+      "Design and Optimization of PostgreSQL databases for e-commerce systems with RESTful APIs and microservices",
+    tags: ["NestJS", "Next.js", "PostgreSQL", "CI/CD"],
     image: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg",
-    link: "#"
+    link: "#",
   },
   {
-    title: "Food For Thought",
-    description: "App aimed to help post-secondary students tackle the <em>quest for sustenance</em> and <em>food insecurity</em>",
-    tags: ["Personal", "UX Design"],
+    title: "Petition Management System",
+    description:
+      "Development of Petition Management System for the Ministry of Defense focusing on process optimization and workflow improvement",
+    tags: ["Python", "Django", "React Native", "MySQL"],
     image: "https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg",
-    link: "#"
+    link: "#",
   },
   {
-    title: "WIZup",
-    description: "App for effortless <em>learning journey</em>. Access MOOCs and university courses seamlessly, all-in-one app.",
-    tags: ["Personal", "Design Hackathon"],
+    title: "MOEC Socio-Economic System",
+    description:
+      "Development of MOEC Socio-Economic Provincial Profiles Digitization System in collaboration with Tetra Tech",
+    tags: ["PHP", "Laravel", "MySQL", "Vue.js"],
     image: "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg",
-    link: "#"
-  }
+    link: "#",
+  },
 ];
 
 const ProjectShowcase = () => {
@@ -53,14 +57,13 @@ const ProjectShowcase = () => {
     <section className="py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {projects.map((project, index) => (
-          <ProjectCard 
+          <ProjectCard
             key={index}
             title={project.title}
-            subtitle={project.subtitle}
             description={project.description}
             tags={project.tags}
             image={project.image}
-            status={project.subtitle}
+            link={project.link}
             index={index}
           />
         ))}
