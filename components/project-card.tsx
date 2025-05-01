@@ -16,9 +16,11 @@ interface ProjectCardProps {
   image: string;
   status?: string;
   cta?: string;
+  github?: string;
   link?: string;
   index: number;
   isHovered?: boolean;
+  prefersReducedMotion: boolean | null;
 }
 
 const ProjectCard = ({
@@ -30,8 +32,10 @@ const ProjectCard = ({
   status,
   cta = "View Project",
   link = "#",
+  github = "#",
   index,
   isHovered = false,
+  prefersReducedMotion,
 }: ProjectCardProps) => {
   return (
     <motion.div
@@ -39,7 +43,7 @@ const ProjectCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -5 }}
+      whileHover={!prefersReducedMotion ? { y: -5 } : {}}
       className="relative"
     >
       <Card className="overflow-hidden group bg-card/50 backdrop-blur-sm border-card/20 hover:border-card/40 transition-all duration-300">
@@ -75,22 +79,26 @@ const ProjectCard = ({
           >
             <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
             <div className="relative z-10 flex gap-3">
-              <Link
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/90 hover:bg-white text-black px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:scale-105"
-              >
-                <ExternalLink className="w-4 h-4" />
-                {cta}
-              </Link>
-              <motion.button
-                className="bg-white/90 hover:bg-white text-black p-2 rounded-md transition-all duration-300 hover:scale-105"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Github className="w-4 h-4" />
-              </motion.button>
+              {link && (
+                <Link
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/90 hover:bg-white text-black px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  {cta}
+                </Link>
+              )}
+              {github && (
+                <motion.button
+                  className="bg-white/90 hover:bg-white text-black p-2 rounded-md transition-all duration-300 hover:scale-105"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Github className="w-4 h-4" />
+                </motion.button>
+              )}
             </div>
           </motion.div>
         </div>
@@ -130,14 +138,6 @@ const ProjectCard = ({
           <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
             {description}
           </p>
-
-          <motion.div
-            className="flex items-center gap-2 text-sm text-blue-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            whileHover={{ x: 5 }}
-          >
-            <span>Learn more</span>
-            <ArrowRight className="w-4 h-4" />
-          </motion.div>
         </div>
 
         <motion.div

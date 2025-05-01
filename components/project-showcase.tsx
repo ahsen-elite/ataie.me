@@ -5,73 +5,80 @@ import {
   useScroll,
   useTransform,
   AnimatePresence,
+  useReducedMotion,
 } from "framer-motion";
-import ProjectCard from "@/components/project-card";
-import { useRef, useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useRef, useState } from "react";
+import ProjectCard from "@/components/project-card";
 
 // Project data
 const projects = [
+  {
+    title: "Cloud Station Platform",
+    description:
+      "Scalable Enterprise Cloud Services Platform with global user base. Implementation of Frontend and Backend with focus on performance",
+    tags: ["React.js", "Next.js", "Node.js", "..."],
+    image: "/cloudstation.png",
+    link: "https://www.cloud-station.io",
+    status: "Live",
+    github: "http://github.com/thecloudstation/",
+    category: "Cloud Architecture",
+  },
+  {
+    title: "5th Wave",
+    description:
+      "Transform your voice while preserving its unique essence. Break through language barriers without losing what makes you, you.",
+    tags: ["React.js", "Next.js", "Node.js", "Tailwind CSS", "..."],
+    image: "/5th-wave.png",
+    link: "https://wave.cloud-station.io",
+    status: "Live",
+    github: "http://github.com/thecloudstation/",
+    category: "Full Stack Development",
+  },
   {
     title: "Tara Solutions Cloud",
     description:
       "Development of the official website for Tara Solutions Inc with focus on performance optimization and security",
     tags: ["Next.js", "React.js", "Node.js"],
-    image: "https://images.pexels.com/photos/7988086/pexels-photo-7988086.jpeg",
+    image: "/tarasolutions.png",
     link: "https://www.tarasolutions.cloud",
     status: "Live",
     category: "Web Development",
-  },
-  {
-    title: "Cloud Station Platform",
-    description:
-      "Scalable Enterprise Cloud Services Platform with global user base. Implementation of Frontend and Backend with focus on performance",
-    tags: ["React.js", "Next.js", "Node.js", "Kafka", "Nats"],
-    image: "https://images.pexels.com/photos/6266317/pexels-photo-6266317.jpeg",
-    link: "https://www.cloud-station.io",
-    status: "Live",
-    category: "Cloud Architecture",
+    github: "https://github.com/tara-Soloution",
   },
   {
     title: "Plant Disease Detection System",
     description:
       "AI-powered deep learning system for plant disease detection using Raspberry Pi and camera for real-time diagnosis",
     tags: ["Deep Learning", "Raspberry Pi", "Python", "Computer Vision"],
-    image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
-    link: "#",
+    image: "/plant-disease.webp",
+    link: "",
     status: "In Progress",
     category: "AI/ML",
+    github: "",
   },
   {
-    title: "E-commerce System",
+    title: "Ahsen Elite",
     description:
       "Design and Optimization of PostgreSQL databases for e-commerce systems with RESTful APIs and microservices",
-    tags: ["NestJS", "Next.js", "PostgreSQL", "CI/CD"],
-    image: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg",
-    link: "#",
-    status: "Completed",
-    category: "Backend Development",
+    tags: ["Medusa JS", "Next.js", "PostgreSQL", "CI/CD", "Node.js"],
+    image: "/ecommerce.png",
+    link: "https://ahsenelite.com",
+    status: "Live",
+    github: "https://github.com/ahsen-elite",
+    category: "Full Stack Development",
   },
+
   {
-    title: "Petition Management System",
+    title: "Roshanayee",
     description:
-      "Development of Petition Management System for the Ministry of Defense focusing on process optimization and workflow improvement",
-    tags: ["Python", "Django", "React Native", "MySQL"],
-    image: "https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg",
-    link: "#",
-    status: "Completed",
-    category: "Full Stack",
-  },
-  {
-    title: "MOEC Socio-Economic System",
-    description:
-      "Development of MOEC Socio-Economic Provincial Profiles Digitization System in collaboration with Tetra Tech",
-    tags: ["PHP", "Laravel", "MySQL", "Vue.js"],
-    image: "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg",
-    link: "#",
-    status: "Completed",
-    category: "Full Stack",
+      "Learn programming languages, web development, and mobile app development through hands-on, project-based courses designed for real-world success.",
+    tags: ["React.js", "Next.js", "Node.js", "Tailwind CSS", "..."],
+    image: "/roshanayee.png",
+    link: "https://roshanayee.com",
+    status: "Live",
+    category: "Full Stack Development",
+    github: "https://github.com/tara-Soloution",
   },
 ];
 
@@ -84,6 +91,7 @@ const ProjectShowcase = () => {
   const containerRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -99,29 +107,39 @@ const ProjectShowcase = () => {
       ? projects
       : projects.filter((project) => project.category === selectedCategory);
 
+  const fadeInUp = {
+    initial: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5 },
+  };
+
   return (
     <section ref={containerRef} className="py-20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-500/5 to-transparent" />
-        <motion.div
-          style={{ y }}
-          className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl"
-        />
+        {!prefersReducedMotion && (
+          <motion.div
+            style={{ y }}
+            className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl"
+          />
+        )}
       </div>
 
       <div className="max-w-7xl mx-auto px-4">
         <motion.div style={{ opacity, scale }} className="text-center mb-16">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-4"
-          >
-            <span className="text-6xl">🚀</span>
-          </motion.div>
+          {!prefersReducedMotion && (
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-block mb-4"
+            >
+              <span className="text-6xl">🚀</span>
+            </motion.div>
+          )}
           <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600">
             Featured Projects
           </h2>
@@ -148,8 +166,8 @@ const ProjectShowcase = () => {
                     ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
                     : "bg-white/10 hover:bg-white/20 text-foreground/60"
                 )}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={!prefersReducedMotion ? { scale: 1.05 } : {}}
+                whileTap={!prefersReducedMotion ? { scale: 0.95 } : {}}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -172,8 +190,12 @@ const ProjectShowcase = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                onHoverStart={() => setHoveredProject(index)}
-                onHoverEnd={() => setHoveredProject(null)}
+                onHoverStart={() =>
+                  !prefersReducedMotion && setHoveredProject(index)
+                }
+                onHoverEnd={() =>
+                  !prefersReducedMotion && setHoveredProject(null)
+                }
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -185,8 +207,10 @@ const ProjectShowcase = () => {
                   image={project.image}
                   link={project.link}
                   status={project.status}
+                  github={project.github}
                   index={index}
                   isHovered={hoveredProject === index}
+                  prefersReducedMotion={prefersReducedMotion}
                 />
               </motion.div>
             ))}

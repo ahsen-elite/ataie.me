@@ -196,7 +196,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <MouseEffect /> */}
           <main className="pt-24">
             <Header />
 
