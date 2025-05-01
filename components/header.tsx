@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,7 +21,18 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => {
+    if (path === "/#work") return pathname === "/" || pathname === "/#work";
+    if (path === "/#contact")
+      return pathname === "/" || pathname === "/#contact";
+    return pathname === path;
+  };
+
+  const navItems = [
+    { href: "/#work", label: "Work" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ];
 
   return (
     <header
@@ -48,43 +60,33 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <nav className="flex gap-1">
-            <Link href="/#work">
-              <Button
-                variant="ghost"
-                className={`rounded-full text-sm transition-all ${
-                  isActive("/#work")
-                    ? "bg-blue-500/10 text-blue-500"
-                    : "hover:bg-blue-500/10 hover:text-blue-500"
-                }`}
-              >
-                Work
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button
-                variant="ghost"
-                className={`rounded-full text-sm transition-all ${
-                  isActive("/about")
-                    ? "bg-blue-500/10 text-blue-500"
-                    : "hover:bg-blue-500/10 hover:text-blue-500"
-                }`}
-              >
-                About
-              </Button>
-            </Link>
-            <Link href="/#contact">
-              <Button
-                variant="ghost"
-                className={`rounded-full text-sm transition-all ${
-                  isActive("/#contact")
-                    ? "bg-blue-500/10 text-blue-500"
-                    : "hover:bg-blue-500/10 hover:text-blue-500"
-                }`}
-              >
-                Contact
-              </Button>
-            </Link>
+          <nav className="flex gap-1 relative">
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href}>
+                <Button
+                  variant="ghost"
+                  className={`rounded-full text-sm transition-all relative ${
+                    isActive(item.href)
+                      ? "text-blue-500"
+                      : "hover:text-blue-500"
+                  }`}
+                >
+                  {item.label}
+                  {isActive(item.href) && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
+                      initial={false}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </Button>
+              </Link>
+            ))}
           </nav>
 
           <div className="flex items-center gap-6">
@@ -128,42 +130,36 @@ const Header = () => {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 z-50 bg-background/95 backdrop-blur-sm pt-16 px-4">
           <nav className="flex flex-col gap-4">
-            <Link href="/#work" onClick={() => setMobileMenuOpen(false)}>
-              <Button
-                variant="ghost"
-                className={`w-full rounded-full text-sm transition-all ${
-                  isActive("/#work")
-                    ? "bg-blue-500/10 text-blue-500"
-                    : "hover:bg-blue-500/10 hover:text-blue-500"
-                }`}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
               >
-                Work
-              </Button>
-            </Link>
-            <Link href="/about" onClick={() => setMobileMenuOpen(false)}>
-              <Button
-                variant="ghost"
-                className={`w-full rounded-full text-sm transition-all ${
-                  isActive("/about")
-                    ? "bg-blue-500/10 text-blue-500"
-                    : "hover:bg-blue-500/10 hover:text-blue-500"
-                }`}
-              >
-                About
-              </Button>
-            </Link>
-            <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
-              <Button
-                variant="ghost"
-                className={`w-full rounded-full text-sm transition-all ${
-                  isActive("/#contact")
-                    ? "bg-blue-500/10 text-blue-500"
-                    : "hover:bg-blue-500/10 hover:text-blue-500"
-                }`}
-              >
-                Contact
-              </Button>
-            </Link>
+                <Button
+                  variant="ghost"
+                  className={`w-full rounded-full text-sm transition-all relative ${
+                    isActive(item.href)
+                      ? "text-blue-500"
+                      : "hover:text-blue-500"
+                  }`}
+                >
+                  {item.label}
+                  {isActive(item.href) && (
+                    <motion.div
+                      layoutId="activeTabMobile"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
+                      initial={false}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </Button>
+              </Link>
+            ))}
 
             <div className="flex flex-col gap-4 mt-6">
               <Link
