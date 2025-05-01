@@ -47,15 +47,14 @@ const Header = () => {
           href="/"
           className="text-primary font-medium text-xl flex items-center gap-2 hover:opacity-80 transition-opacity group"
         >
-          <div className="relative w-7 h-7">
-            <div className="absolute inset-0 bg-blue-500/10 rounded-md group-hover:bg-blue-500/20 transition-colors"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-blue-500 font-medium text-sm">
-              GA
-            </div>
+          <div className="relative h-8 w-[220px]">
+            <img
+              src="/logo.svg"
+              alt="Ghulam Abbas Ataie Logo"
+              className="w-full h-full object-contain"
+              style={{ filter: "drop-shadow(0 0 4px rgba(59, 130, 246, 0.3))" }}
+            />
           </div>
-          <span className="text-foreground/80 group-hover:text-foreground transition-colors">
-            ataie
-          </span>
         </Link>
 
         {/* Desktop Menu */}
