@@ -153,7 +153,7 @@ export default function AboutPage() {
             <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full backdrop-blur-sm border border-blue-200 dark:border-blue-800">
               <span className="h-2 w-2 bg-blue-600 rounded-full animate-pulse"></span>
               <span className="text-blue-600 dark:text-blue-400 font-medium">
-                Hello I'm Abbas
+                Hello I'm Ghulam Abbas Ataie
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">

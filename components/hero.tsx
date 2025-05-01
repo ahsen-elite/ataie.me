@@ -237,9 +237,14 @@ const Hero = () => {
                     </svg>
                   </motion.div>
                 )}
-                <span className="font-medium group-hover:text-blue-600 transition-colors">
+                <Link
+                  href="https://tarasolutions.cloud"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium group-hover:text-blue-600 transition-colors"
+                >
                   Tara Solutions
-                </span>
+                </Link>
               </div>
             </motion.div>
 
@@ -266,9 +271,14 @@ const Hero = () => {
                     <path d="M35 65H65V35H35V65Z" fill="white" />
                   </svg>
                 </motion.div>
-                <span className="font-medium group-hover:text-blue-600 transition-colors">
+                <Link
+                  href="https://listoli.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium group-hover:text-blue-600 transition-colors"
+                >
                   Listoli LLC
-                </span>
+                </Link>
               </div>
             </motion.div>
           </div>
