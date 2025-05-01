@@ -12,17 +12,7 @@ import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const isActive = (path: string) => {
     if (path === "/#work") return pathname === "/" || pathname === "/#work";
@@ -32,18 +22,14 @@ const Header = () => {
   };
 
   const navItems = [
-    { href: "/#work", label: "Work" },
+    { href: "/", label: "Work" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md py-4"
-          : "bg-transparent py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6`}
     >
       <div className="max-w-[1200px]  mx-auto px-12 sm:px-6 lg:px-12 flex justify-between items-center">
         <Link

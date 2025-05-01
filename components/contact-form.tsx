@@ -32,14 +32,14 @@ export default function ContactForm() {
     {
       icon: <Mail className="w-5 h-5" aria-hidden="true" />,
       label: "Email",
-      value: "ghulamabbasataie@gmail.com",
-      href: "mailto:ghulamabbasataie@gmail.com",
+      value: "me@ataie.me",
+      href: "mailto:me@ataie.me",
     },
     {
       icon: <Phone className="w-5 h-5" aria-hidden="true" />,
       label: "Phone",
-      value: "+93 70 000 0000",
-      href: "tel:+93700000000",
+      value: "+98 991 290 6146",
+      href: "tel:+939912906146",
     },
     {
       icon: <MapPin className="w-5 h-5" aria-hidden="true" />,
@@ -63,7 +63,7 @@ export default function ContactForm() {
   ];
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-background/80">
+    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -185,7 +185,7 @@ export default function ContactForm() {
                     type="email"
                     required
                     className="bg-background/50 border-blue-500/20 focus:border-blue-500/50 transition-colors"
-                    placeholder="john@example.com"
+                    placeholder="me@ataie.me"
                     aria-label="Your email address"
                   />
                 </div>
