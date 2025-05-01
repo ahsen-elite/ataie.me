@@ -116,17 +116,6 @@ const ProjectShowcase = () => {
   return (
     <section ref={containerRef} className="py-20 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-500/5 to-transparent" />
-        {!prefersReducedMotion && (
-          <motion.div
-            style={{ y }}
-            className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl"
-          />
-        )}
-      </div>
-
       <div className="max-w-7xl mx-auto px-4">
         <motion.div style={{ opacity, scale }} className="text-center mb-16">
           {!prefersReducedMotion && (
