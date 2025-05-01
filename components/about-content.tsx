@@ -16,7 +16,7 @@ const AboutContent = () => {
         >
           <div className="aspect-square relative rounded-2xl overflow-hidden">
             <Image
-              src="https://images.pexels.com/photos/3861959/pexels-photo-3861959.jpeg"
+              src="/about.jpeg"
               alt="Ghulam Abbas Ataie"
               fill
               className="object-cover"
