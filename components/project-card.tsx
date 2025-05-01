@@ -46,7 +46,7 @@ const ProjectCard = ({
       whileHover={!prefersReducedMotion ? { y: -5 } : {}}
       className="relative"
     >
-      <Card className="overflow-hidden group bg-card/50 backdrop-blur-sm border-card/20 hover:border-card/40 transition-all duration-300">
+      <Card className="overflow-hidden group bg-card/50 backdrop-blur-sm border-card/20 hover:border-card/40 transition-all duration-300 h-[500px] flex flex-col">
         <div className="relative aspect-[16/9] overflow-hidden">
           <Image
             src={image}
@@ -103,7 +103,7 @@ const ProjectCard = ({
           </motion.div>
         </div>
 
-        <div className="p-5">
+        <div className="p-5 flex-1 flex flex-col min-h-[200px]">
           <div className="flex flex-wrap gap-2 mb-3">
             {tags.map((tag, i) => (
               <motion.div
@@ -114,7 +114,7 @@ const ProjectCard = ({
               >
                 <Badge
                   variant="secondary"
-                  className="text-xs font-normal bg-secondary/50 hover:bg-secondary/70 transition-colors"
+                  className="text-xs font-medium bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors"
                 >
                   {tag}
                 </Badge>
@@ -123,7 +123,7 @@ const ProjectCard = ({
           </div>
 
           <motion.h3
-            className="text-xl font-semibold mb-1 group-hover:text-blue-500 transition-colors"
+            className="text-xl font-semibold mb-2 group-hover:text-blue-500 transition-colors"
             whileHover={{ x: 5 }}
           >
             {title}
@@ -135,7 +135,7 @@ const ProjectCard = ({
             </p>
           )}
 
-          <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+          <p className="text-sm text-muted-foreground line-clamp-3 flex-1">
             {description}
           </p>
         </div>
