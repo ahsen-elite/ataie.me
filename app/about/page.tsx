@@ -3,45 +3,102 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Me",
+  title:
+    "About Ghulam Abbas Ataie - Senior Software Developer, Technical Lead & Educator",
   description:
-    "Learn more about Ghulam Abbas Ataie - Senior Software Developer and Technical Lead. Discover my journey, expertise, and passion for technology and software development.",
+    "Learn more about Ghulam Abbas Ataie - Senior Software Developer, Technical Lead, and Founder of Roshanayee. Discover my journey in software development, teaching, and YouTube content creation.",
+  keywords:
+    "Ghulam Abbas Ataie, Software Developer, Technical Lead, Roshanayee, Programming Education, YouTube Tech Content, Web Development, Software Engineering",
   openGraph: {
-    title: "About Ghulam Abbas Ataie",
+    title: "About Ghulam Abbas Ataie - Senior Software Developer & Educator",
     description:
-      "Learn more about Ghulam Abbas Ataie - Senior Software Developer and Technical Lead. Discover my journey, expertise, and passion for technology and software development.",
+      "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
+    type: "profile",
+    images: [
+      {
+        url: "/abbas.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ghulam Abbas Ataie - Software Developer and Educator",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Ghulam Abbas Ataie - Software Developer & Educator",
+    description:
+      "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
+    images: ["/abbas.jpg"],
   },
 };
 
 const experiences = [
   {
-    title: "🎓 Master in Data Science",
+    title: "🎓 Master in Data Science (In Progress)",
     description:
-      "University of Europe for Applied Sciences • High-Quality Master Program focusing on cutting-edge technologies • Core Subjects: Data Science, Data Engineering, Data Analytics, Machine Learning • Specialization: Cloud Computing, Decision Support Systems • Additional Qualifications: Entrepreneurial Thinking & Digital Business Models",
+      "University of Europe for Applied Sciences • Currently pursuing a Master's degree in Data Science • Core Subjects: Data Science, Data Engineering, Data Analytics, Machine Learning • Specialization: Cloud Computing, Decision Support Systems • Additional Qualifications: Entrepreneurial Thinking & Digital Business Models",
+    keywords: [
+      "Data Science",
+      "Machine Learning",
+      "Data Engineering",
+      "Cloud Computing",
+      "Decision Support Systems",
+      "Digital Business",
+    ],
     link: "#",
   },
   {
     title: "💻 Bachelor in Computer Science",
     description:
       "Kabul Polytechnic University • Graduated with second place in class • Mentoring and Support of fellow students in programming and algorithms • Focus Areas: Software Engineering, Databases, Networks and AI",
+    keywords: [
+      "Computer Science",
+      "Software Engineering",
+      "Database Management",
+      "Network Systems",
+      "Artificial Intelligence",
+      "Academic Excellence",
+    ],
     link: "#",
   },
   {
     title: "🏆 Awards & Achievements",
     description:
       "Asia Kabul Regional ACM/ICPC Competition 2018 (3rd place among 40 teams) • Duolingo English Test (Score: 120 out of 160)",
+    keywords: [
+      "Competitive Programming",
+      "Problem Solving",
+      "Technical Excellence",
+      "Language Proficiency",
+      "International Recognition",
+    ],
     link: "#",
   },
   {
     title: "🚀 Tech Arsenal",
     description:
       "Programming: JavaScript, TypeScript, Python, HTML5, CSS3 • Frameworks: React.js, Next.js, Node.js, NestJS, Express.js, React Native, Django • Databases: PostgreSQL, MongoDB, MySQL, Redis, ElasticSearch • Cloud & DevOps: AWS, GCP, Docker, Kubernetes, CI/CD, Git, GitHub Actions • Architecture: Microservices, RESTful APIs, GraphQL, Event-Driven Architecture, Agile/Scrum, TDD",
+    keywords: [
+      "Full Stack Development",
+      "Cloud Architecture",
+      "DevOps",
+      "Database Management",
+      "System Design",
+      "Agile Methodology",
+      "Test-Driven Development",
+    ],
     link: "#",
   },
   {
     title: "🌍 Language Skills",
     description:
       "Dari (Native) • English (Fluent - C1) • German (Basic - B1) • JavaScript (Also Native 😉)",
+    keywords: [
+      "Multilingual",
+      "Technical Communication",
+      "Cross-cultural Collaboration",
+      "International Team Experience",
+    ],
     link: "#",
   },
 ];
@@ -84,9 +141,12 @@ const companies = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen  text-foreground">
+    <main className="min-h-screen text-foreground">
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 pt-20 pb-32">
+      <section
+        className="max-w-6xl mx-auto px-4 pt-20 pb-32"
+        aria-label="Introduction"
+      >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
@@ -104,12 +164,14 @@ export default function AboutPage() {
               <Link
                 href="/contact"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full transition"
+                aria-label="Contact me"
               >
                 Get in Touch
               </Link>
               <Link
                 href="/"
                 className="border border-border hover:bg-accent hover:text-accent-foreground px-6 py-3 rounded-full transition"
+                aria-label="View my projects"
               >
                 View Projects
               </Link>
@@ -119,7 +181,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-square">
               <Image
                 src="/abbas.jpg"
-                alt="Abbas Ataie"
+                alt="Ghulam Abbas Ataie - Software Developer and Educator"
                 fill
                 className="object-cover rounded-2xl"
                 priority
@@ -132,11 +194,14 @@ export default function AboutPage() {
       </section>
 
       {/* Previous Work Section */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section
+        className="max-w-6xl mx-auto px-4 py-20"
+        aria-label="Previous Work Experience"
+      >
         <h2 className="text-3xl font-bold mb-12">
           Previously I worked and collaborated with
         </h2>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-8  items-center justify-items-center">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
           {companies.map((company) => (
             <Link
               key={company.name}
@@ -144,12 +209,13 @@ export default function AboutPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="w-20 h-10 relative group hover:-translate-y-0.5 transition-transform"
+              aria-label={`Visit ${company.name}'s website`}
             >
               {typeof company.logo === "string" ? (
                 <div className="relative w-full h-full">
                   <Image
                     src={company.logo}
-                    alt={company.name}
+                    alt={`${company.name} logo`}
                     fill
                     className="object-contain transition-all duration-300 opacity-80 hover:opacity-100"
                     sizes="96px"
@@ -160,7 +226,7 @@ export default function AboutPage() {
                   <div className="relative w-full h-full hidden dark:block">
                     <Image
                       src={company.logo.dark}
-                      alt={company.name}
+                      alt={`${company.name} logo - dark mode`}
                       fill
                       className="object-contain transition-all duration-300 opacity-80 hover:opacity-100"
                       sizes="96px"
@@ -169,7 +235,7 @@ export default function AboutPage() {
                   <div className="relative w-full h-full block dark:hidden">
                     <Image
                       src={company.logo.light}
-                      alt={company.name}
+                      alt={`${company.name} logo - light mode`}
                       fill
                       className="object-contain transition-all duration-300 opacity-80 hover:opacity-100"
                       sizes="96px"
@@ -183,7 +249,10 @@ export default function AboutPage() {
       </section>
 
       {/* Roshanayee Section */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section
+        className="max-w-6xl mx-auto px-4 py-20"
+        aria-label="Roshanayee Education Platform"
+      >
         <h2 className="text-3xl font-bold mb-12">
           Empowering the Next Generation of Developers
         </h2>
@@ -228,6 +297,7 @@ export default function AboutPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full transition"
+              aria-label="Visit Roshanayee education platform"
             >
               Visit Roshanayee
               <svg
@@ -251,7 +321,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-video">
               <Image
                 src="/roshanayee.png"
-                alt="Roshanayee - Empowering Developers"
+                alt="Roshanayee - Empowering Developers Education Platform"
                 fill
                 className="object-cover rounded-2xl"
               />
@@ -263,7 +333,10 @@ export default function AboutPage() {
       </section>
 
       {/* YouTube Section */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section
+        className="max-w-6xl mx-auto px-4 py-20"
+        aria-label="YouTube Content Creation"
+      >
         <h2 className="text-3xl font-bold mb-12">
           When I'm Not Coding, I'm{" "}
           <span className="text-primary">Creating Content</span> 🎥
@@ -273,7 +346,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-video">
               <Image
                 src="/youtube.png"
-                alt="YouTube Channel - Abbas Ataie"
+                alt="Abbas Ataie's YouTube Channel - Programming Tutorials and Tech Content"
                 fill
                 className="object-cover rounded-2xl"
               />
@@ -316,6 +389,7 @@ export default function AboutPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full transition"
+              aria-label="Subscribe to my YouTube channel"
             >
               Subscribe to My Channel
               <svg
@@ -339,7 +413,10 @@ export default function AboutPage() {
       </section>
 
       {/* Experience Section */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section
+        className="max-w-6xl mx-auto px-4 py-20"
+        aria-label="Professional Experience"
+      >
         <h2 className="text-3xl font-bold mb-12">
           My Journey Through{" "}
           <span className="text-primary">Code & Knowledge</span>
@@ -356,6 +433,16 @@ export default function AboutPage() {
                     <p className="text-muted-foreground text-lg leading-relaxed">
                       {exp.description}
                     </p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {exp.keywords.map((keyword, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                        >
+                          {keyword}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Link>
