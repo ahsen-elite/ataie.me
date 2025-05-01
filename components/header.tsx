@@ -3,16 +3,22 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 
 import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -173,93 +179,76 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden hover:bg-blue-500/10 hover:text-blue-500"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </Button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-background/95 backdrop-blur-sm pt-16 px-4">
-          <nav className="flex flex-col gap-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
+        {/* Mobile Menu */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:bg-blue-500/10 hover:text-blue-500"
               >
-                <Button
-                  variant="ghost"
-                  className={`w-full rounded-full text-sm transition-all relative ${
-                    isActive(item.href)
-                      ? "text-blue-500"
-                      : "hover:text-blue-500"
-                  }`}
+                <Menu />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-80">
+              <SheetHeader className="mb-8">
+                <SheetTitle className="text-left">
+                  Ghulam Abbas Ataie
+                </SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-4">
+                {navItems.map((item) => (
+                  <Link key={item.href} href={item.href}>
+                    <Button
+                      variant="ghost"
+                      className={`w-full justify-start text-base font-normal rounded-lg ${
+                        isActive(item.href)
+                          ? "text-blue-500 bg-blue-500/10"
+                          : "hover:text-blue-500 hover:bg-blue-500/10"
+                      }`}
+                    >
+                      {item.label}
+                    </Button>
+                  </Link>
+                ))}
+
+                <div className="h-px bg-border my-4" />
+
+                <Link
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base text-foreground/60 hover:text-blue-500 transition-colors group flex items-center px-4 py-2"
                 >
-                  {item.label}
-                  {isActive(item.href) && (
-                    <motion.div
-                      layoutId="activeTabMobile"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
-                      initial={false}
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </Button>
-              </Link>
-            ))}
+                  Resume{" "}
+                  <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
+                    ↗
+                  </span>
+                </Link>
+                <Link
+                  href="https://linkedin.com/in/abbas-ataie-72a4431b9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base text-foreground/60 hover:text-blue-500 transition-colors group flex items-center px-4 py-2"
+                >
+                  LinkedIn{" "}
+                  <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
+                    ↗
+                  </span>
+                </Link>
 
-            <div className="flex flex-col gap-3 mt-4">
-              <Link
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-foreground/60 hover:text-blue-500 transition-colors group flex items-center"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Resume{" "}
-                <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
-                  ↗
-                </span>
-              </Link>
-              <Link
-                href="https://linkedin.com/in/abbas-ataie-72a4431b9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-foreground/60 hover:text-blue-500 transition-colors group flex items-center"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                LinkedIn{" "}
-                <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
-                  ↗
-                </span>
-              </Link>
-              <div className="mt-2">
-                <ThemeToggle />
-              </div>
-            </div>
-          </nav>
+                <div className="h-px bg-border my-4" />
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute top-4 right-4 hover:bg-blue-500/10 hover:text-blue-500"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <X />
-          </Button>
+                <div className="px-4">
+                  <ThemeToggle />
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
-      )}
+      </div>
     </header>
   );
 };
