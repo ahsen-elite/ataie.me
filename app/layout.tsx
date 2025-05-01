@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import Header from "@/components/header";
+import MouseEffect from "@/components/mouse-effect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark scroll-smooth">
       <body className={inter.className}>
+        <MouseEffect />
+        <Header />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <main className="pt-24">{children}</main>
           <Toaster />
         </ThemeProvider>
       </body>
