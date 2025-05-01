@@ -134,7 +134,7 @@ const AboutContent = () => {
                 <ul className="mt-2 text-sm text-muted-foreground list-disc list-inside space-y-1">
                   <li>
                     Development of Web and Mobile Applications using Node.js,
-                    React.js, Nomad, TypeScript
+                    React.js, Next.js, React Native, TypeScript
                   </li>
                   <li>
                     Strategic Partnership with Cloud Station LLC FZ for

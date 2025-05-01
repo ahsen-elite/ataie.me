@@ -160,7 +160,7 @@ const Hero = () => {
                 "bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700"
               )}
             >
-              Full-Stack Development & Cloud Architecture
+              Full-Stack Developer & Cloud Architect
             </span>
             <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500/30 rounded-full"></div>
           </motion.div>
