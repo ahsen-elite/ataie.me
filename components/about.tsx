@@ -165,6 +165,7 @@ export default function About() {
                           "Event-Driven",
                           "Cloud Architecture",
                           "DevOps",
+                          "CI/CD",
                         ].map((skill) => (
                           <span
                             key={skill}
@@ -213,7 +214,7 @@ export default function About() {
                     Experience
                   </h3>
                 </div>
-                <div className="space-y-8">
+                <div className="space-y-10">
                   <div className="relative pl-6 border-l-2 border-[#1a2236]">
                     <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-500" />
                     <h4 className="font-medium text-white">
