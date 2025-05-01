@@ -2,15 +2,13 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Navbar } from '@/components/layout/navbar';
-import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Abbas Ataie | Senior Software Engineer',
-  description: 'Personal portfolio of Abbas Ataie, a Senior Software Engineer specializing in DevOps, AI, and full-stack development.',
+  title: 'Ishani Pandey | Product Designer',
+  description: 'Portfolio of Ishani Pandey, product designer based in Toronto',
 };
 
 export default function RootLayout({
@@ -19,14 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>
