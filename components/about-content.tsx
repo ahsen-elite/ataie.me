@@ -177,7 +177,7 @@ const AboutContent = () => {
 
           <div className="pt-6">
             <Button className="w-full" size="lg" asChild>
-              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 Download CV
               </a>
             </Button>
