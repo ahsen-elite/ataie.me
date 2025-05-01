@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
-import MouseEffect from "@/components/mouse-effect";
 import { ThemeProvider } from "@/components/theme-provider";
+import Contact from "@/components/contact";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -146,6 +147,9 @@ export default function RootLayout({
             <Header />
 
             {children}
+
+            <Contact />
+            <Footer />
           </main>
           <Toaster />
         </ThemeProvider>

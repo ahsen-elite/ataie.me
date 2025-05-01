@@ -25,9 +25,7 @@ export default function Home() {
         <Hero />
         <ProjectShowcase />
         <About />
-        <Contact />
       </div>
-      <Footer />
     </main>
   );
 }

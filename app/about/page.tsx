@@ -11,7 +11,6 @@ export default function AboutPage() {
         <AboutHero />
         <AboutContent />
       </div>
-      <Footer />
     </main>
   );
 }
