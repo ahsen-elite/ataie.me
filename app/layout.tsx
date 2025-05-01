@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Ghulam Abbas Ataie",
   },
   description:
-    "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
+    "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
   keywords: [
     "Ghulam Abbas Ataie",
     "Software Developer",
@@ -29,24 +29,44 @@ export const metadata: Metadata = {
     "TypeScript",
     "AWS",
     "Portfolio",
+    "Software Engineering",
+    "Web Applications",
+    "Cloud Solutions",
+    "Technical Leadership",
+    "Software Architecture",
   ],
-  authors: [{ name: "Ghulam Abbas Ataie" }],
+  authors: [{ name: "Ghulam Abbas Ataie", url: "https://ataie.me" }],
   creator: "Ghulam Abbas Ataie",
+  publisher: "Ghulam Abbas Ataie",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://ataie.me",
     title: "Ghulam Abbas Ataie | Senior Software Developer & Technical Lead",
     description:
-      "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
+      "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
     siteName: "Ghulam Abbas Ataie",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ghulam Abbas Ataie - Senior Software Developer & Technical Lead",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ghulam Abbas Ataie | Senior Software Developer & Technical Lead",
     description:
-      "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
+      "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
     creator: "@abbasataie",
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,
@@ -59,15 +79,32 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://ataie.me",
+  },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#5bbad5",
+      },
+    ],
   },
   manifest: "/site.webmanifest",
   verification: {
     google: "your-google-site-verification",
   },
+  category: "technology",
+  classification: "Portfolio Website",
 };
 
 export default function RootLayout({
@@ -76,12 +113,40 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Ghulam Abbas Ataie",
+              url: "https://ataie.me",
+              jobTitle: "Senior Software Developer & Technical Lead",
+              description:
+                "Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
+              sameAs: [
+                "https://twitter.com/abbasataie",
+                // Add other social media profiles here
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={inter.className}>
-        <MouseEffect />
-        <Header />
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <main className="pt-24">{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* <MouseEffect /> */}
+          <main className="pt-24">
+            <Header />
+
+            {children}
+          </main>
           <Toaster />
         </ThemeProvider>
       </body>
