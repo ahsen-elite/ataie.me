@@ -141,19 +141,22 @@ const companies = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen text-foreground">
+    <main className="min-h-screen text-foreground bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       {/* Hero Section */}
       <section
-        className="max-w-6xl mx-auto px-4 pt-20 pb-32"
+        className="max-w-6xl mx-auto px-4 pt-20 pb-32 relative"
         aria-label="Introduction"
       >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent blur-3xl -z-10"></div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <span className="h-2 w-2 bg-primary rounded-full animate-pulse"></span>
-              <span className="text-primary">Hello I'm Abbas</span>
+            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full backdrop-blur-sm border border-blue-200 dark:border-blue-800">
+              <span className="h-2 w-2 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="text-blue-600 dark:text-blue-400 font-medium">
+                Hello I'm Abbas
+              </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold">
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
               Senior Software Developer & Technical Lead
             </h1>
             <p className="text-muted-foreground text-lg">
@@ -163,14 +166,25 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full transition"
+                className="group inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 hover:scale-105"
                 aria-label="Contact me"
               >
                 Get in Touch
+                <svg
+                  className="ml-2 h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </Link>
               <Link
                 href="/"
-                className="border border-border hover:bg-accent hover:text-accent-foreground px-6 py-3 rounded-full transition"
+                className="group inline-flex items-center justify-center rounded-md border border-blue-200 dark:border-blue-800 bg-white/10 hover:bg-white/20 px-6 py-3 text-base font-medium text-foreground shadow-sm transition-all duration-300 hover:scale-105"
                 aria-label="View my projects"
               >
                 View Projects
@@ -183,22 +197,23 @@ export default function AboutPage() {
                 src="/abbas.jpg"
                 alt="Ghulam Abbas Ataie - Software Developer and Educator"
                 fill
-                className="object-cover rounded-2xl"
+                className="object-cover rounded-2xl shadow-2xl"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-2xl"></div>
             </div>
-            <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl -z-10"></div>
+            <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/20 to-transparent blur-3xl -z-10"></div>
           </div>
         </div>
       </section>
 
       {/* Previous Work Section */}
       <section
-        className="max-w-6xl mx-auto px-4 py-20"
+        className="max-w-6xl mx-auto px-4 py-20 relative"
         aria-label="Previous Work Experience"
       >
-        <h2 className="text-3xl font-bold mb-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent blur-3xl -z-10"></div>
+        <h2 className="text-3xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
           Previously I worked and collaborated with
         </h2>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
@@ -208,7 +223,7 @@ export default function AboutPage() {
               href={company.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-20 h-10 relative group hover:-translate-y-0.5 transition-transform"
+              className="w-20 h-10 relative group hover:-translate-y-0.5 transition-all duration-300"
               aria-label={`Visit ${company.name}'s website`}
             >
               {typeof company.logo === "string" ? (
@@ -217,7 +232,7 @@ export default function AboutPage() {
                     src={company.logo}
                     alt={`${company.name} logo`}
                     fill
-                    className="object-contain transition-all duration-300 opacity-80 hover:opacity-100"
+                    className="object-contain transition-all duration-300 opacity-80 hover:opacity-100 filter hover:brightness-110"
                     sizes="96px"
                   />
                 </div>
@@ -228,7 +243,7 @@ export default function AboutPage() {
                       src={company.logo.dark}
                       alt={`${company.name} logo - dark mode`}
                       fill
-                      className="object-contain transition-all duration-300 opacity-80 hover:opacity-100"
+                      className="object-contain transition-all duration-300 opacity-80 hover:opacity-100 filter hover:brightness-110"
                       sizes="96px"
                     />
                   </div>
@@ -237,7 +252,7 @@ export default function AboutPage() {
                       src={company.logo.light}
                       alt={`${company.name} logo - light mode`}
                       fill
-                      className="object-contain transition-all duration-300 opacity-80 hover:opacity-100"
+                      className="object-contain transition-all duration-300 opacity-80 hover:opacity-100 filter hover:brightness-110"
                       sizes="96px"
                     />
                   </div>
@@ -250,17 +265,18 @@ export default function AboutPage() {
 
       {/* Roshanayee Section */}
       <section
-        className="max-w-6xl mx-auto px-4 py-20"
+        className="max-w-6xl mx-auto px-4 py-20 relative"
         aria-label="Roshanayee Education Platform"
       >
-        <h2 className="text-3xl font-bold mb-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent blur-3xl -z-10"></div>
+        <h2 className="text-3xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
           Empowering the Next Generation of Developers
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <span className="h-2 w-2 bg-primary rounded-full animate-pulse"></span>
-              <span className="text-primary">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full backdrop-blur-sm border border-blue-200 dark:border-blue-800">
+              <span className="h-2 w-2 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="text-blue-600 dark:text-blue-400 font-medium">
                 Founder & Lead Tutor at Roshanayee
               </span>
             </div>
@@ -273,19 +289,25 @@ export default function AboutPage() {
               through hands-on, project-based learning.
             </p>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <span className="text-primary">✓</span>
+              <div className="flex items-start gap-3 group">
+                <span className="text-primary group-hover:scale-110 transition-transform">
+                  ✓
+                </span>
                 <p>
                   Expert-led courses in programming, web development, and mobile
                   development
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-primary">✓</span>
+              <div className="flex items-start gap-3 group">
+                <span className="text-primary group-hover:scale-110 transition-transform">
+                  ✓
+                </span>
                 <p>Hands-on projects that simulate real-world scenarios</p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-primary">✓</span>
+              <div className="flex items-start gap-3 group">
+                <span className="text-primary group-hover:scale-110 transition-transform">
+                  ✓
+                </span>
                 <p>
                   Flexible learning options with both in-person and online
                   classes
@@ -296,7 +318,7 @@ export default function AboutPage() {
               href="https://roshanayee.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full transition"
+              className="group inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 hover:scale-105"
               aria-label="Visit Roshanayee education platform"
             >
               Visit Roshanayee
@@ -310,7 +332,7 @@ export default function AboutPage() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-arrow-right"
+                className="lucide lucide-arrow-right ml-2"
               >
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
@@ -323,7 +345,7 @@ export default function AboutPage() {
                 src="/roshanayee.png"
                 alt="Roshanayee - Empowering Developers Education Platform"
                 fill
-                className="object-cover rounded-2xl"
+                className="object-cover rounded-2xl shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"></div>
             </div>
@@ -334,12 +356,16 @@ export default function AboutPage() {
 
       {/* YouTube Section */}
       <section
-        className="max-w-6xl mx-auto px-4 py-20"
+        className="max-w-6xl mx-auto px-4 py-20 relative"
         aria-label="YouTube Content Creation"
       >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent blur-3xl -z-10"></div>
         <h2 className="text-3xl font-bold mb-12">
           When I'm Not Coding, I'm{" "}
-          <span className="text-primary">Creating Content</span> 🎥
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
+            Creating Content
+          </span>{" "}
+          🎥
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative">
@@ -348,16 +374,18 @@ export default function AboutPage() {
                 src="/youtube.png"
                 alt="Abbas Ataie's YouTube Channel - Programming Tutorials and Tech Content"
                 fill
-                className="object-cover rounded-2xl"
+                className="object-cover rounded-2xl shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"></div>
             </div>
             <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl -z-10"></div>
           </div>
           <div className="space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-              <span className="h-2 w-2 bg-primary rounded-full animate-pulse"></span>
-              <span className="text-primary">YouTube Creator</span>
+            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full backdrop-blur-sm border border-blue-200 dark:border-blue-800">
+              <span className="h-2 w-2 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="text-blue-600 dark:text-blue-400 font-medium">
+                YouTube Creator
+              </span>
             </div>
             <h3 className="text-2xl font-semibold">
               Sharing Knowledge, One Video at a Time
@@ -369,18 +397,24 @@ export default function AboutPage() {
               of humor and a lot of practical wisdom.
             </p>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <span className="text-primary">🎯</span>
+              <div className="flex items-start gap-3 group">
+                <span className="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                  🎯
+                </span>
                 <p>
                   Practical coding tutorials that actually work in real life
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-primary">🤣</span>
+              <div className="flex items-start gap-3 group">
+                <span className="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                  🤣
+                </span>
                 <p>Real developer struggles and how to overcome them</p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-primary">🚀</span>
+              <div className="flex items-start gap-3 group">
+                <span className="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                  🚀
+                </span>
                 <p>Tips and tricks that will make your coding life easier</p>
               </div>
             </div>
@@ -388,7 +422,7 @@ export default function AboutPage() {
               href="https://www.youtube.com/@abbas-ataie"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full transition"
+              className="group inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 hover:scale-105"
               aria-label="Subscribe to my YouTube channel"
             >
               Subscribe to My Channel
@@ -402,7 +436,7 @@ export default function AboutPage() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-arrow-right"
+                className="lucide lucide-arrow-right ml-2"
               >
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
@@ -414,20 +448,23 @@ export default function AboutPage() {
 
       {/* Experience Section */}
       <section
-        className="max-w-6xl mx-auto px-4 py-20"
+        className="max-w-6xl mx-auto px-4 py-20 relative"
         aria-label="Professional Experience"
       >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent blur-3xl -z-10"></div>
         <h2 className="text-3xl font-bold mb-12">
           My Journey Through{" "}
-          <span className="text-primary">Code & Knowledge</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
+            Code & Knowledge
+          </span>
         </h2>
         <div className="space-y-12">
           {experiences.map((exp, index) => (
             <div key={index} className="group">
               <Link href={exp.link}>
-                <div className="bg-card hover:bg-accent/50 rounded-2xl p-6 transition border border-border transform hover:scale-105 hover:rotate-1 hover:shadow-lg">
+                <div className="bg-card hover:bg-accent/50 rounded-2xl p-6 transition-all duration-300 border border-border transform hover:scale-105 hover:rotate-1 hover:shadow-lg hover:shadow-blue-500/10">
                   <div className="flex flex-col gap-4">
-                    <h3 className="text-2xl font-semibold group-hover:text-primary transition">
+                    <h3 className="text-2xl font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {exp.title}
                     </h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
@@ -437,7 +474,7 @@ export default function AboutPage() {
                       {exp.keywords.map((keyword, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium transition-all duration-300 hover:bg-blue-200 dark:hover:bg-blue-800/30 hover:scale-105"
                         >
                           {keyword}
                         </span>

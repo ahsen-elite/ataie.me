@@ -33,10 +33,10 @@ const Contact = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 italic">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Like what you see?
         </h2>
-        <h3 className="text-2xl md:text-3xl font-semibold mb-10">
+        <h3 className="text-2xl md:text-3xl font-semibold mb-10 text-blue-600 dark:text-blue-400">
           Get in touch
         </h3>
 
@@ -47,7 +47,7 @@ const Contact = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="h-8 w-8"
+              className="h-8 w-8 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30"
               onClick={copyToClipboard}
             >
               <Copy className="h-4 w-4" />
@@ -63,7 +63,7 @@ const Contact = () => {
               href="https://github.com/abbasatayee"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg font-medium hover:text-primary transition-colors"
+              className="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               GitHub
             </a>
@@ -71,7 +71,7 @@ const Contact = () => {
               href="https://linkedin.com/in/abbas-ataie-72a4431b9"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg font-medium hover:text-primary transition-colors"
+              className="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               LinkedIn
             </a>
