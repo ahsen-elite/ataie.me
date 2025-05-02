@@ -574,6 +574,202 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      {/* Academic Excellence Section */}
+      <section
+        className="max-w-6xl mx-auto px-4 py-20 relative"
+        aria-label="Academic Excellence"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent blur-3xl -z-10"></div>
+
+        <div className="text-center mb-16 space-y-4">
+          <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full backdrop-blur-sm border border-blue-200 dark:border-blue-800">
+            <span className="h-2 w-2 bg-blue-600 rounded-full animate-pulse"></span>
+            <span className="text-blue-600 dark:text-blue-400 font-medium">
+              Academic Excellence
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
+            My Academic Journey
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Bachelor of Science in Computer Science from Kabul Polytechnic
+            University (2016-2019)
+          </p>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {[
+            { label: "Final CGPA", value: "81.47%", icon: "📊" },
+            { label: "Best Semester", value: "94.00%", icon: "🏆" },
+            { label: "Total Credits", value: "151", icon: "📚" },
+            { label: "Graduation Year", value: "2019", icon: "🎓" },
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-blue-100 dark:border-blue-900 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
+            >
+              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                {stat.value}
+              </div>
+              <div className="text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Course Highlights */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {[
+            {
+              title: "Programming Excellence",
+              courses: [
+                { name: "Programming-2", grade: "B", score: "82%" },
+                { name: "Data Structures", grade: "A", score: "90%" },
+                { name: "Mobile Development", grade: "A", score: "92%" },
+              ],
+              icon: "💻",
+            },
+            {
+              title: "Core Computer Science",
+              courses: [
+                { name: "Database Management", grade: "B", score: "83%" },
+                { name: "Operating Systems", grade: "B", score: "88%" },
+                { name: "Computer Networks", grade: "A", score: "95%" },
+              ],
+              icon: "🔧",
+            },
+            {
+              title: "Advanced Topics",
+              courses: [
+                { name: "Artificial Intelligence", grade: "B", score: "88%" },
+                { name: "Software Architecture", grade: "A", score: "91%" },
+                { name: "Distributed Systems", grade: "B", score: "83%" },
+              ],
+              icon: "🚀",
+            },
+          ].map((category, index) => (
+            <div
+              key={index}
+              className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-blue-100 dark:border-blue-900 transform hover:scale-105 transition-all duration-300"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-2xl">{category.icon}</span>
+                <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                  {category.title}
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {category.courses.map((course, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20"
+                  >
+                    <span>{course.name}</span>
+                    <span className="font-semibold text-blue-600 dark:text-blue-400">
+                      {course.grade} ({course.score})
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Semester Progression */}
+        <div className="relative">
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200 dark:bg-blue-900"></div>
+          <div className="space-y-12">
+            {[
+              {
+                year: "2016",
+                semesters: [
+                  {
+                    name: "1st Semester",
+                    gpa: "80.56%",
+                    highlight: "Foundation in Computer Science",
+                  },
+                  {
+                    name: "2nd Semester",
+                    gpa: "81.11%",
+                    highlight: "Advanced Programming Concepts",
+                  },
+                ],
+              },
+              {
+                year: "2017",
+                semesters: [
+                  {
+                    name: "3rd Semester",
+                    gpa: "76.52%",
+                    highlight: "Data Structures & Algorithms",
+                  },
+                  {
+                    name: "4th Semester",
+                    gpa: "80.50%",
+                    highlight: "Database Systems",
+                  },
+                ],
+              },
+              {
+                year: "2018",
+                semesters: [
+                  {
+                    name: "5th Semester",
+                    gpa: "76.74%",
+                    highlight: "Software Architecture",
+                  },
+                  {
+                    name: "6th Semester",
+                    gpa: "75.50%",
+                    highlight: "Network Programming",
+                  },
+                ],
+              },
+              {
+                year: "2019",
+                semesters: [
+                  {
+                    name: "7th Semester",
+                    gpa: "88.00%",
+                    highlight: "Mobile Development & AI",
+                  },
+                  {
+                    name: "8th Semester",
+                    gpa: "94.00%",
+                    highlight: "Final Project Excellence",
+                  },
+                ],
+              },
+            ].map((year, index) => (
+              <div key={year.year} className="relative">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6 text-center">
+                  {year.year}
+                </div>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {year.semesters.map((semester, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-blue-100 dark:border-blue-900 transform hover:scale-105 transition-all duration-300"
+                    >
+                      <h4 className="text-xl font-semibold mb-2">
+                        {semester.name}
+                      </h4>
+                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                        {semester.gpa}
+                      </div>
+                      <p className="text-muted-foreground">
+                        {semester.highlight}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
