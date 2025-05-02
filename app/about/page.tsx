@@ -36,7 +36,7 @@ const experiences = [
   {
     title: "🎓 Master in Data Science (In Progress)",
     description:
-      "University of Europe for Applied Sciences • Currently pursuing a Master's degree in Data Science • Core Subjects: Data Science, Data Engineering, Data Analytics, Machine Learning • Specialization: Cloud Computing, Decision Support Systems • Additional Qualifications: Entrepreneurial Thinking & Digital Business Models",
+      "University of Europe for Applied Sciences • Currently pursuing a Master's degree in Data Science • Core Subjects: Data Science, Data Engineering, Data Analytics, Machine Learning • Specialization: Cloud Computing, Decision Support Systems • Additional Qualifications: Entrepreneurial Thinking & Digital Business Models • Future Goal: Becoming a Data Science Wizard 🧙‍♂️ who can predict the next big tech trend before it happens!",
     keywords: [
       "Data Science",
       "Machine Learning",
@@ -44,13 +44,13 @@ const experiences = [
       "Cloud Computing",
       "Decision Support Systems",
       "Digital Business",
+      "Future Tech Wizard",
     ],
-    link: "#",
   },
   {
     title: "💻 Bachelor in Computer Science",
     description:
-      "Kabul Polytechnic University • Graduated with second place in class • Mentoring and Support of fellow students in programming and algorithms • Focus Areas: Software Engineering, Databases, Networks and AI",
+      "Kabul Polytechnic University • Graduated with second place in class • Mentoring and Support of fellow students in programming and algorithms • Focus Areas: Software Engineering, Databases, Networks and AI • Fun Fact: Started as a code newbie, now leveling up to become a tech superhero! 🦸‍♂️",
     keywords: [
       "Computer Science",
       "Software Engineering",
@@ -58,8 +58,8 @@ const experiences = [
       "Network Systems",
       "Artificial Intelligence",
       "Academic Excellence",
+      "Tech Superhero in Training",
     ],
-    link: "#",
   },
   {
     title: "🏆 Awards & Achievements",
@@ -548,7 +548,30 @@ export default function AboutPage() {
         <div className="space-y-12">
           {experiences.map((exp, index) => (
             <div key={index} className="group">
-              <Link href={exp.link}>
+              {exp.link ? (
+                <Link href={exp.link}>
+                  <div className="bg-card hover:bg-accent/50 rounded-2xl p-6 transition-all duration-300 border border-border transform hover:scale-105 hover:rotate-1 hover:shadow-lg hover:shadow-blue-500/10">
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-2xl font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {exp.title}
+                      </h3>
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        {exp.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {exp.keywords.map((keyword, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium transition-all duration-300 hover:bg-blue-200 dark:hover:bg-blue-800/30 hover:scale-105"
+                          >
+                            {keyword}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ) : (
                 <div className="bg-card hover:bg-accent/50 rounded-2xl p-6 transition-all duration-300 border border-border transform hover:scale-105 hover:rotate-1 hover:shadow-lg hover:shadow-blue-500/10">
                   <div className="flex flex-col gap-4">
                     <h3 className="text-2xl font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
@@ -569,7 +592,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-              </Link>
+              )}
             </div>
           ))}
         </div>
@@ -625,7 +648,7 @@ export default function AboutPage() {
             {
               title: "Programming Excellence",
               courses: [
-                { name: "Programming-2", grade: "B", score: "82%" },
+                { name: "Programming", grade: "A", score: "92%" },
                 { name: "Data Structures", grade: "A", score: "90%" },
                 { name: "Mobile Development", grade: "A", score: "92%" },
               ],
@@ -634,7 +657,7 @@ export default function AboutPage() {
             {
               title: "Core Computer Science",
               courses: [
-                { name: "Database Management", grade: "B", score: "83%" },
+                { name: "Database Management", grade: "A", score: "95%" },
                 { name: "Operating Systems", grade: "B", score: "88%" },
                 { name: "Computer Networks", grade: "A", score: "95%" },
               ],
@@ -677,96 +700,79 @@ export default function AboutPage() {
           ))}
         </div>
 
-        {/* Semester Progression */}
-        <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200 dark:bg-blue-900"></div>
-          <div className="space-y-12">
-            {[
-              {
-                year: "2016",
-                semesters: [
-                  {
-                    name: "1st Semester",
-                    gpa: "80.56%",
-                    highlight: "Foundation in Computer Science",
-                  },
-                  {
-                    name: "2nd Semester",
-                    gpa: "81.11%",
-                    highlight: "Advanced Programming Concepts",
-                  },
-                ],
-              },
-              {
-                year: "2017",
-                semesters: [
-                  {
-                    name: "3rd Semester",
-                    gpa: "76.52%",
-                    highlight: "Data Structures & Algorithms",
-                  },
-                  {
-                    name: "4th Semester",
-                    gpa: "80.50%",
-                    highlight: "Database Systems",
-                  },
-                ],
-              },
-              {
-                year: "2018",
-                semesters: [
-                  {
-                    name: "5th Semester",
-                    gpa: "76.74%",
-                    highlight: "Software Architecture",
-                  },
-                  {
-                    name: "6th Semester",
-                    gpa: "75.50%",
-                    highlight: "Network Programming",
-                  },
-                ],
-              },
-              {
-                year: "2019",
-                semesters: [
-                  {
-                    name: "7th Semester",
-                    gpa: "88.00%",
-                    highlight: "Mobile Development & AI",
-                  },
-                  {
-                    name: "8th Semester",
-                    gpa: "94.00%",
-                    highlight: "Final Project Excellence",
-                  },
-                ],
-              },
-            ].map((year, index) => (
-              <div key={year.year} className="relative">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6 text-center">
-                  {year.year}
+        {/* Academic Performance Chart */}
+        <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-3 sm:p-8 backdrop-blur-sm border border-blue-100 dark:border-blue-900">
+          <h3 className="text-lg sm:text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-4 sm:mb-8 text-center">
+            Academic Performance & Consistency
+          </h3>
+          <div className="relative h-[250px] sm:h-[400px] w-full">
+            {/* Y-axis labels */}
+            <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-12 flex flex-col justify-between text-[10px] sm:text-sm text-muted-foreground">
+              <span>100%</span>
+              <span>75%</span>
+              <span>50%</span>
+              <span>25%</span>
+              <span>0%</span>
+            </div>
+
+            {/* Chart Bars */}
+            <div className="absolute bottom-0 left-6 sm:left-12 right-0 h-[180px] sm:h-[300px] flex items-end justify-between px-1 sm:px-4">
+              {[
+                { semester: "1st", score: 80.56, color: "bg-blue-400" },
+                { semester: "2nd", score: 81.11, color: "bg-blue-500" },
+                { semester: "3rd", score: 76.52, color: "bg-blue-400" },
+                { semester: "4th", score: 80.5, color: "bg-blue-500" },
+                { semester: "5th", score: 76.74, color: "bg-blue-400" },
+                { semester: "6th", score: 75.5, color: "bg-blue-500" },
+                { semester: "7th", score: 88.0, color: "bg-blue-400" },
+                { semester: "8th", score: 94.0, color: "bg-blue-500" },
+              ].map((item, index) => (
+                <div key={index} className="flex flex-col items-center group">
+                  <div className="text-[10px] sm:text-sm font-medium text-blue-600 dark:text-blue-400 mb-0.5 sm:mb-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {item.score}%
+                  </div>
+                  <div
+                    className={`w-4 sm:w-12 ${item.color} rounded-t-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}
+                    style={{ height: `${(item.score / 100) * 100}%` }}
+                  ></div>
+                  <div className="text-[10px] sm:text-sm text-muted-foreground mt-0.5 sm:mt-2">
+                    {item.semester}
+                  </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-8">
-                  {year.semesters.map((semester, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-blue-100 dark:border-blue-900 transform hover:scale-105 transition-all duration-300"
-                    >
-                      <h4 className="text-xl font-semibold mb-2">
-                        {semester.name}
-                      </h4>
-                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                        {semester.gpa}
-                      </div>
-                      <p className="text-muted-foreground">
-                        {semester.highlight}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Average Line */}
+            <div
+              className="absolute left-6 sm:left-12 right-0 h-[1px] bg-blue-200 dark:bg-blue-800"
+              style={{ top: "calc(100% - 81.47%)" }}
+            ></div>
+            <div
+              className="absolute left-6 sm:left-12 text-[10px] sm:text-sm text-blue-600 dark:text-blue-400 font-medium"
+              style={{ top: "calc(100% - 81.47% - 15px)" }}
+            >
+              Avg: 81.47%
+            </div>
+
+            {/* Grid Lines */}
+            <div className="absolute left-6 sm:left-12 right-0 top-0 bottom-0 flex flex-col justify-between">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="w-full h-[1px] bg-blue-100 dark:bg-blue-900/30"
+                ></div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 sm:mt-12 text-center space-y-1 sm:space-y-2">
+            <p className="text-xs sm:text-base text-muted-foreground">
+              Consistent performance with significant improvement in final
+              semesters
+            </p>
+            <p className="text-xs sm:text-base text-blue-600 dark:text-blue-400 font-medium">
+              Peak performance in 8th semester (94.00%)
+            </p>
           </div>
         </div>
       </section>

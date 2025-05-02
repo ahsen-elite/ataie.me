@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Contact from "@/components/contact";
+import ScrollToTop from "@/components/scroll-to-top";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -203,6 +204,7 @@ export default function RootLayout({
 
             <Contact />
             <Footer />
+            <ScrollToTop />
           </main>
           <Toaster />
         </ThemeProvider>

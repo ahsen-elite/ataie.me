@@ -5,12 +5,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Send, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,21 +36,9 @@ export default function ContactForm() {
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" aria-hidden="true" />,
-      label: "Email",
-      value: "me@ataie.me",
-      href: "mailto:me@ataie.me",
-    },
-    {
-      icon: <Phone className="w-5 h-5" aria-hidden="true" />,
-      label: "Phone",
-      value: "+98 991 290 6146",
-      href: "tel:+939912906146",
-    },
-    {
-      icon: <MapPin className="w-5 h-5" aria-hidden="true" />,
-      label: "Location",
-      value: "Kabul, Afghanistan",
-      href: "https://maps.google.com/?q=Kabul,Afghanistan",
+      label: "Let's Connect",
+      value: "Ready to discuss your next project?",
+      href: "#contact-form",
     },
   ];
 
@@ -63,7 +56,7 @@ export default function ContactForm() {
   ];
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 ">
+    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,15 +85,10 @@ export default function ContactForm() {
               <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <motion.a
+                  <Link
                     key={info.label}
-                    href={info.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-all group"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                    href="/contact"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-all group cursor-pointer"
                   >
                     <div className="p-3 rounded-lg bg-blue-500/10 text-blue-500 group-hover:scale-110 transition-transform">
                       {info.icon}
@@ -111,9 +99,14 @@ export default function ContactForm() {
                         {info.value}
                       </p>
                     </div>
-                  </motion.a>
+                  </Link>
                 ))}
               </div>
+              <p className="mt-6 text-sm text-foreground/60">
+                Whether you have a project in mind or just want to chat about
+                technology, I'm always excited to connect with fellow developers
+                and tech enthusiasts. Let's create something amazing together!
+              </p>
             </div>
 
             <div className="bg-blue-500/5 rounded-2xl p-8 backdrop-blur-sm">

@@ -80,20 +80,7 @@ const Hero = () => {
           >
             <span className="inline-block">
               Senior Software Developer & Technical Lead
-            </span>{" "}
-            {!prefersReducedMotion && (
-              <motion.span
-                className="inline-flex items-center"
-                animate={{ y: [0, -4, 0] }}
-                transition={{
-                  duration: 1,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              >
-                based in Tehran
-              </motion.span>
-            )}
+            </span>
             {!prefersReducedMotion && (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -101,13 +88,13 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="absolute -right-4 top-0 flex flex-col items-center"
               >
-                <motion.img
+                {/* <motion.img
                   src="/abbas.jpg"
                   alt="Ghulam Abbas Ataie"
                   className="w-12 h-12 rounded-full object-cover border-2 border-blue-500 relative z-10"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
-                />
+                /> */}
                 <span className="text-2xl -mt-3 relative z-0">💻</span>
               </motion.div>
             )}
