@@ -1,12 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
