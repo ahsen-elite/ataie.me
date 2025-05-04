@@ -38,14 +38,16 @@ const Header = () => {
   }, [scrolled]);
 
   const isActive = (path: string) => {
-    if (path === "/#work") return pathname === "/" || pathname === "/#work";
-    if (path === "/#contact")
-      return pathname === "/" || pathname === "/#contact";
+    if (path === "/contact") return pathname === "/contact";
+    if (path === "/projects") return pathname === "/projects";
+    if (path === "/about") return pathname === "/about";
+    if (path === "/mentoring") return pathname === "/mentoring";
+    if (path === "/") return pathname === "/";
     return pathname === path;
   };
 
   const navItems = [
-    { href: "/", label: "Creative" },
+    { href: "/", label: "ٌHome" },
     { href: "/about", label: "About" },
     { href: "/mentoring", label: "Mentoring" },
     { href: "/contact", label: "Contact" },

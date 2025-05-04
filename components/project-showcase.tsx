@@ -114,7 +114,11 @@ const ProjectShowcase = () => {
   };
 
   return (
-    <section ref={containerRef} className="py-20 relative overflow-hidden">
+    <section
+      ref={containerRef}
+      id="projects"
+      className="py-20 relative overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="max-w-7xl mx-auto px-4">
         <motion.div style={{ opacity, scale }} className="text-center mb-16">

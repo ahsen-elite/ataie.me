@@ -197,11 +197,7 @@ export default function MentoringPage() {
                   {session.description}
                 </p>
                 <Link
-                  href={`https://calendly.com/abbasataie/${session.title
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}${
-                    session.isFree ? "?coupon=FIRSTFREE" : ""
-                  }`}
+                  href={`https://calendly.com/abbas-ataie/abbas_meet`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 hover:scale-105 w-full mt-auto"

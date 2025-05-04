@@ -154,7 +154,7 @@ export default function AboutPage() {
                 </svg>
               </Link>
               <Link
-                href="/"
+                href="/#projects"
                 className="group inline-flex items-center justify-center rounded-md border border-blue-200 dark:border-blue-800 bg-white/10 hover:bg-white/20 px-6 py-3 text-base font-medium text-foreground shadow-sm transition-all duration-300 hover:scale-105"
                 aria-label="View my projects"
               >

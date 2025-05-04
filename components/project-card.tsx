@@ -96,7 +96,14 @@ const ProjectCard = ({
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <Github className="w-4 h-4" />
+                  <Link
+                    href={github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-black px-2 py-2 rounded-md text-sm font-medium flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                  >
+                    <Github className="w-4 h-4" />
+                  </Link>
                 </motion.button>
               )}
             </div>
