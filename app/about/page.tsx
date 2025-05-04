@@ -13,10 +13,11 @@ export const metadata: Metadata = {
     title: "About Ghulam Abbas Ataie - Senior Software Developer & Educator",
     description:
       "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
-    type: "profile",
+    type: "website",
+    url: "https://ataie.me/about",
     images: [
       {
-        url: "/abbas.jpg",
+        url: "/about-og.png",
         width: 1200,
         height: 630,
         alt: "Ghulam Abbas Ataie - Software Developer and Educator",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "About Ghulam Abbas Ataie - Software Developer & Educator",
     description:
       "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
-    images: ["/abbas.jpg"],
+    images: ["/about-og.png"],
   },
 };
 

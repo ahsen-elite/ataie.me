@@ -14,6 +14,37 @@ export const metadata: Metadata = {
   title: "Mentoring | Ghulam Abbas Ataie",
   description:
     "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
+  openGraph: {
+    title: "Mentoring | Ghulam Abbas Ataie",
+    description:
+      "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
+    images: [
+      {
+        url: "/mentoring-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Mentoring | Ghulam Abbas Ataie",
+      },
+    ],
+    siteName: "Ghulam Abbas Ataie",
+    type: "website",
+    url: "https://ataie.me/mentoring",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mentoring | Ghulam Abbas Ataie",
+    description:
+      "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
+    images: ["/mentoring-og.png"],
+  },
+  alternates: {
+    canonical: "/mentoring",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const mentoringAreas = [
