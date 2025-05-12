@@ -1,6 +1,6 @@
 {
-  "name": "abbasataie",
-  "version": "1.0.9",
+  "name": "abbas",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
