@@ -34,13 +34,6 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative"
         >
-          <motion.div
-            {...scaleIn}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="absolute -top-8 -left-8 text-6xl"
-          >
-            👋
-          </motion.div>
           <h2
             className="text-lg md:text-xl font-medium mb-3 relative group"
             onMouseEnter={() => !prefersReducedMotion && setIsHovered(true)}
@@ -58,20 +51,6 @@ const Hero = () => {
             >
               Ghulam Abbas Ataie
             </motion.span>
-            {!prefersReducedMotion && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0 }}
-                animate={
-                  isHovered
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 0, scale: 0 }
-                }
-                transition={{ duration: 0.3 }}
-                className="absolute -right-8 top-0 text-2xl"
-              >
-                🚀
-              </motion.span>
-            )}
           </h2>
           <motion.p
             {...fadeInUp}
