@@ -47,7 +47,7 @@ const Header = () => {
   };
 
   const navItems = [
-    { href: "/", label: "ٌHome" },
+    { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/mentoring", label: "Mentoring" },
     { href: "/contact", label: "Contact" },
