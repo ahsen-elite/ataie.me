@@ -46,7 +46,7 @@ export default function ContactForm() {
     {
       icon: <Linkedin className="w-5 h-5" aria-hidden="true" />,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/abbas-ataie-72a4431b9",
+      href: "https://www.linkedin.com/in/ghulam-abbas-ataie-72a4431b9/",
     },
     {
       icon: <Github className="w-5 h-5" aria-hidden="true" />,
