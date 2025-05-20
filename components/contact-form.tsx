@@ -51,12 +51,12 @@ export default function ContactForm() {
     {
       icon: <Github className="w-5 h-5" aria-hidden="true" />,
       label: "GitHub",
-      href: "https://github.com/abbasataie",
+      href: "https://github.com/abbasatayee",
     },
   ];
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -120,7 +120,7 @@ const ProjectShowcase = () => {
       className="py-20 relative overflow-hidden"
     >
       {/* Background decoration */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto">
         <motion.div style={{ opacity, scale }} className="text-center mb-16">
           {!prefersReducedMotion && (
             <motion.div
