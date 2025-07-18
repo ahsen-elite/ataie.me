@@ -129,6 +129,42 @@ export const metadata: Metadata = {
   ],
 };
 
+// JSON-LD structured data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ghulam Abbas Ataie",
+  url: "https://ataie.me",
+  jobTitle: "Senior Software Developer & Technical Lead",
+  description:
+    "Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
+  sameAs: ["https://twitter.com/abbasataie", "https://github.com/abbasatayee"],
+  worksFor: {
+    "@type": "Organization",
+    name: "Tara Solutions Inc",
+  },
+  knowsAbout: [
+    "Full-Stack Development",
+    "Cloud Architecture",
+    "Technical Leadership",
+    "React",
+    "Node.js",
+    "TypeScript",
+    "AWS",
+    "Web Development",
+    "Software Architecture",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Europe for Applied Sciences (UE)",
+  },
+  image: "https://ataie.me/opengraph-image.png",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://ataie.me",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -140,44 +176,9 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Ghulam Abbas Ataie",
-              url: "https://ataie.me",
-              jobTitle: "Senior Software Developer & Technical Lead",
-              description:
-                "Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
-              sameAs: [
-                "https://twitter.com/abbasataie",
-                "https://github.com/abbasatayee",
-              ],
-              worksFor: {
-                "@type": "Organization",
-                name: "Tara Solutions Inc",
-              },
-              knowsAbout: [
-                "Full-Stack Development",
-                "Cloud Architecture",
-                "Technical Leadership",
-                "React",
-                "Node.js",
-                "TypeScript",
-                "AWS",
-                "Web Development",
-                "Software Architecture",
-              ],
-              alumniOf: {
-                "@type": "CollegeOrUniversity",
-                name: "University of Europe for Applied Sciences (UE)",
-              },
-              image: "https://ataie.me/opengraph-image.png",
-              mainEntityOfPage: {
-                "@type": "WebPage",
-                "@id": "https://ataie.me",
-              },
-            }),
+            __html: JSON.stringify(jsonLd),
           }}
+          suppressHydrationWarning
         />
         <meta name="geo.region" content="DE" />
         <meta name="geo.placename" content="Berlin" />
@@ -190,7 +191,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

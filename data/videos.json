@@ -1,0 +1,37 @@
+{
+  "videos": [
+    {
+      "id": "research-study",
+      "title": "Impact of Daily Habits on Student Academic Performance",
+      "description": "A comprehensive study analyzing how study hours, sleep patterns, and social media usage affect student performance using data analytics and interactive visualizations.",
+      "videoSrc": "/research/research-study.mp4",
+      "thumbnail": "/research/video-thumbnail.jpg",
+      "duration": "2:05",
+      "quality": "720p",
+      "category": "Data Science & Education",
+      "year": "2025"
+    },
+    {
+      "id": "machine-learning-project",
+      "title": "Machine Learning in Healthcare Analytics",
+      "description": "Advanced machine learning techniques applied to healthcare data for predictive diagnostics and patient outcome analysis.",
+      "videoSrc": "/research/ml-healthcare.mp4",
+      "thumbnail": "/research/ml-thumbnail.jpg",
+      "duration": "12:45",
+      "quality": "720p",
+      "category": "Machine Learning & Healthcare",
+      "year": "2024"
+    },
+    {
+      "id": "web-development-tutorial",
+      "title": "Modern Web Development with React and TypeScript",
+      "description": "Complete tutorial on building scalable web applications using React, TypeScript, and modern development practices.",
+      "videoSrc": "/research/web-dev-tutorial.mp4",
+      "thumbnail": "/research/web-dev-thumbnail.jpg",
+      "duration": "25:15",
+      "quality": "720p",
+      "category": "Web Development",
+      "year": "2024"
+    }
+  ]
+}

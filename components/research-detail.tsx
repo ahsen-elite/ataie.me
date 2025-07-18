@@ -18,8 +18,12 @@ import {
   Calendar,
   MapPin,
   Building,
+  Play,
+  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import VideoModal from "./video-modal";
 
 interface TeamMember {
   name: string;
@@ -51,6 +55,8 @@ interface ResearchDetailProps {
 }
 
 const ResearchDetail = ({ project }: ResearchDetailProps) => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   const getColorClasses = (color: string) => {
     const colorMap: Record<string, string> = {
       blue: "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400",
@@ -66,13 +72,13 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
 
   return (
     <section className="min-h-screen text-foreground bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] research-detail-content">
-      <div className="max-w-6xl mx-auto px-4 pt-20 pb-32 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-20 pb-16 sm:pb-32 relative">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8"
+          className="mb-4 sm:mb-8"
         >
           <Button variant="ghost" asChild>
             <Link href="/research" className="flex items-center gap-2">
@@ -83,32 +89,32 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
         </motion.div>
 
         {/* Hero Section */}
-        <section className="py-12 md:py-20">
+        <section className="py-6 sm:py-12 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-16"
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium rounded-full">
+            <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4 flex-wrap">
+              <span className="px-2 sm:px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-medium rounded-full">
                 {project.category}
               </span>
-              <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-sm font-medium rounded-full">
+              <span className="px-2 sm:px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs sm:text-sm font-medium rounded-full">
                 {project.year}
               </span>
             </div>
-            <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600 leading-tight">
               {project.title}
             </h1>
-            <p className="text-foreground/60 max-w-3xl mx-auto text-lg">
+            <p className="text-foreground/60 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed">
               {project.description}
             </p>
           </motion.div>
         </section>
 
         {/* Research Content */}
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 lg:items-stretch">
           {/* Video Section */}
           {project.hasVideo && (
             <motion.div
@@ -118,33 +124,81 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
               className="h-full"
             >
               <Card className="h-full flex flex-col" id="video">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                <CardHeader className="pb-4 sm:pb-6">
+                  <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                     <Video className="w-5 h-5 text-blue-500" />
                     Research Presentation
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-sm sm:text-base">
                     Watch the research presentation video covering the study
-                    methodology, findings, and conclusions.
+                    methodology, findings, and conclusions in high quality.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
-                  <div className="relative aspect-video rounded-lg overflow-hidden bg-muted flex-1">
-                    <video
-                      controls
-                      className="w-full h-full object-cover"
-                      preload="metadata"
-                    >
-                      <source
-                        src="/research/research-study.mp4"
-                        type="video/mp4"
+                  <div className="relative aspect-video rounded-lg overflow-hidden bg-muted flex-1 group cursor-pointer">
+                    {/* Video thumbnail */}
+                    <div className="absolute inset-0">
+                      <img
+                        src="/research/video-thumbnail.jpg"
+                        alt="Research Study Video Thumbnail"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback to gradient if thumbnail fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                          target.nextElementSibling?.classList.remove("hidden");
+                        }}
                       />
-                      Your browser does not support the video tag.
-                    </video>
+                      {/* Fallback gradient background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 hidden">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3">
+                              <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white" />
+                            </div>
+                            <p className="text-white font-medium text-sm sm:text-base">
+                              Research Presentation
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Play button overlay */}
+                    <div
+                      className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                      onClick={() => setIsVideoModalOpen(true)}
+                    >
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 sm:p-4 group-hover:scale-110 transition-transform duration-200">
+                        <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white" />
+                      </div>
+                    </div>
+
+                    {/* Quality badge */}
+                    <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                      720p HD
+                    </div>
                   </div>
-                  <div className="mt-4 text-center">
-                    <p className="text-sm text-muted-foreground">
-                      Use the video controls to play, pause, and adjust volume
+                  <div className="mt-3 sm:mt-4 space-y-2">
+                    <Button
+                      onClick={() => setIsVideoModalOpen(true)}
+                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white"
+                    >
+                      <Play className="w-4 h-4 mr-2" />
+                      Watch in Modal
+                    </Button>
+                    <Button variant="outline" asChild className="w-full">
+                      <Link
+                        href="/research/video/research-study"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Open Full Page
+                      </Link>
+                    </Button>
+                    <p className="text-xs sm:text-sm text-muted-foreground text-center">
+                      Choose between modal view or dedicated full-page
+                      experience
                     </p>
                   </div>
                 </CardContent>
@@ -161,23 +215,25 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
               className="h-full"
             >
               <Card className="h-full flex flex-col">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                <CardHeader className="pb-4 sm:pb-6">
+                  <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
                     <FileText className="w-5 h-5 text-green-500" />
                     Research Paper
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-sm sm:text-base">
                     Download the complete research paper with detailed
                     methodology, data analysis, and comprehensive findings.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 p-4 bg-muted/50 rounded-lg">
-                      <FileText className="w-8 h-8 text-green-500" />
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-center gap-3 p-3 sm:p-4 bg-muted/50 rounded-lg">
+                      <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-green-500" />
                       <div className="flex-1">
-                        <h4 className="font-medium">Research Study Paper</h4>
-                        <p className="text-sm text-muted-foreground">
+                        <h4 className="font-medium text-sm sm:text-base">
+                          Research Study Paper
+                        </h4>
+                        <p className="text-xs sm:text-sm text-muted-foreground">
                           Comprehensive academic research document
                         </p>
                       </div>
@@ -185,17 +241,17 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
 
                     {/* Paper Details */}
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center justify-between text-xs sm:text-sm">
                         <span className="text-muted-foreground">Pages:</span>
                         <span className="font-medium">9 pages</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center justify-between text-xs sm:text-sm">
                         <span className="text-muted-foreground">
                           File Size:
                         </span>
                         <span className="font-medium">942 KB</span>
                       </div>
-                      <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center justify-between text-xs sm:text-sm">
                         <span className="text-muted-foreground">Language:</span>
                         <span className="font-medium">English</span>
                       </div>
@@ -203,7 +259,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
 
                     {/* Brief Description */}
                     <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                      <p className="text-sm text-green-700 dark:text-green-300">
+                      <p className="text-xs sm:text-sm text-green-700 dark:text-green-300">
                         This comprehensive research paper includes detailed
                         methodology, statistical analysis, and findings from our
                         study on daily habits and academic performance.
@@ -213,7 +269,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
 
                   <Button
                     asChild
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white mt-auto"
+                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white mt-4 sm:mt-auto text-sm sm:text-base"
                   >
                     <a
                       href="/research/research-study.pdf"
@@ -236,24 +292,26 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16"
+          className="mt-12 sm:mt-16"
         >
           <Card>
-            <CardHeader>
-              <CardTitle>Abstract</CardTitle>
-              <CardDescription>
+            <CardHeader className="pb-4 sm:pb-6">
+              <CardTitle className="text-lg sm:text-xl">Abstract</CardTitle>
+              <CardDescription className="text-sm sm:text-base">
                 A comprehensive study on the relationship between daily habits
                 and academic performance
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="prose prose-sm max-w-none text-muted-foreground leading-relaxed">
-                <p className="mb-4">{project.abstract}</p>
-                <div className="mt-6 p-4 bg-muted/50 rounded-lg">
-                  <h4 className="font-medium text-blue-600 dark:text-blue-400 mb-2">
+                <p className="mb-4 text-sm sm:text-base">{project.abstract}</p>
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-muted/50 rounded-lg">
+                  <h4 className="font-medium text-blue-600 dark:text-blue-400 mb-2 text-sm sm:text-base">
                     Keywords
                   </h4>
-                  <p className="text-sm">{project.keywords.join(", ")}</p>
+                  <p className="text-xs sm:text-sm">
+                    {project.keywords.join(", ")}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -265,30 +323,34 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-8"
+          className="mt-6 sm:mt-8"
         >
           <Card>
-            <CardHeader>
-              <CardTitle>Research Team</CardTitle>
-              <CardDescription>
+            <CardHeader className="pb-4 sm:pb-6">
+              <CardTitle className="text-lg sm:text-xl">
+                Research Team
+              </CardTitle>
+              <CardDescription className="text-sm sm:text-base">
                 Meet the contributors who made this research possible
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {project.team.map((member, index) => (
                   <div key={index} className="text-center space-y-2">
                     <div
-                      className={`w-16 h-16 ${getColorClasses(
+                      className={`w-12 h-12 sm:w-16 sm:h-16 ${getColorClasses(
                         member.color
                       )} rounded-full flex items-center justify-center mx-auto`}
                     >
-                      <span className="font-bold text-lg">
+                      <span className="font-bold text-sm sm:text-lg">
                         {member.initials}
                       </span>
                     </div>
-                    <h4 className="font-medium">{member.name}</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="font-medium text-sm sm:text-base">
+                      {member.name}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       {project.department}
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -297,18 +359,18 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 p-4 bg-muted/30 rounded-lg text-center">
-                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+              <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-muted/30 rounded-lg text-center">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
-                    <Building className="w-4 h-4" />
+                    <Building className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>{project.university}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>{project.location}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
+                    <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>{project.year}</span>
                   </div>
                 </div>
@@ -322,23 +384,25 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-8"
+          className="mt-6 sm:mt-8"
         >
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
             {/* Methodology */}
             <Card>
-              <CardHeader>
-                <CardTitle>Research Methodology</CardTitle>
-                <CardDescription>
+              <CardHeader className="pb-4 sm:pb-6">
+                <CardTitle className="text-lg sm:text-xl">
+                  Research Methodology
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base">
                   The approach and methods used in this study
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {project.methodology.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-sm text-muted-foreground">
+                      <span className="text-xs sm:text-sm text-muted-foreground">
                         {item}
                       </span>
                     </li>
@@ -349,18 +413,20 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
 
             {/* Findings */}
             <Card>
-              <CardHeader>
-                <CardTitle>Key Findings</CardTitle>
-                <CardDescription>
+              <CardHeader className="pb-4 sm:pb-6">
+                <CardTitle className="text-lg sm:text-xl">
+                  Key Findings
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base">
                   Main discoveries and insights from the research
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {project.findings.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-sm text-muted-foreground">
+                      <span className="text-xs sm:text-sm text-muted-foreground">
                         {item}
                       </span>
                     </li>
@@ -376,23 +442,33 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-8"
+          className="mt-6 sm:mt-8"
         >
           <Card>
-            <CardHeader>
-              <CardTitle>Research Impact</CardTitle>
-              <CardDescription>
+            <CardHeader className="pb-4 sm:pb-6">
+              <CardTitle className="text-lg sm:text-xl">
+                Research Impact
+              </CardTitle>
+              <CardDescription className="text-sm sm:text-base">
                 The significance and potential applications of this research
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                 {project.impact}
               </p>
             </CardContent>
           </Card>
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoSrc="/research/research-study.mp4"
+        title={project.title}
+      />
     </section>
   );
 };
