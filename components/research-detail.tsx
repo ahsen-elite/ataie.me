@@ -20,6 +20,8 @@ import {
   Building,
   Play,
   ExternalLink,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -56,6 +58,24 @@ interface ResearchDetailProps {
 
 const ResearchDetail = ({ project }: ResearchDetailProps) => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<{
+    abstract: boolean;
+    methodology: boolean;
+    findings: boolean;
+    impact: boolean;
+  }>({
+    abstract: false,
+    methodology: false,
+    findings: false,
+    impact: false,
+  });
+
+  const toggleSection = (section: keyof typeof expandedSections) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
 
   const getColorClasses = (color: string) => {
     const colorMap: Record<string, string> = {
@@ -83,7 +103,8 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
           <Button variant="ghost" asChild>
             <Link href="/research" className="flex items-center gap-2">
               <ArrowLeft className="w-4 h-4" />
-              Back to Research
+              <span className="hidden sm:inline">Back to Research</span>
+              <span className="sm:hidden">Back</span>
             </Link>
           </Button>
         </motion.div>
@@ -104,11 +125,16 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                 {project.year}
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600 leading-tight">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600 leading-tight">
               {project.title}
             </h1>
-            <p className="text-foreground/60 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed">
+            <p className="text-foreground/60 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed hidden sm:block">
               {project.description}
+            </p>
+            <p className="text-foreground/60 max-w-3xl mx-auto text-sm leading-relaxed sm:hidden">
+              {project.description.length > 120
+                ? `${project.description.substring(0, 120)}...`
+                : project.description}
             </p>
           </motion.div>
         </section>
@@ -129,7 +155,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                     <Video className="w-5 h-5 text-blue-500" />
                     Research Presentation
                   </CardTitle>
-                  <CardDescription className="text-sm sm:text-base">
+                  <CardDescription className="text-sm sm:text-base hidden sm:block">
                     Watch the research presentation video covering the study
                     methodology, findings, and conclusions in high quality.
                   </CardDescription>
@@ -193,10 +219,11 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                         className="flex items-center justify-center gap-2"
                       >
                         <ExternalLink className="w-4 h-4" />
-                        Open Full Page
+                        <span className="hidden sm:inline">Open Full Page</span>
+                        <span className="sm:hidden">Full Page</span>
                       </Link>
                     </Button>
-                    <p className="text-xs sm:text-sm text-muted-foreground text-center">
+                    <p className="text-xs sm:text-sm text-muted-foreground text-center hidden sm:block">
                       Choose between modal view or dedicated full-page
                       experience
                     </p>
@@ -220,7 +247,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                     <FileText className="w-5 h-5 text-green-500" />
                     Research Paper
                   </CardTitle>
-                  <CardDescription className="text-sm sm:text-base">
+                  <CardDescription className="text-sm sm:text-base hidden sm:block">
                     Download the complete research paper with detailed
                     methodology, data analysis, and comprehensive findings.
                   </CardDescription>
@@ -233,7 +260,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                         <h4 className="font-medium text-sm sm:text-base">
                           Research Study Paper
                         </h4>
-                        <p className="text-xs sm:text-sm text-muted-foreground">
+                        <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
                           Comprehensive academic research document
                         </p>
                       </div>
@@ -258,7 +285,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                     </div>
 
                     {/* Brief Description */}
-                    <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                    <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg hidden sm:block">
                       <p className="text-xs sm:text-sm text-green-700 dark:text-green-300">
                         This comprehensive research paper includes detailed
                         methodology, statistical analysis, and findings from our
@@ -278,7 +305,10 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                       className="flex items-center gap-2"
                     >
                       <Download className="w-4 h-4" />
-                      Download Research Paper (PDF)
+                      <span className="hidden sm:inline">
+                        Download Research Paper (PDF)
+                      </span>
+                      <span className="sm:hidden">Download PDF</span>
                     </a>
                   </Button>
                 </CardContent>
@@ -296,13 +326,33 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
         >
           <Card>
             <CardHeader className="pb-4 sm:pb-6">
-              <CardTitle className="text-lg sm:text-xl">Abstract</CardTitle>
-              <CardDescription className="text-sm sm:text-base">
-                A comprehensive study on the relationship between daily habits
-                and academic performance
-              </CardDescription>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-lg sm:text-xl">Abstract</CardTitle>
+                  <CardDescription className="text-sm sm:text-base hidden sm:block">
+                    A comprehensive study on the relationship between daily
+                    habits and academic performance
+                  </CardDescription>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggleSection("abstract")}
+                  className="sm:hidden"
+                >
+                  {expandedSections.abstract ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </Button>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent
+              className={`${
+                !expandedSections.abstract ? "hidden sm:block" : ""
+              }`}
+            >
               <div className="prose prose-sm max-w-none text-muted-foreground leading-relaxed">
                 <p className="mb-4 text-sm sm:text-base">{project.abstract}</p>
                 <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-muted/50 rounded-lg">
@@ -390,14 +440,34 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
             {/* Methodology */}
             <Card>
               <CardHeader className="pb-4 sm:pb-6">
-                <CardTitle className="text-lg sm:text-xl">
-                  Research Methodology
-                </CardTitle>
-                <CardDescription className="text-sm sm:text-base">
-                  The approach and methods used in this study
-                </CardDescription>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-lg sm:text-xl">
+                      Research Methodology
+                    </CardTitle>
+                    <CardDescription className="text-sm sm:text-base hidden sm:block">
+                      The approach and methods used in this study
+                    </CardDescription>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => toggleSection("methodology")}
+                    className="md:hidden"
+                  >
+                    {expandedSections.methodology ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                  </Button>
+                </div>
               </CardHeader>
-              <CardContent>
+              <CardContent
+                className={`${
+                  !expandedSections.methodology ? "hidden md:block" : ""
+                }`}
+              >
                 <ul className="space-y-2 sm:space-y-3">
                   {project.methodology.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -414,14 +484,34 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
             {/* Findings */}
             <Card>
               <CardHeader className="pb-4 sm:pb-6">
-                <CardTitle className="text-lg sm:text-xl">
-                  Key Findings
-                </CardTitle>
-                <CardDescription className="text-sm sm:text-base">
-                  Main discoveries and insights from the research
-                </CardDescription>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-lg sm:text-xl">
+                      Key Findings
+                    </CardTitle>
+                    <CardDescription className="text-sm sm:text-base hidden sm:block">
+                      Main discoveries and insights from the research
+                    </CardDescription>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => toggleSection("findings")}
+                    className="md:hidden"
+                  >
+                    {expandedSections.findings ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                  </Button>
+                </div>
               </CardHeader>
-              <CardContent>
+              <CardContent
+                className={`${
+                  !expandedSections.findings ? "hidden md:block" : ""
+                }`}
+              >
                 <ul className="space-y-2 sm:space-y-3">
                   {project.findings.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -446,14 +536,32 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
         >
           <Card>
             <CardHeader className="pb-4 sm:pb-6">
-              <CardTitle className="text-lg sm:text-xl">
-                Research Impact
-              </CardTitle>
-              <CardDescription className="text-sm sm:text-base">
-                The significance and potential applications of this research
-              </CardDescription>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-lg sm:text-xl">
+                    Research Impact
+                  </CardTitle>
+                  <CardDescription className="text-sm sm:text-base hidden sm:block">
+                    The significance and potential applications of this research
+                  </CardDescription>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggleSection("impact")}
+                  className="sm:hidden"
+                >
+                  {expandedSections.impact ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </Button>
+              </div>
             </CardHeader>
-            <CardContent>
+            <CardContent
+              className={`${!expandedSections.impact ? "hidden sm:block" : ""}`}
+            >
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                 {project.impact}
               </p>

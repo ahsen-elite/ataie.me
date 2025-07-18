@@ -286,10 +286,10 @@ export default function VideoPlayer({ videoData }: VideoPlayerProps) {
           {!isPlaying && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
               <div
-                className="bg-white/20 backdrop-blur-sm rounded-full p-8 cursor-pointer hover:bg-white/30 transition-colors"
+                className="bg-black/60 rounded-full p-4 md:p-8 cursor-pointer hover:bg-black/80 transition-colors"
                 onClick={togglePlay}
               >
-                <Play className="w-20 h-20 text-white fill-white" />
+                <Play className="w-12 h-12 md:w-20 md:h-20 text-white fill-white" />
               </div>
             </div>
           )}
@@ -360,7 +360,7 @@ export default function VideoPlayer({ videoData }: VideoPlayerProps) {
             </div>
 
             {/* Title */}
-            <div className="mt-3">
+            <div className="mt-3 hidden md:block">
               <h1 className="text-xl font-semibold text-white">
                 {videoData.title}
               </h1>
