@@ -1,4 +1,4 @@
-# Ghulam Abbas Ataie - Personal Portfolio
+# Abbas Ataie - Personal Portfolio
 
 A modern, responsive personal portfolio website built with Next.js 13, TypeScript, and Tailwind CSS. This website showcases my work as a Senior Software Developer and Technical Lead, featuring project showcases, research work, mentoring services, and professional experience.
 
