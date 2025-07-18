@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,6 +29,16 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title }: VideoModalProps) => {
   const [duration, setDuration] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
+  // Cleanup video resources
+  const cleanupVideo = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      videoRef.current.src = "";
+      videoRef.current.load();
+    }
+  }, []);
+
   useEffect(() => {
     if (isOpen && videoRef.current) {
       // Autoplay when modal opens
@@ -50,14 +60,18 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title }: VideoModalProps) => {
       setIsPlaying(false);
       setCurrentTime(0);
       setIsFullscreen(false);
-      if (videoRef.current) {
-        videoRef.current.pause();
-        videoRef.current.currentTime = 0;
-      }
+      cleanupVideo();
     }
-  }, [isOpen]);
+  }, [isOpen, cleanupVideo]);
 
-  const togglePlay = () => {
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      cleanupVideo();
+    };
+  }, [cleanupVideo]);
+
+  const togglePlay = useCallback(() => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
@@ -66,16 +80,16 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title }: VideoModalProps) => {
       }
       setIsPlaying(!isPlaying);
     }
-  };
+  }, [isPlaying]);
 
-  const toggleMute = () => {
+  const toggleMute = useCallback(() => {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
     }
-  };
+  }, [isMuted]);
 
-  const toggleFullscreen = () => {
+  const toggleFullscreen = useCallback(() => {
     if (videoRef.current) {
       if (!isFullscreen) {
         if (videoRef.current.requestFullscreen) {
@@ -96,45 +110,48 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title }: VideoModalProps) => {
       }
       setIsFullscreen(!isFullscreen);
     }
-  };
+  }, [isFullscreen]);
 
-  const handleTimeUpdate = () => {
+  const handleTimeUpdate = useCallback(() => {
     if (videoRef.current) {
       setCurrentTime(videoRef.current.currentTime);
     }
-  };
+  }, []);
 
-  const handleLoadedMetadata = () => {
+  const handleLoadedMetadata = useCallback(() => {
     if (videoRef.current) {
       setDuration(videoRef.current.duration);
     }
-  };
+  }, []);
 
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSeek = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const time = parseFloat(e.target.value);
     if (videoRef.current) {
       videoRef.current.currentTime = time;
       setCurrentTime(time);
     }
-  };
+  }, []);
 
-  const formatTime = (time: number) => {
+  const formatTime = useCallback((time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-  };
+  }, []);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") {
-      onClose();
-    } else if (e.key === " ") {
-      e.preventDefault();
-      togglePlay();
-    } else if (e.key === "f" || e.key === "F") {
-      e.preventDefault();
-      toggleFullscreen();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      } else if (e.key === " ") {
+        e.preventDefault();
+        togglePlay();
+      } else if (e.key === "f" || e.key === "F") {
+        e.preventDefault();
+        toggleFullscreen();
+      }
+    },
+    [onClose, togglePlay, toggleFullscreen]
+  );
 
   return (
     <AnimatePresence>

@@ -13,7 +13,7 @@ import {
 
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { usePathname } from "next/navigation";
 
@@ -21,21 +21,19 @@ const Header = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
+  const handleScroll = useCallback(() => {
+    const isScrolled = window.scrollY > 20;
+    setScrolled(isScrolled);
+  }, []);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // Initial check
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrolled]);
+  }, [handleScroll]);
 
   const isActive = (path: string) => {
     if (path === "/contact") return pathname === "/contact";
@@ -248,70 +246,61 @@ const Header = () => {
                         </motion.div>
                       </div>
                     </motion.div>
-                    <motion.div className="flex flex-col" whileHover={{ x: 2 }}>
-                      <motion.span
-                        className="text-foreground/60 group-hover:text-foreground transition-colors text-sm font-medium"
-                        whileHover={{ color: "#3B82F6" }}
-                      >
+                    <div className="flex flex-col">
+                      <span className="text-foreground/60 group-hover:text-foreground transition-colors text-sm font-medium">
                         Ghulam Abbas Ataie
-                      </motion.span>
-                      <motion.span
-                        className="text-foreground/60 group-hover:text-foreground/80 transition-colors text-xs"
-                        whileHover={{ color: "#3B82F6" }}
-                      >
+                      </span>
+                      <span className="text-foreground/60 group-hover:text-foreground/80 transition-colors text-xs">
                         backend wizard & AI enthusiast 🧙‍♂️
-                      </motion.span>
-                    </motion.div>
+                      </span>
+                    </div>
                   </Link>
                 </SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-4">
+
+              <nav className="flex flex-col gap-2">
                 {navItems.map((item) => (
                   <Link key={item.href} href={item.href}>
                     <Button
                       variant="ghost"
-                      className={`w-full justify-start text-base font-normal rounded-lg ${
+                      className={`w-full justify-start text-left ${
                         isActive(item.href)
                           ? "text-blue-500 bg-blue-500/10"
-                          : "hover:text-blue-500 hover:bg-blue-500/10"
+                          : "hover:text-blue-500"
                       }`}
                     >
                       {item.label}
                     </Button>
                   </Link>
                 ))}
-
-                <div className="h-px bg-border my-4" />
-
-                <Link
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base text-foreground/60 hover:text-blue-500 transition-colors group flex items-center px-4 py-2"
-                >
-                  Resume{" "}
-                  <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
-                    ↗
-                  </span>
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/ghulam-abbas-ataie-72a4431b9/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base text-foreground/60 hover:text-blue-500 transition-colors group flex items-center px-4 py-2"
-                >
-                  LinkedIn{" "}
-                  <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
-                    ↗
-                  </span>
-                </Link>
-
-                <div className="h-px bg-border my-4" />
-
-                <div className="px-4">
-                  <ThemeToggle />
-                </div>
               </nav>
+
+              <div className="mt-8 pt-8 border-t border-border">
+                <div className="flex flex-col gap-4">
+                  <Link
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-foreground/60 hover:text-blue-500 transition-colors group"
+                  >
+                    Resume{" "}
+                    <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
+                      ↗
+                    </span>
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/ghulam-abbas-ataie-72a4431b9/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-foreground/60 hover:text-blue-500 transition-colors group"
+                  >
+                    LinkedIn{" "}
+                    <span className="ml-1 group-hover:translate-x-0.5 transition-transform inline-block">
+                      ↗
+                    </span>
+                  </Link>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

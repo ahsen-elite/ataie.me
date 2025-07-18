@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -41,18 +41,56 @@ export default function VideoPlayer({ videoData }: VideoPlayerProps) {
   const [showControls, setShowControls] = useState(true);
   const router = useRouter();
 
+  // Store timeout references for cleanup
+  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const mouseLeaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Cleanup function for timeouts
+  const clearTimeouts = useCallback(() => {
+    if (controlsTimeoutRef.current) {
+      clearTimeout(controlsTimeoutRef.current);
+      controlsTimeoutRef.current = null;
+    }
+    if (mouseLeaveTimeoutRef.current) {
+      clearTimeout(mouseLeaveTimeoutRef.current);
+      mouseLeaveTimeoutRef.current = null;
+    }
+  }, []);
+
+  // Cleanup video resources
+  const cleanupVideo = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      videoRef.current.src = "";
+      videoRef.current.load();
+    }
+  }, []);
+
   useEffect(() => {
     // Auto-hide controls after 3 seconds
-    const timer = setTimeout(() => {
-      if (isPlaying) {
+    clearTimeouts(); // Clear any existing timeouts
+
+    if (isPlaying) {
+      controlsTimeoutRef.current = setTimeout(() => {
         setShowControls(false);
-      }
-    }, 3000);
+      }, 3000);
+    }
 
-    return () => clearTimeout(timer);
-  }, [isPlaying, showControls]);
+    return () => {
+      clearTimeouts();
+    };
+  }, [isPlaying, clearTimeouts]);
 
-  const togglePlay = () => {
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      clearTimeouts();
+      cleanupVideo();
+    };
+  }, [clearTimeouts, cleanupVideo]);
+
+  const togglePlay = useCallback(() => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
@@ -62,17 +100,17 @@ export default function VideoPlayer({ videoData }: VideoPlayerProps) {
       setIsPlaying(!isPlaying);
     }
     setShowControls(true);
-  };
+  }, [isPlaying]);
 
-  const toggleMute = () => {
+  const toggleMute = useCallback(() => {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
     }
     setShowControls(true);
-  };
+  }, [isMuted]);
 
-  const toggleFullscreen = () => {
+  const toggleFullscreen = useCallback(() => {
     if (videoRef.current) {
       if (!isFullscreen) {
         if (videoRef.current.requestFullscreen) {
@@ -94,68 +132,78 @@ export default function VideoPlayer({ videoData }: VideoPlayerProps) {
       setIsFullscreen(!isFullscreen);
     }
     setShowControls(true);
-  };
+  }, [isFullscreen]);
 
-  const restartVideo = () => {
+  const restartVideo = useCallback(() => {
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play();
       setIsPlaying(true);
     }
     setShowControls(true);
-  };
+  }, []);
 
-  const handleTimeUpdate = () => {
+  const handleTimeUpdate = useCallback(() => {
     if (videoRef.current) {
       setCurrentTime(videoRef.current.currentTime);
     }
-  };
+  }, []);
 
-  const handleLoadedMetadata = () => {
+  const handleLoadedMetadata = useCallback(() => {
     if (videoRef.current) {
       setDuration(videoRef.current.duration);
     }
-  };
+  }, []);
 
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSeek = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const time = parseFloat(e.target.value);
     if (videoRef.current) {
       videoRef.current.currentTime = time;
       setCurrentTime(time);
     }
     setShowControls(true);
-  };
+  }, []);
 
-  const formatTime = (time: number) => {
+  const formatTime = useCallback((time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-  };
+  }, []);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") {
-      router.back();
-    } else if (e.key === " ") {
-      e.preventDefault();
-      togglePlay();
-    } else if (e.key === "f" || e.key === "F") {
-      e.preventDefault();
-      toggleFullscreen();
-    } else if (e.key === "r" || e.key === "R") {
-      e.preventDefault();
-      restartVideo();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "Escape") {
+        router.back();
+      } else if (e.key === " ") {
+        e.preventDefault();
+        togglePlay();
+      } else if (e.key === "f" || e.key === "F") {
+        e.preventDefault();
+        toggleFullscreen();
+      } else if (e.key === "r" || e.key === "R") {
+        e.preventDefault();
+        restartVideo();
+      }
+    },
+    [router, togglePlay, toggleFullscreen, restartVideo]
+  );
 
-  const handleMouseMove = () => {
+  const handleMouseMove = useCallback(() => {
     setShowControls(true);
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     if (isPlaying) {
-      setTimeout(() => setShowControls(false), 1000);
+      // Clear any existing mouse leave timeout
+      if (mouseLeaveTimeoutRef.current) {
+        clearTimeout(mouseLeaveTimeoutRef.current);
+      }
+      mouseLeaveTimeoutRef.current = setTimeout(
+        () => setShowControls(false),
+        1000
+      );
     }
-  };
+  }, [isPlaying]);
 
   return (
     <>
