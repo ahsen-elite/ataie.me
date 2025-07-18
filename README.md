@@ -113,7 +113,6 @@ ataie.me/
 - `yarn lint` - Run ESLint
 
 ## 🎨 Customization
-
 ### Theme Configuration
 
 The website uses a custom theme system with Tailwind CSS. You can customize colors, fonts, and other design tokens in `tailwind.config.ts`.
