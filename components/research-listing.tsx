@@ -200,7 +200,10 @@ const ResearchListing = () => {
 
                   <div className="flex gap-2">
                     {project.hasVideo && (
-                      <Link href={`/research/${project.id}#video`}>
+                      <Link
+                        href={`/research/${project.id}#video`}
+                        scroll={true}
+                      >
                         <Button
                           variant="outline"
                           size="sm"

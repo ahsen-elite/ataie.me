@@ -65,7 +65,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
   };
 
   return (
-    <section className="min-h-screen text-foreground bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+    <section className="min-h-screen text-foreground bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] research-detail-content">
       <div className="max-w-6xl mx-auto px-4 pt-20 pb-32 relative">
         {/* Back Button */}
         <motion.div
@@ -117,7 +117,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="h-full"
             >
-              <Card className="h-full flex flex-col">
+              <Card className="h-full flex flex-col" id="video">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Video className="w-5 h-5 text-blue-500" />
@@ -134,7 +134,6 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                       controls
                       className="w-full h-full object-cover"
                       preload="metadata"
-                      id="video"
                     >
                       <source
                         src="/research/research-study.mp4"

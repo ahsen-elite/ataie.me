@@ -19,6 +19,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+  }
+  
+  /* Fix anchor links being hidden under fixed navbar */
+  [id] {
+    scroll-margin-top: 120px;
+  }
+  
+  /* Additional margin for video sections */
+  #video {
+    scroll-margin-top: 160px;
+  }
+  
+  /* Ensure research detail page content is properly spaced */
+  .research-detail-content {
+    scroll-margin-top: 120px;
   }
   
   :root {
