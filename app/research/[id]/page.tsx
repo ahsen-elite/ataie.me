@@ -42,6 +42,7 @@ const researchProjects = [
         color: "orange",
       },
     ],
+    ogImage: "/image-study-og.png",
     department: "Department of Data Science",
     university: "University of Europe for Applied Sciences",
     location: "Potsdam, Germany",
@@ -94,7 +95,7 @@ export async function generateMetadata({
       description: project.description,
       images: [
         {
-          url: "/research-og.png",
+          url: project.ogImage || "/research-og.png",
           width: 1200,
           height: 630,
           alt: project.title,
@@ -104,7 +105,7 @@ export async function generateMetadata({
     twitter: {
       title: `${project.title} | Research`,
       description: project.description,
-      images: ["/research-og.png"],
+      images: [project.ogImage || "/research-og.png"],
     },
   };
 }
