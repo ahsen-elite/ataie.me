@@ -226,7 +226,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 About the Developer
 
-**Ghulam Abbas Ataie** is a Senior Software Developer and Technical Lead with expertise in:
+**Abbas Ataie** is a Senior Software Developer and Technical Lead with expertise in:
 
 - Full-Stack Development
 - Cloud Architecture
