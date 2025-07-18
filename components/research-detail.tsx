@@ -185,7 +185,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white"
                     >
                       <Play className="w-4 h-4 mr-2" />
-                      Watch in Modal
+                      Watch
                     </Button>
                     <Button variant="outline" asChild className="w-full">
                       <Link
