@@ -176,7 +176,7 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title }: VideoModalProps) => {
                 onPause={() => setIsPlaying(false)}
                 onEnded={() => setIsPlaying(false)}
                 preload="metadata"
-                poster="/research/video-thumbnail.jpg"
+                poster="/research/studey-research-thumbnail.jpg"
               >
                 <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.

@@ -139,7 +139,7 @@ const ResearchDetail = ({ project }: ResearchDetailProps) => {
                     {/* Video thumbnail */}
                     <div className="absolute inset-0">
                       <img
-                        src="/research/video-thumbnail.jpg"
+                        src="/research/studey-research-thumbnail.jpg"
                         alt="Research Study Video Thumbnail"
                         className="w-full h-full object-cover"
                         onError={(e) => {
