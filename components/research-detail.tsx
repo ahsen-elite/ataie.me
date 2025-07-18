@@ -14,7 +14,6 @@ import {
   FileText,
   Video,
   ArrowLeft,
-  Users,
   Calendar,
   MapPin,
   Building,
