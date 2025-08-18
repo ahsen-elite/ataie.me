@@ -211,12 +211,12 @@ const Hero = () => {
                   </motion.div>
                 )}
                 <Link
-                  href="https://tarasolutions.cloud"
+                  href="https://cloud-station.io"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium group-hover:text-blue-600 transition-colors"
                 >
-                  Tara Solutions
+                  Cloud Station LLC FZ (Dubai)
                 </Link>
               </div>
             </motion.div>
