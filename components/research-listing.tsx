@@ -40,7 +40,7 @@ const researchProjects = [
       "education dashboard",
     ],
     team: [
-      "Ghulam Abbas Ataie",
+      "Abbas Ataie",
       "Arnav Singh Bhardwaj",
       "Shilpa Sidda Raju",
       "Manasi Prabhakar",

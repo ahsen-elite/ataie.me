@@ -113,6 +113,7 @@ ataie.me/
 - `yarn lint` - Run ESLint
 
 ## 🎨 Customization
+
 ### Theme Configuration
 
 The website uses a custom theme system with Tailwind CSS. You can customize colors, fonts, and other design tokens in `tailwind.config.ts`.
@@ -238,7 +239,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🔗 Links
 
 - **Website**: [https://ataie.me](https://ataie.me)
-- **LinkedIn**: [Ghulam Abbas Ataie](https://linkedin.com/in/ghulam-abbas-ataie)
+- **LinkedIn**: [Abbas Ataie](https://linkedin.com/in/ghulam-abbas-ataie)
 - **GitHub**: [@abbasatayee](https://github.com/abbasatayee)
 - **YouTube**: [Roshanayee](https://youtube.com/@roshanayee)
 

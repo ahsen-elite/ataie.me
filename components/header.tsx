@@ -113,7 +113,7 @@ const Header = () => {
               className="text-foreground/60 group-hover:text-foreground transition-colors text-sm font-medium"
               whileHover={{ color: "#3B82F6" }}
             >
-              Ghulam Abbas Ataie
+              Abbas Ataie
             </motion.span>
             <motion.span
               className="text-foreground/60 group-hover:text-foreground/80 transition-colors text-xs"
@@ -248,7 +248,7 @@ const Header = () => {
                     </motion.div>
                     <div className="flex flex-col">
                       <span className="text-foreground/60 group-hover:text-foreground transition-colors text-sm font-medium">
-                        Ghulam Abbas Ataie
+                        Abbas Ataie
                       </span>
                       <span className="text-foreground/60 group-hover:text-foreground/80 transition-colors text-xs">
                         backend wizard & AI enthusiast 🧙‍♂️

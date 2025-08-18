@@ -4,29 +4,29 @@ import ContactForm from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "Contact Me",
   description:
-    "Get in touch with Ghulam Abbas Ataie for collaboration opportunities, project inquiries, or professional networking. Available for freelance work and full-time positions.",
+    "Get in touch with Abbas Ataie for collaboration opportunities, project inquiries, or professional networking. Available for freelance work and full-time positions.",
   openGraph: {
-    title: "Contact Ghulam Abbas Ataie",
+    title: "Contact Abbas Ataie",
     description:
-      "Get in touch with Ghulam Abbas Ataie for collaboration opportunities, project inquiries, or professional networking. Available for freelance work and full-time positions.",
+      "Get in touch with Abbas Ataie for collaboration opportunities, project inquiries, or professional networking. Available for freelance work and full-time positions.",
     images: [
       {
         url: "/contact-og.png",
         width: 1200,
         height: 630,
-        alt: "Contact Ghulam Abbas Ataie",
+        alt: "Contact Abbas Ataie",
       },
     ],
-    siteName: "Ghulam Abbas Ataie",
+    siteName: "Abbas Ataie",
     type: "website",
     url: "https://ataie.me/contact",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Ghulam Abbas Ataie",
+    title: "Contact Abbas Ataie",
     description:
-      "Get in touch with Ghulam Abbas Ataie for collaboration opportunities, project inquiries, or professional networking. Available for freelance work and full-time positions.",
+      "Get in touch with Abbas Ataie for collaboration opportunities, project inquiries, or professional networking. Available for freelance work and full-time positions.",
     images: ["/contact-og.png"],
   },
   alternates: {

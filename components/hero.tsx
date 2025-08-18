@@ -49,7 +49,7 @@ const Hero = () => {
               }
               transition={{ duration: 0.5 }}
             >
-              Ghulam Abbas Ataie
+              Abbas Ataie
             </motion.span>
           </h2>
           <motion.p
@@ -69,7 +69,7 @@ const Hero = () => {
               >
                 {/* <motion.img
                   src="/abbas.jpg"
-                  alt="Ghulam Abbas Ataie"
+                  alt="Abbas Ataie"
                   className="w-12 h-12 rounded-full object-cover border-2 border-blue-500 relative z-10"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}

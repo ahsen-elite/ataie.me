@@ -4,34 +4,34 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Research studies and academic work by Ghulam Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
+    "Research studies and academic work by Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
   keywords: [
     "Research",
     "Academic Work",
     "Data Science Research",
     "Student Performance",
     "Educational Technology",
-    "Ghulam Abbas Ataie Research",
+    "Abbas Ataie Research",
     "University Research",
     "Academic Studies",
   ],
   openGraph: {
-    title: "Research | Ghulam Abbas Ataie",
+    title: "Research | Abbas Ataie",
     description:
-      "Research studies and academic work by Ghulam Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
+      "Research studies and academic work by Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
     images: [
       {
         url: "/research-og.png",
         width: 1200,
         height: 630,
-        alt: "Research - Ghulam Abbas Ataie",
+        alt: "Research - Abbas Ataie",
       },
     ],
   },
   twitter: {
-    title: "Research | Ghulam Abbas Ataie",
+    title: "Research | Abbas Ataie",
     description:
-      "Research studies and academic work by Ghulam Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
+      "Research studies and academic work by Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
     images: ["/research-og.png"],
   },
 };

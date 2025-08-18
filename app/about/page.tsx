@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title:
-    "About Ghulam Abbas Ataie - Senior Software Developer, Technical Lead & Educator",
+    "About Abbas Ataie - Senior Software Developer, Technical Lead & Educator",
   description:
-    "Learn more about Ghulam Abbas Ataie - Senior Software Developer, Technical Lead, and Founder of Roshanayee. Discover my journey in software development, teaching, and YouTube content creation.",
+    "Learn more about Abbas Ataie - Senior Software Developer, Technical Lead, and Founder of Roshanayee. Discover my journey in software development, teaching, and YouTube content creation.",
   keywords:
-    "Ghulam Abbas Ataie, Software Developer, Technical Lead, Roshanayee, Programming Education, YouTube Tech Content, Web Development, Software Engineering",
+    "Abbas Ataie, Software Developer, Technical Lead, Roshanayee, Programming Education, YouTube Tech Content, Web Development, Software Engineering",
   openGraph: {
-    title: "About Ghulam Abbas Ataie - Senior Software Developer & Educator",
+    title: "About Abbas Ataie - Senior Software Developer & Educator",
     description:
       "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
     type: "website",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/about-og.png",
         width: 1200,
         height: 630,
-        alt: "Ghulam Abbas Ataie - Software Developer and Educator",
+        alt: "Abbas Ataie - Software Developer and Educator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Ghulam Abbas Ataie - Software Developer & Educator",
+    title: "About Abbas Ataie - Software Developer & Educator",
     description:
       "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
     images: ["/about-og.png"],
@@ -124,7 +124,7 @@ export default function AboutPage() {
             <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full backdrop-blur-sm border border-blue-200 dark:border-blue-800">
               <span className="h-2 w-2 bg-blue-600 rounded-full animate-pulse"></span>
               <span className="text-blue-600 dark:text-blue-400 font-medium">
-                Hello I'm Ghulam Abbas Ataie
+                Hello I'm Abbas Ataie
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
@@ -166,7 +166,7 @@ export default function AboutPage() {
             <div className="relative w-full aspect-square">
               <Image
                 src="/abbas.jpg"
-                alt="Ghulam Abbas Ataie - Software Developer and Educator"
+                alt="Abbas Ataie - Software Developer and Educator"
                 fill
                 className="object-cover rounded-2xl shadow-2xl"
                 priority

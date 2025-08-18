@@ -4,8 +4,7 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-4">
           <p className="text-blue-600/80 dark:text-blue-400/80 text-sm">
-            © {new Date().getFullYear()} Ghulam Abbas Ataie. All rights
-            reserved.
+            © {new Date().getFullYear()} Abbas Ataie. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground max-w-md text-center">
             Passionate about creating innovative solutions and sharing

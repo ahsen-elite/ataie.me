@@ -231,7 +231,7 @@ const ResearchContent = () => {
                     GA
                   </span>
                 </div>
-                <h4 className="font-medium">Ghulam Abbas Ataie</h4>
+                <h4 className="font-medium">Abbas Ataie</h4>
                 <p className="text-sm text-muted-foreground">
                   Department of Data Science
                 </p>

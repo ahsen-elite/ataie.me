@@ -19,12 +19,12 @@ export async function generateMetadata({
 
   if (!videoData) {
     return {
-      title: "Video Not Found | Ghulam Abbas Ataie",
+      title: "Video Not Found | Abbas Ataie",
       description: "The requested video could not be found.",
     };
   }
 
-  const title = `${videoData.title} | Research Video | Ghulam Abbas Ataie`;
+  const title = `${videoData.title} | Research Video | Abbas Ataie`;
   const description = videoData.description;
   const videoUrl = `https://ataie.me/research/video/${params.id}`;
   const imageUrl = `https://ataie.me/research/studey-research-thumbnail.jpg`;
@@ -39,19 +39,19 @@ export async function generateMetadata({
       "data science",
       "machine learning",
       "web development",
-      "Ghulam Abbas Ataie",
+      "Abbas Ataie",
       ...videoData.title.toLowerCase().split(" "),
     ],
-    authors: [{ name: "Ghulam Abbas Ataie", url: "https://ataie.me" }],
-    creator: "Ghulam Abbas Ataie",
-    publisher: "Ghulam Abbas Ataie",
+    authors: [{ name: "Abbas Ataie", url: "https://ataie.me" }],
+    creator: "Abbas Ataie",
+    publisher: "Abbas Ataie",
     openGraph: {
       type: "video.other",
       locale: "en_US",
       url: videoUrl,
       title,
       description,
-      siteName: "Ghulam Abbas Ataie",
+      siteName: "Abbas Ataie",
       images: [
         {
           url: imageUrl,
@@ -126,12 +126,12 @@ export default function VideoPage({ params }: VideoPageProps) {
     embedUrl: `https://ataie.me/research/video/${params.id}`,
     author: {
       "@type": "Person",
-      name: "Ghulam Abbas Ataie",
+      name: "Abbas Ataie",
       url: "https://ataie.me",
     },
     publisher: {
       "@type": "Organization",
-      name: "Ghulam Abbas Ataie",
+      name: "Abbas Ataie",
       url: "https://ataie.me",
     },
     genre: videoData.category,

@@ -22,7 +22,7 @@ const researchProjects = [
     ],
     team: [
       {
-        name: "Ghulam Abbas Ataie",
+        name: "Abbas Ataie",
         initials: "GA",
         color: "blue",
       },

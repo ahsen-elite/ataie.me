@@ -11,11 +11,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Mentoring | Ghulam Abbas Ataie",
+  title: "Mentoring | Abbas Ataie",
   description:
     "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
   openGraph: {
-    title: "Mentoring | Ghulam Abbas Ataie",
+    title: "Mentoring | Abbas Ataie",
     description:
       "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
     images: [
@@ -23,17 +23,17 @@ export const metadata: Metadata = {
         url: "/mentoring-og.png",
         width: 1200,
         height: 630,
-        alt: "Mentoring | Ghulam Abbas Ataie",
+        alt: "Mentoring | Abbas Ataie",
       },
     ],
-    siteName: "Ghulam Abbas Ataie",
+    siteName: "Abbas Ataie",
     type: "website",
     url: "https://ataie.me/mentoring",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mentoring | Ghulam Abbas Ataie",
+    title: "Mentoring | Abbas Ataie",
     description:
       "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
     images: ["/mentoring-og.png"],
@@ -142,7 +142,7 @@ export default function MentoringPage() {
               <div className="relative w-full aspect-square">
                 <Image
                   src="/mentoring.png"
-                  alt="Ghulam Abbas Ataie - Tech Mentor"
+                  alt="Abbas Ataie - Tech Mentor"
                   fill
                   className="object-cover rounded-2xl shadow-2xl"
                   priority

@@ -14,13 +14,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://ataie.me"),
   title: {
-    default: "Ghulam Abbas Ataie | Senior Software Developer & Technical Lead",
-    template: "%s | Ghulam Abbas Ataie",
+    default: "Abbas Ataie | Senior Software Developer & Technical Lead",
+    template: "%s | Abbas Ataie",
   },
   description:
-    "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
+    "Portfolio of Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
   keywords: [
-    "Ghulam Abbas Ataie",
+    "Abbas Ataie",
     "Software Developer",
     "Technical Lead",
     "Full-Stack Development",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     "System Design",
     "API Development",
   ],
-  authors: [{ name: "Ghulam Abbas Ataie", url: "https://ataie.me" }],
-  creator: "Ghulam Abbas Ataie",
-  publisher: "Ghulam Abbas Ataie",
+  authors: [{ name: "Abbas Ataie", url: "https://ataie.me" }],
+  creator: "Abbas Ataie",
+  publisher: "Abbas Ataie",
   formatDetection: {
     email: false,
     address: false,
@@ -53,24 +53,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ataie.me",
-    title: "Ghulam Abbas Ataie | Senior Software Developer & Technical Lead",
+    title: "Abbas Ataie | Senior Software Developer & Technical Lead",
     description:
-      "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
-    siteName: "Ghulam Abbas Ataie",
+      "Portfolio of Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
+    siteName: "Abbas Ataie",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Ghulam Abbas Ataie - Senior Software Developer & Technical Lead",
+        alt: "Abbas Ataie - Senior Software Developer & Technical Lead",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ghulam Abbas Ataie | Senior Software Developer & Technical Lead",
+    title: "Abbas Ataie | Senior Software Developer & Technical Lead",
     description:
-      "Portfolio of Ghulam Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
+      "Portfolio of Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
     creator: "@abbasataie",
     images: ["/opengraph-image.png"],
     site: "@abbasataie",
@@ -120,7 +120,7 @@ export const metadata: Metadata = {
     initialScale: 1,
     maximumScale: 5,
   },
-  applicationName: "Ghulam Abbas Ataie Portfolio",
+  applicationName: "Abbas Ataie Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   themeColor: [
@@ -133,7 +133,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Ghulam Abbas Ataie",
+  name: "Abbas Ataie",
   url: "https://ataie.me",
   jobTitle: "Senior Software Developer & Technical Lead",
   description:

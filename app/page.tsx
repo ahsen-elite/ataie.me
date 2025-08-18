@@ -6,11 +6,11 @@ import ProjectShowcase from "@/components/project-showcase";
 
 export const metadata: Metadata = {
   description:
-    "Welcome to Ghulam Abbas Ataie's portfolio. Senior Software Developer and Technical Lead specializing in Full-Stack Development, Cloud Architecture, and Technical Leadership.",
+    "Welcome to Abbas Ataie's portfolio. Senior Software Developer and Technical Lead specializing in Full-Stack Development, Cloud Architecture, and Technical Leadership.",
   openGraph: {
-    title: "Ghulam Abbas Ataie | Senior Software Developer & Technical Lead",
+    title: "Abbas Ataie | Senior Software Developer & Technical Lead",
     description:
-      "Welcome to Ghulam Abbas Ataie's portfolio. Senior Software Developer and Technical Lead specializing in Full-Stack Development, Cloud Architecture, and Technical Leadership.",
+      "Welcome to Abbas Ataie's portfolio. Senior Software Developer and Technical Lead specializing in Full-Stack Development, Cloud Architecture, and Technical Leadership.",
   },
 };
 

@@ -17,7 +17,7 @@ const AboutContent = () => {
           <div className="aspect-square relative rounded-2xl overflow-hidden">
             <Image
               src="/about.jpeg"
-              alt="Ghulam Abbas Ataie"
+              alt="Abbas Ataie"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -94,10 +94,10 @@ const AboutContent = () => {
         >
           <div className="prose prose-invert max-w-none space-y-6">
             <p>
-              Hi! I'm Ghulam Abbas Ataie, a Senior Software Developer and
-              Technical Lead with over 5 years of experience in developing and
-              scaling enterprise applications. I specialize in Full-Stack
-              Development, Cloud Architecture, and Technical Leadership.
+              Hi! I'm Abbas Ataie, a Senior Software Developer and Technical
+              Lead with over 5 years of experience in developing and scaling
+              enterprise applications. I specialize in Full-Stack Development,
+              Cloud Architecture, and Technical Leadership.
             </p>
 
             <p>
