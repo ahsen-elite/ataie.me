@@ -168,7 +168,7 @@ const Header = () => {
               </span>
             </Link>
             <Link
-              href="https://www.linkedin.com/in/ghulam-abbas-ataie-72a4431b9/"
+              href="https://www.linkedin.com/in/abbas-ataie-72a4431b9/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-foreground/60 hover:text-blue-500 transition-colors group"
@@ -289,7 +289,7 @@ const Header = () => {
                     </span>
                   </Link>
                   <Link
-                    href="https://www.linkedin.com/in/ghulam-abbas-ataie-72a4431b9/"
+                    href="https://www.linkedin.com/in/abbas-ataie-72a4431b9/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-foreground/60 hover:text-blue-500 transition-colors group"

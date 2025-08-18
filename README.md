@@ -239,7 +239,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🔗 Links
 
 - **Website**: [https://ataie.me](https://ataie.me)
-- **LinkedIn**: [Abbas Ataie](https://linkedin.com/in/ghulam-abbas-ataie)
+- **LinkedIn**: [Abbas Ataie](https://linkedin.com/in/abbas-ataie-72a4431b9)
 - **GitHub**: [@abbasatayee](https://github.com/abbasatayee)
 - **YouTube**: [Roshanayee](https://youtube.com/@roshanayee)
 

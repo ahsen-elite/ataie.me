@@ -68,7 +68,7 @@ const Contact = () => {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/ghulam-abbas-ataie-72a4431b9/"
+              href="https://www.linkedin.com/in/abbas-ataie-72a4431b9/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
