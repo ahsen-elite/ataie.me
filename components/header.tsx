@@ -39,7 +39,7 @@ const Header = () => {
     if (path === "/contact") return pathname === "/contact";
     if (path === "/projects") return pathname === "/projects";
     if (path === "/about") return pathname === "/about";
-    if (path === "/mentoring") return pathname === "/mentoring";
+    // if (path === "/mentoring") return pathname === "/mentoring";
     if (path === "/research") return pathname === "/research";
     if (path === "/") return pathname === "/";
     return pathname === path;
@@ -49,7 +49,7 @@ const Header = () => {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/research", label: "Research" },
-    { href: "/mentoring", label: "Mentoring" },
+    // { href: "/mentoring", label: "Mentoring" },
     { href: "/contact", label: "Contact" },
   ];
 

@@ -128,7 +128,7 @@ export default function AboutPage() {
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
-              Senior Software Developer & Technical Lead
+              Software Developer & Technical Lead
             </h1>
             <p className="text-muted-foreground text-lg">
               I'm a passionate developer who loves building innovative solutions
