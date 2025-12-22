@@ -1,6 +1,15 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Sparkles,
+  ArrowRight,
+  Code,
+  Brain,
+  Database,
+  BarChart3,
+  TrendingUp,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   description:
@@ -16,57 +25,151 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col">
       <div className="flex-1 max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8">
-        {/* Hero with Recently Worked With */}
+        {/* Hero Section */}
         <section className="min-h-screen flex flex-col justify-center">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-4">
-              Software Engineer & Data Scientist
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              Turning complex problems into elegant solutions
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground">
-              I specialize in full‑stack development, data science, and cloud architecture,
-              with a focus on performance, accessibility, and clean DX.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                Get in touch
-              </Link>
-              <Link
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md border border-border px-6 py-3 text-base font-medium hover:bg-accent"
-              >
-                View resume
-              </Link>
-            </div>
-          </div>
+          <div className="max-w-4xl">
+            <div className="space-y-8">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+                <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                  Software Engineer & Data Scientist
+                </span>
+              </div>
 
-          {/* Recently worked with - compact */}
-          <div className="mt-16 pt-8 border-t border-border/20">
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <span className="uppercase tracking-wider">
-                Recently worked with
-              </span>
-              <Image
-                src="/cs-logo-light.svg"
-                alt="Cloud Station"
-                width={96}
-                height={20}
-                className=" block dark:hidden"
-              />
-              <Image
-                src="/cs-logo-dark.svg"
-                alt="Cloud Station"
-                width={96}
-                height={20}
-                className="hidden dark:block"
-              />
+              {/* Main Heading */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                Building software systems and{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                  extracting insights from data
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                I develop scalable applications and apply machine learning to
+                solve complex problems. Combining software engineering expertise
+                with data science to deliver impactful solutions.
+              </p>
+
+              {/* Experience Stats - Creative */}
+              <div className="grid grid-cols-2 gap-4 pt-4 max-w-md">
+                {/* Software Engineering Experience */}
+                <div className="relative group">
+                  <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-xl p-4 border border-blue-500/20 hover:border-blue-500/40 transition-all">
+                    <div className="flex items-start justify-between mb-2">
+                      <Code className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <TrendingUp className="w-4 h-4 text-blue-600/60 dark:text-blue-400/60" />
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                        6
+                      </div>
+                      <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                        Years
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Software Engineering
+                      </div>
+                    </div>
+                    {/* Progress bar indicator */}
+                    <div className="mt-3 h-1.5 bg-blue-500/20 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-blue-600 to-blue-500 rounded-full"
+                        style={{ width: "100%" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Data Science Experience */}
+                <div className="relative group">
+                  <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-xl p-4 border border-purple-500/20 hover:border-purple-500/40 transition-all">
+                    <div className="flex items-start justify-between mb-2">
+                      <Brain className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                      <TrendingUp className="w-4 h-4 text-purple-600/60 dark:text-purple-400/60" />
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+                        1
+                      </div>
+                      <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                        Year
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Data Science & ML
+                      </div>
+                    </div>
+                    {/* Progress bar indicator - showing growth */}
+                    <div className="mt-3 h-1.5 bg-purple-500/20 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-purple-600 to-purple-500 rounded-full"
+                        style={{ width: "16.67%" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Key Areas - Balanced */}
+              <div className="flex flex-wrap gap-3 pt-2">
+                {[
+                  { icon: Code, label: "Software Engineering" },
+                  { icon: Brain, label: "Machine Learning" },
+                  { icon: Database, label: "Data Science" },
+                  { icon: BarChart3, label: "Analytics" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/50 border border-border/50 hover:bg-muted transition-colors"
+                  >
+                    <item.icon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
+                >
+                  Get in touch
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md border border-border px-6 py-3 text-base font-medium hover:bg-accent transition-colors"
+                >
+                  View resume
+                </Link>
+              </div>
+            </div>
+
+            {/* Recently worked with */}
+            <div className="mt-20 pt-8 border-t border-border/20">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <span className="uppercase tracking-wider">
+                  Recently worked with
+                </span>
+                <Image
+                  src="/cs-logo-light.svg"
+                  alt="Cloud Station"
+                  width={96}
+                  height={20}
+                  className="block dark:hidden"
+                />
+                <Image
+                  src="/cs-logo-dark.svg"
+                  alt="Cloud Station"
+                  width={96}
+                  height={20}
+                  className="hidden dark:block"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -133,24 +236,25 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-2xl font-semibold mb-4">Specializations</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Deep expertise across the full technology stack, from frontend
-              interfaces to cloud infrastructure
+              Deep expertise across software engineering and data science, from
+              building scalable applications to extracting actionable insights
+              from complex datasets
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Cloud Architecture",
+                title: "Data Science & ML",
                 description:
-                  "Scalable cloud solutions and infrastructure design for enterprise applications",
+                  "Machine learning models, predictive analytics, and data-driven decision making for business intelligence",
                 technologies: [
-                  "AWS",
-                  "Docker",
-                  "Kubernetes",
-                  "Microservices",
-                  "CI/CD",
+                  "Python",
+                  "TensorFlow",
+                  "Pandas",
+                  "Scikit-learn",
+                  "Data Analytics",
                 ],
-                icon: "☁️",
+                icon: "📊",
               },
               {
                 title: "Full-Stack Development",
@@ -166,16 +270,17 @@ export default function Home() {
                 icon: "⚡",
               },
               {
-                title: "Technical Leadership",
+                title: "Cloud Architecture",
                 description:
-                  "Leading development teams and driving technical strategy for complex projects",
+                  "Scalable cloud solutions and infrastructure design for enterprise applications",
                 technologies: [
-                  "Team Management",
-                  "Code Reviews",
-                  "Architecture",
-                  "Mentoring",
+                  "AWS",
+                  "Docker",
+                  "Kubernetes",
+                  "Microservices",
+                  "CI/CD",
                 ],
-                icon: "🎯",
+                icon: "☁️",
               },
             ].map((specialization) => (
               <div
