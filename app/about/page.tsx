@@ -4,15 +4,15 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title:
-    "About Abbas Ataie - Senior Software Developer, Technical Lead & Educator",
+    "About Abbas Ataie - Software Engineer, Data Scientist & Educator",
   description:
-    "Learn more about Abbas Ataie - Senior Software Developer, Technical Lead, and Founder of Roshanayee. Discover my journey in software development, teaching, and YouTube content creation.",
+    "Learn more about Abbas Ataie - Software Engineer, Data Scientist, and Founder of Roshanayee. Discover my journey in software development, data science, teaching, and YouTube content creation.",
   keywords:
-    "Abbas Ataie, Software Developer, Technical Lead, Roshanayee, Programming Education, YouTube Tech Content, Web Development, Software Engineering",
+    "Abbas Ataie, Software Engineer, Data Scientist, Roshanayee, Programming Education, YouTube Tech Content, Web Development, Software Engineering, Data Science",
   openGraph: {
-    title: "About Abbas Ataie - Senior Software Developer & Educator",
+    title: "About Abbas Ataie - Software Engineer & Data Scientist",
     description:
-      "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
+      "Software Engineer, Data Scientist, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
     type: "website",
     url: "https://ataie.me/about",
     images: [
@@ -20,15 +20,15 @@ export const metadata: Metadata = {
         url: "/about-og.png",
         width: 1200,
         height: 630,
-        alt: "Abbas Ataie - Software Developer and Educator",
+        alt: "Abbas Ataie - Software Engineer & Data Scientist",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Abbas Ataie - Software Developer & Educator",
+    title: "About Abbas Ataie - Software Engineer & Data Scientist",
     description:
-      "Senior Software Developer, Technical Lead, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
+      "Software Engineer, Data Scientist, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
     images: ["/about-og.png"],
   },
 };
@@ -128,7 +128,7 @@ export default function AboutPage() {
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
-              Software Developer & Technical Lead
+              Software Engineer & Data Scientist
             </h1>
             <p className="text-muted-foreground text-lg">
               I'm a passionate developer who loves building innovative solutions

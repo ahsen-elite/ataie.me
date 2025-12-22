@@ -4,11 +4,11 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   description:
-    "Welcome to Abbas Ataie's portfolio. Senior Software Developer and Technical Lead specializing in Full-Stack Development, Cloud Architecture, and Technical Leadership.",
+    "Welcome to Abbas Ataie's portfolio. Software Engineer and Data Scientist specializing in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership.",
   openGraph: {
-    title: "Abbas Ataie | Senior Software Developer & Technical Lead",
+    title: "Abbas Ataie | Software Engineer & Data Scientist",
     description:
-      "Welcome to Abbas Ataie's portfolio. Senior Software Developer and Technical Lead specializing in Full-Stack Development, Cloud Architecture, and Technical Leadership.",
+      "Welcome to Abbas Ataie's portfolio. Software Engineer and Data Scientist specializing in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership.",
   },
 };
 
@@ -20,13 +20,13 @@ export default function Home() {
         <section className="min-h-screen flex flex-col justify-center">
           <div className="max-w-3xl">
             <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-4">
-              Software Developer & Technical Lead
+              Software Engineer & Data Scientist
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
               Turning complex problems into elegant solutions
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              I specialize in full‑stack development and cloud architecture,
+              I specialize in full‑stack development, data science, and cloud architecture,
               with a focus on performance, accessibility, and clean DX.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">

@@ -15,7 +15,7 @@ const AboutHero = () => {
           About Me
         </h1>
         <p className="text-foreground/60 max-w-2xl mx-auto text-lg">
-          Software developer with a passion for creating accessible and
+          Software Engineer & Data Scientist with a passion for creating accessible and
           impactful digital experiences
         </p>
       </motion.div>

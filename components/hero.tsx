@@ -58,7 +58,7 @@ const Hero = () => {
             className="text-muted-foreground text-lg mb-10 relative"
           >
             <span className="inline-block">
-              Senior Software Developer & Technical Lead
+              Software Engineer & Data Scientist
             </span>
             {!prefersReducedMotion && (
               <motion.div
@@ -148,7 +148,7 @@ const Hero = () => {
                 "bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700"
               )}
             >
-              Full-Stack Developer & Cloud Architect
+              Software Engineer & Data Scientist
             </span>
             <div className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500/30 rounded-full"></div>
           </motion.div>

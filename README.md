@@ -1,6 +1,6 @@
 # Abbas Ataie - Personal Portfolio
 
-A modern, responsive personal portfolio website built with Next.js 13, TypeScript, and Tailwind CSS. This website showcases my work as a Senior Software Developer and Technical Lead, featuring project showcases, research work, mentoring services, and professional experience.
+A modern, responsive personal portfolio website built with Next.js 13, TypeScript, and Tailwind CSS. This website showcases my work as a Software Engineer and Data Scientist, featuring project showcases, research work, mentoring services, and professional experience.
 
 ## 🌟 Features
 
@@ -255,13 +255,15 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 About the Developer
 
-**Abbas Ataie** is a Senior Software Developer and Technical Lead with expertise in:
+**Abbas Ataie** is a Software Engineer and Data Scientist with expertise in:
 
 - Full-Stack Development
+- Data Science & Machine Learning
 - Cloud Architecture
 - Technical Leadership
 - React/Next.js Development
 - Node.js Backend Development
+- Python & Data Analytics
 - AWS Cloud Solutions
 
 ## 🔗 Links

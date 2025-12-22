@@ -56,10 +56,10 @@ export default function About() {
                   </h3>
                 </div>
                 <p className="text-blue-100/80 leading-relaxed">
-                  I am a Senior Software Developer and Technical Lead with over
-                  5 years of experience in full-stack development, cloud
+                  I am a Software Engineer and Data Scientist with over
+                  5 years of experience in full-stack development, data science, cloud
                   architecture, and technical leadership. I specialize in
-                  building scalable web applications using modern technologies
+                  building scalable web applications and data-driven solutions using modern technologies
                   and best practices.
                 </p>
               </CardContent>

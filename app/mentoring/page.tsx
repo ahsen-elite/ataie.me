@@ -13,11 +13,11 @@ import {
 export const metadata: Metadata = {
   title: "Mentoring | Abbas Ataie",
   description:
-    "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
+    "Get personalized mentorship in software development, data science, career guidance, and technical leadership from an experienced software engineer and data scientist.",
   openGraph: {
     title: "Mentoring | Abbas Ataie",
     description:
-      "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
+      "Get personalized mentorship in software development, data science, career guidance, and technical leadership from an experienced software engineer and data scientist.",
     images: [
       {
         url: "/mentoring-og.png",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mentoring | Abbas Ataie",
     description:
-      "Get personalized mentorship in software development, career guidance, and technical leadership from an experienced senior developer.",
+      "Get personalized mentorship in software development, data science, career guidance, and technical leadership from an experienced software engineer and data scientist.",
     images: ["/mentoring-og.png"],
   },
   alternates: {
@@ -124,8 +124,8 @@ export default function MentoringPage() {
                 Level Up Your Tech Career
               </h1>
               <p className="text-muted-foreground text-lg">
-                Get personalized guidance from a senior developer with extensive
-                experience in full-stack development, technical leadership, and
+                Get personalized guidance from a software engineer and data scientist with extensive
+                experience in full-stack development, data science, technical leadership, and
                 career growth.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -222,12 +222,12 @@ export default function MentoringPage() {
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <span className="text-blue-600 dark:text-blue-400">✓</span>
-                  <p>Senior Software Developer with 6+ years of experience</p>
+                  <p>Software Engineer & Data Scientist with 6+ years of experience</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-blue-600 dark:text-blue-400">✓</span>
                   <p>
-                    Technical Lead with proven track record of successful
+                    Expert in both software engineering and data science with proven track record of successful
                     projects
                   </p>
                 </div>

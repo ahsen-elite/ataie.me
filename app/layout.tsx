@@ -14,11 +14,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://ataie.me"),
   title: {
-    default: "Abbas Ataie | Senior Software Developer & Technical Lead",
+    default: "Abbas Ataie | Software Engineer & Data Scientist",
     template: "%s | Abbas Ataie",
   },
   description:
-    "Portfolio of Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
+    "Portfolio of Abbas Ataie, Software Engineer and Data Scientist with expertise in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, Python, Machine Learning, and AWS solutions.",
   keywords: [
     "Abbas Ataie",
     "Software Developer",
@@ -53,24 +53,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ataie.me",
-    title: "Abbas Ataie | Senior Software Developer & Technical Lead",
+    title: "Abbas Ataie | Software Engineer & Data Scientist",
     description:
-      "Portfolio of Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
+      "Portfolio of Abbas Ataie, Software Engineer and Data Scientist with expertise in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, Python, Machine Learning, and AWS solutions.",
     siteName: "Abbas Ataie",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Abbas Ataie - Senior Software Developer & Technical Lead",
+        alt: "Abbas Ataie - Software Engineer & Data Scientist",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abbas Ataie | Senior Software Developer & Technical Lead",
+    title: "Abbas Ataie | Software Engineer & Data Scientist",
     description:
-      "Portfolio of Abbas Ataie, Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, and AWS solutions.",
+      "Portfolio of Abbas Ataie, Software Engineer and Data Scientist with expertise in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, Python, Machine Learning, and AWS solutions.",
     creator: "@abbasataie",
     images: ["/opengraph-image.png"],
     site: "@abbasataie",
@@ -135,9 +135,9 @@ const jsonLd = {
   "@type": "Person",
   name: "Abbas Ataie",
   url: "https://ataie.me",
-  jobTitle: "Senior Software Developer & Technical Lead",
+  jobTitle: "Software Engineer & Data Scientist",
   description:
-    "Senior Software Developer and Technical Lead with expertise in Full-Stack Development, Cloud Architecture, and Technical Leadership",
+    "Software Engineer and Data Scientist with expertise in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership",
   sameAs: ["https://twitter.com/abbasataie", "https://github.com/abbasatayee"],
   worksFor: {
     "@type": "Organization",
@@ -145,11 +145,14 @@ const jsonLd = {
   },
   knowsAbout: [
     "Full-Stack Development",
+    "Data Science",
+    "Machine Learning",
     "Cloud Architecture",
     "Technical Leadership",
     "React",
     "Node.js",
     "TypeScript",
+    "Python",
     "AWS",
     "Web Development",
     "Software Architecture",
