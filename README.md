@@ -181,7 +181,7 @@ RESEND_API_KEY=re_your_api_key_here
 # For testing: Use "onboarding@resend.dev" as from and your verified email as to
 # For production: Verify your domain at https://resend.com/domains
 RESEND_FROM_EMAIL=Contact Form <noreply@ataie.me>
-RESEND_TO_EMAIL=itsabbas.ataie@gmail.com
+RESEND_TO_EMAIL=
 ```
 
 #### Email Setup Instructions
