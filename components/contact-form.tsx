@@ -21,16 +21,46 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Here you would typically handle the form submission
-    // For now, we'll just show a success message
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
       toast({
         title: "Message sent!",
         description: "I'll get back to you as soon as possible.",
       });
       (e.target as HTMLFormElement).reset();
-    }, 1000);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
