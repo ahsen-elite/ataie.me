@@ -172,7 +172,35 @@ Create a `.env.local` file for any environment-specific configurations:
 
 ```env
 NEXT_PUBLIC_SITE_URL=https://ataie.me
+
+# Resend Email Configuration
+# Get your API key from https://resend.com/api-keys
+RESEND_API_KEY=re_your_api_key_here
+
+# Email addresses (optional - defaults provided)
+# For testing: Use "onboarding@resend.dev" as from and your verified email as to
+# For production: Verify your domain at https://resend.com/domains
+RESEND_FROM_EMAIL=Contact Form <noreply@ataie.me>
+RESEND_TO_EMAIL=itsabbas.ataie@gmail.com
 ```
+
+#### Email Setup Instructions
+
+1. **Get Resend API Key:**
+   - Sign up at [resend.com](https://resend.com)
+   - Go to API Keys and create a new key
+   - Add it to `.env.local` as `RESEND_API_KEY`
+
+2. **For Testing (Free Tier):**
+   - Use `onboarding@resend.dev` as the `from` address
+   - Only send to verified email addresses (the email you used to sign up for Resend)
+   - Set `RESEND_TO_EMAIL` to your verified email
+
+3. **For Production:**
+   - Verify your domain at [resend.com/domains](https://resend.com/domains)
+   - Add DNS records as instructed by Resend
+   - Update `RESEND_FROM_EMAIL` to use your verified domain (e.g., `Contact Form <noreply@ataie.me>`)
+   - Once domain is verified, you can send to any email address
 
 ### SEO Configuration
 

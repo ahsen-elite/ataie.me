@@ -15,6 +15,34 @@ function escapeHtml(text: string): string {
   return text.replace(/[&<>"']/g, (m) => map[m]);
 }
 
+// Helper function to validate and format email address
+// Resend accepts: "email@example.com" or "Name <email@example.com>"
+function validateFromEmail(email: string): string {
+  const trimmed = email.trim();
+
+  // Check if it's already in the correct format: "email@example.com"
+  const emailOnlyRegex = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
+  if (emailOnlyRegex.test(trimmed)) {
+    return trimmed;
+  }
+
+  // Check if it's in format: "Name <email@example.com>" (with or without spaces around < >)
+  const nameEmailRegex = /^.+<\s*[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+\s*>$/;
+  if (nameEmailRegex.test(trimmed)) {
+    // Normalize spacing: ensure single space before < and no space after < or before >
+    return trimmed.replace(/\s*<\s*/, " <").replace(/\s*>\s*/, ">");
+  }
+
+  // If invalid format, try to extract email and use default name
+  const emailMatch = trimmed.match(/[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+/);
+  if (emailMatch) {
+    return `Contact Form <${emailMatch[0]}>`;
+  }
+
+  // Fallback to default
+  return "onboarding@resend.dev";
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Check if API key is configured
@@ -80,11 +108,20 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    // Note: For production, replace "onboarding@resend.dev" with a verified domain
-    // You can verify your domain at https://resend.com/domains
+    // Configure these in your .env.local file:
+    // RESEND_FROM_EMAIL - The verified sender email (e.g., "Contact Form <noreply@ataie.me>" or "noreply@ataie.me")
+    // RESEND_TO_EMAIL - The recipient email (e.g., "itsabbas.ataie@gmail.com")
+    //
+    // For testing: Use "onboarding@resend.dev" as from and your verified email as to
+    // For production: Verify your domain at https://resend.com/domains and use an email from that domain
+    const fromEmailRaw =
+      process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+    const fromEmail = validateFromEmail(fromEmailRaw);
+    const toEmail = process.env.RESEND_TO_EMAIL || "itsabbas.ataie@gmail.com";
+
     const { data, error } = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: ["itsabbas.ataie@gmail.com"],
+      from: fromEmail,
+      to: [toEmail],
       subject: `New Contact Form Message from ${escapeHtml(trimmedName)}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -95,9 +132,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${escapeHtml(trimmedName)}</p>
             <p><strong>Email:</strong> ${escapeHtml(trimmedEmail)}</p>
             <p><strong>Message:</strong></p>
-            <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin-top: 10px; white-space: pre-wrap;">
-              ${escapeHtml(trimmedMessage).replace(/\n/g, "<br>")}
-            </div>
+            <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin-top: 10px; white-space: pre-wrap;">${escapeHtml(trimmedMessage).replace(/\n/g, "<br>")}</div>
           </div>
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 12px;">
             <p>This email was sent from your portfolio contact form.</p>
@@ -109,10 +144,14 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json(
-        { error: "Failed to send email. Please try again later." },
-        { status: 500 }
-      );
+
+      // Provide more specific error messages
+      let errorMessage = "Failed to send email. Please try again later.";
+      if (error.message) {
+        errorMessage = error.message;
+      }
+
+      return NextResponse.json({ error: errorMessage }, { status: 500 });
     }
 
     return NextResponse.json(
