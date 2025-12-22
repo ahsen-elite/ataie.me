@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     title: "Research | Abbas Ataie",
     description:
       "Research studies and academic work by Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
+    url: "https://ataie.me/research",
+    siteName: "Abbas Ataie",
+    locale: "en_US",
+    type: "website",
     images: [
       {
         url: "/research-og.png",
@@ -29,10 +33,24 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Research | Abbas Ataie",
     description:
       "Research studies and academic work by Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
+    creator: "@abbasataie",
     images: ["/research-og.png"],
+  },
+  alternates: {
+    canonical: "https://ataie.me/research",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
   },
 };
 

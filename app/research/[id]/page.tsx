@@ -86,26 +86,63 @@ export async function generateMetadata({
     };
   }
 
+  const url = `https://ataie.me/research/${params.id}`;
+  const imageUrl = `https://ataie.me${project.ogImage || "/research-og.png"}`;
+
   return {
-    title: `${project.title} | Research`,
+    title: `${project.title} | Research | Abbas Ataie`,
     description: project.description,
-    keywords: project.keywords,
+    keywords: [
+      ...project.keywords,
+      "Abbas Ataie Research",
+      "Data Science Research",
+      "Academic Research",
+      "University Research",
+      "Student Performance Analysis",
+      "Educational Data Analytics",
+    ],
+    authors: [{ name: "Abbas Ataie", url: "https://ataie.me" }],
+    creator: "Abbas Ataie",
+    publisher: "Abbas Ataie",
     openGraph: {
+      type: "article",
       title: `${project.title} | Research`,
       description: project.description,
+      url: url,
+      siteName: "Abbas Ataie",
+      locale: "en_US",
       images: [
         {
-          url: project.ogImage || "/research-og.png",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: project.title,
         },
       ],
+      publishedTime: project.year,
+      authors: ["Abbas Ataie"],
+      section: project.category,
+      tags: project.keywords,
     },
     twitter: {
+      card: "summary_large_image",
       title: `${project.title} | Research`,
       description: project.description,
-      images: [project.ogImage || "/research-og.png"],
+      creator: "@abbasataie",
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: url,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -117,5 +154,45 @@ export default function ResearchPage({ params }: ResearchPageProps) {
     notFound();
   }
 
-  return <ResearchDetail project={project} />;
+  // Article structured data for SEO
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    headline: project.title,
+    description: project.description,
+    abstract: project.abstract,
+    author: project.team.map((member) => ({
+      "@type": "Person",
+      name: member.name,
+    })),
+    publisher: {
+      "@type": "Organization",
+      name: project.university,
+      url: "https://www.ue-germany.com",
+    },
+    datePublished: project.year,
+    image: `https://ataie.me${project.ogImage || "/research-og.png"}`,
+    keywords: project.keywords.join(", "),
+    about: {
+      "@type": "Thing",
+      name: project.category,
+    },
+    inLanguage: "en-US",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://ataie.me/research/${params.id}`,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd),
+        }}
+      />
+      <ResearchDetail project={project} />
+    </>
+  );
 }

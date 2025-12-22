@@ -12,14 +12,40 @@ export const metadata: Metadata = {
   title: "About Abbas Ataie - Software Engineer, Data Scientist & Educator",
   description:
     "Learn more about Abbas Ataie - Software Engineer, Data Scientist, and Founder of Roshanayee. Discover my journey in software development, data science, teaching, and YouTube content creation.",
-  keywords:
-    "Abbas Ataie, Software Engineer, Data Scientist, Roshanayee, Programming Education, YouTube Tech Content, Web Development, Software Engineering, Data Science",
+  keywords: [
+    "Abbas Ataie",
+    "Ghulam Abbas Ataie",
+    "Ghulam Abbas",
+    "Afghan Developer",
+    "UE Software Engineer",
+    "Master Of Data Science",
+    "Software Engineer",
+    "Data Scientist",
+    "About Abbas Ataie",
+    "Roshanayee",
+    "Programming Education",
+    "YouTube Tech Content",
+    "Web Development",
+    "Software Engineering",
+    "Data Science",
+    "Machine Learning",
+    "Full-Stack Developer",
+    "Technical Lead",
+    "Cloud Architecture",
+    "Micro1 Certified",
+    "University of Europe",
+    "Kabul Polytechnic University",
+    "Portfolio",
+    "Professional Background",
+  ],
   openGraph: {
     title: "About Abbas Ataie - Software Engineer & Data Scientist",
     description:
-      "Software Engineer, Data Scientist, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
-    type: "website",
+      "Learn about Abbas Ataie - Software Engineer & Data Scientist with 6+ years of experience. Founder of Roshanayee, Micro1 Certified Senior Full-stack Developer, currently pursuing Master's in Data Science at University of Europe.",
+    type: "profile",
     url: "https://ataie.me/about",
+    siteName: "Abbas Ataie",
+    locale: "en_US",
     images: [
       {
         url: "/about-og.png",
@@ -33,8 +59,22 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Abbas Ataie - Software Engineer & Data Scientist",
     description:
-      "Software Engineer, Data Scientist, and Founder of Roshanayee. Sharing knowledge through teaching and YouTube content creation.",
+      "Learn about Abbas Ataie - Software Engineer & Data Scientist with 6+ years of experience. Founder of Roshanayee, Micro1 Certified Senior Full-stack Developer.",
+    creator: "@abbasataie",
     images: ["/about-og.png"],
+  },
+  alternates: {
+    canonical: "https://ataie.me/about",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

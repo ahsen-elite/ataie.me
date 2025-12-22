@@ -21,14 +21,25 @@ export const metadata: Metadata = {
     "Portfolio of Abbas Ataie, Software Engineer and Data Scientist with expertise in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, Python, Machine Learning, and AWS solutions.",
   keywords: [
     "Abbas Ataie",
+    "Ghulam Abbas Ataie",
+    "Ghulam Abbas",
+    "Afghan Developer",
+    "UE Software Engineer",
+    "Master Of Data Science",
+    "Software Engineer",
+    "Data Scientist",
     "Software Developer",
     "Technical Lead",
     "Full-Stack Development",
+    "Data Science",
+    "Machine Learning",
     "Cloud Architecture",
     "Web Development",
     "React",
+    "Next.js",
     "Node.js",
     "TypeScript",
+    "Python",
     "AWS",
     "Portfolio",
     "Software Engineering",
@@ -40,6 +51,10 @@ export const metadata: Metadata = {
     "Web Performance",
     "System Design",
     "API Development",
+    "Data Analytics",
+    "Power BI",
+    "PyTorch",
+    "Data Visualization",
   ],
   authors: [{ name: "Abbas Ataie", url: "https://ataie.me" }],
   creator: "Abbas Ataie",
@@ -134,37 +149,128 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Abbas Ataie",
+  alternateName: ["Ghulam Abbas Ataie", "Ghulam Abbas"],
   url: "https://ataie.me",
   jobTitle: "Software Engineer & Data Scientist",
   description:
-    "Software Engineer and Data Scientist with expertise in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership",
-  sameAs: ["https://twitter.com/abbasataie", "https://github.com/abbasatayee"],
-  worksFor: {
+    "Software Engineer and Data Scientist with 6+ years of experience in Full-Stack Development, Data Science, Machine Learning, Cloud Architecture, and Technical Leadership. Specializing in React, Next.js, Node.js, TypeScript, Python, and AWS solutions.",
+  email: "contact@ataie.me",
+  nationality: {
+    "@type": "Country",
+    name: "Afghanistan",
+  },
+  sameAs: [
+    "https://twitter.com/abbasataie",
+    "https://github.com/abbasatayee",
+    "https://linkedin.com/in/abbas-ataie-72a4431b9",
+    "https://www.youtube.com/@abbas-ataie",
+    "https://roshanayee.com",
+  ],
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "Tara Solutions Inc",
+      url: "https://tarasolutions.cloud",
+    },
+    {
+      "@type": "Organization",
+      name: "Cloud Station LLC FZ",
+      url: "https://cloud-station.io",
+    },
+  ],
+  founder: {
     "@type": "Organization",
-    name: "Tara Solutions Inc",
+    name: "Roshanayee",
+    url: "https://roshanayee.com",
   },
   knowsAbout: [
     "Full-Stack Development",
     "Data Science",
     "Machine Learning",
+    "Data Analytics",
     "Cloud Architecture",
     "Technical Leadership",
     "React",
+    "Next.js",
     "Node.js",
     "TypeScript",
     "Python",
+    "PyTorch",
+    "Power BI",
     "AWS",
     "Web Development",
     "Software Architecture",
+    "Data Visualization",
+    "Statistical Analysis",
   ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "University of Europe for Applied Sciences (UE)",
-  },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "University of Europe for Applied Sciences",
+      url: "https://www.ue-germany.com",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Kabul Polytechnic University",
+    },
+  ],
   image: "https://ataie.me/opengraph-image.png",
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": "https://ataie.me",
+  },
+  award: "Micro1 Certified Senior Full-stack Developer",
+  hasCredential: {
+    "@type": "EducationalOccupationalCredential",
+    credentialCategory: "Professional Certification",
+    recognizedBy: {
+      "@type": "Organization",
+      name: "Micro1",
+      url: "https://www.micro1.ai",
+    },
+  },
+};
+
+// Organization structured data
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Abbas Ataie Portfolio",
+  url: "https://ataie.me",
+  logo: "https://ataie.me/opengraph-image.png",
+  sameAs: [
+    "https://twitter.com/abbasataie",
+    "https://github.com/abbasatayee",
+    "https://linkedin.com/in/abbas-ataie-72a4431b9",
+    "https://www.youtube.com/@abbas-ataie",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Professional Inquiry",
+    email: "contact@ataie.me",
+    availableLanguage: ["English", "German", "Dari"],
+  },
+};
+
+// Website structured data with search action
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Abbas Ataie Portfolio",
+  url: "https://ataie.me",
+  description:
+    "Portfolio of Abbas Ataie - Software Engineer & Data Scientist specializing in Full-Stack Development, Data Science, Machine Learning, and Cloud Architecture",
+  publisher: {
+    "@type": "Person",
+    name: "Abbas Ataie",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://ataie.me/research?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 
@@ -183,10 +289,27 @@ export default function RootLayout({
           }}
           suppressHydrationWarning
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+          suppressHydrationWarning
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
+          suppressHydrationWarning
+        />
         <meta name="geo.region" content="DE" />
         <meta name="geo.placename" content="Berlin" />
         <meta name="geo.position" content="52.52;13.403" />
         <meta name="ICBM" content="52.52, 13.403" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="rating" content="general" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

@@ -39,12 +39,29 @@ export const metadata: Metadata = {
     images: ["/mentoring-og.png"],
   },
   alternates: {
-    canonical: "/mentoring",
+    canonical: "https://ataie.me/mentoring",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
   },
+  keywords: [
+    "Tech Mentoring",
+    "Software Engineering Mentorship",
+    "Data Science Mentoring",
+    "Career Guidance",
+    "Technical Mentorship",
+    "Programming Mentor",
+    "Code Review",
+    "Career Strategy",
+    "Tech Career Coaching",
+    "Software Development Mentoring",
+  ],
 };
 
 const mentoringAreas = [

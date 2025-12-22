@@ -30,8 +30,19 @@ export const metadata: Metadata = {
     images: ["/contact-og.png"],
   },
   alternates: {
-    canonical: "/contact",
+    canonical: "https://ataie.me/contact",
   },
+  keywords: [
+    "Contact Abbas Ataie",
+    "Hire Software Engineer",
+    "Hire Data Scientist",
+    "Freelance Developer",
+    "Software Engineering Services",
+    "Data Science Consulting",
+    "Web Development Services",
+    "Technical Consultation",
+    "Project Collaboration",
+  ],
   robots: {
     index: true,
     follow: true,
