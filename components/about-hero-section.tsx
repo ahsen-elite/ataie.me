@@ -56,10 +56,10 @@ export default function AboutHeroSection() {
         <div className="relative">
           <div className="relative w-full aspect-square">
             <Image
-              src="/abbas.jpg"
-              alt="Abbas Ataie - Software Engineer & Data Scientist"
               fill
-              className="object-cover rounded-2xl shadow-2xl"
+              src="/profile-image.jpeg"
+              alt="Abbas Ataie - Software Engineer & Data Scientist"
+              className="object-cover object-[50%_30%] rounded-2xl shadow-2xl"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 via-purple-500/20 to-transparent rounded-2xl"></div>
