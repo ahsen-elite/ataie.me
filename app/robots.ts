@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/admin/"],
       },
     ],
-    sitemap: "https://ataie.me/sitemap.xml",
+    sitemap: "https://abbasataie.com/sitemap.xml",
   };
 }
 

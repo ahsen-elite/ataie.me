@@ -12,7 +12,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ataie.me"),
+  metadataBase: new URL("https://abbasataie.com"),
   title: {
     default: "Abbas Ataie | Software Engineer & Data Scientist",
     template: "%s | Abbas Ataie",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     "PyTorch",
     "Data Visualization",
   ],
-  authors: [{ name: "Abbas Ataie", url: "https://ataie.me" }],
+  authors: [{ name: "Abbas Ataie", url: "https://abbasataie.com" }],
   creator: "Abbas Ataie",
   publisher: "Abbas Ataie",
   formatDetection: {
@@ -64,10 +64,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  openGraph: {
+  openGraph: {  
     type: "website",
     locale: "en_US",
-    url: "https://ataie.me",
+    url: "https://abbasataie.com",
     title: "Abbas Ataie | Software Engineer & Data Scientist",
     description:
       "Portfolio of Abbas Ataie, Software Engineer and Data Scientist with expertise in Full-Stack Development, Data Science, Cloud Architecture, and Technical Leadership. Specializing in React, Node.js, TypeScript, Python, Machine Learning, and AWS solutions.",
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://ataie.me",
+    canonical: "https://abbasataie.com",
   },
   icons: {
     icon: [
@@ -150,11 +150,11 @@ const jsonLd = {
   "@type": "Person",
   name: "Abbas Ataie",
   alternateName: ["Ghulam Abbas Ataie", "Ghulam Abbas"],
-  url: "https://ataie.me",
+  url: "https://abbasataie.com",
   jobTitle: "Software Engineer & Data Scientist",
   description:
     "Software Engineer and Data Scientist with 6+ years of experience in Full-Stack Development, Data Science, Machine Learning, Cloud Architecture, and Technical Leadership. Specializing in React, Next.js, Node.js, TypeScript, Python, and AWS solutions.",
-  email: "contact@ataie.me",
+  email: "contact@abbasataie.com",
   nationality: {
     "@type": "Country",
     name: "Afghanistan",
@@ -214,10 +214,10 @@ const jsonLd = {
       name: "Kabul Polytechnic University",
     },
   ],
-  image: "https://ataie.me/opengraph-image.png",
-  mainEntityOfPage: {
+  image: "https://abbasataie.com/opengraph-image.png",
+  mainEntityOfPage: { 
     "@type": "WebPage",
-    "@id": "https://ataie.me",
+    "@id": "https://abbasataie.com",
   },
   award: "Micro1 Certified Senior Full-stack Developer",
   hasCredential: {
@@ -236,8 +236,8 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Abbas Ataie Portfolio",
-  url: "https://ataie.me",
-  logo: "https://ataie.me/opengraph-image.png",
+  url: "https://abbasataie.com",
+  logo: "https://abbasataie.com/opengraph-image.png",
   sameAs: [
     "https://twitter.com/abbasataie",
     "https://github.com/abbasatayee",
@@ -247,7 +247,7 @@ const organizationJsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Professional Inquiry",
-    email: "contact@ataie.me",
+    email: "contact@abbasataie.com",
     availableLanguage: ["English", "German", "Dari"],
   },
 };
@@ -257,7 +257,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Abbas Ataie Portfolio",
-  url: "https://ataie.me",
+  url: "https://abbasataie.com",
   description:
     "Portfolio of Abbas Ataie - Software Engineer & Data Scientist specializing in Full-Stack Development, Data Science, Machine Learning, and Cloud Architecture",
   publisher: {
@@ -268,7 +268,7 @@ const websiteJsonLd = {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://ataie.me/research?q={search_term_string}",
+      urlTemplate: "https://abbasataie.com/research?q={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },

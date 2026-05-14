@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://ataie.me/sitemap.xml 
+Sitemap: https://abbasataie.com/sitemap.xml 

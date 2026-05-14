@@ -86,8 +86,8 @@ export async function generateMetadata({
     };
   }
 
-  const url = `https://ataie.me/research/${params.id}`;
-  const imageUrl = `https://ataie.me${project.ogImage || "/research-og.png"}`;
+  const url = `https://abbasataie.com/research/${params.id}`;
+  const imageUrl = `https://abbasataie.com${project.ogImage || "/research-og.png"}`;
 
   return {
     title: `${project.title} | Research | Abbas Ataie`,
@@ -101,7 +101,7 @@ export async function generateMetadata({
       "Student Performance Analysis",
       "Educational Data Analytics",
     ],
-    authors: [{ name: "Abbas Ataie", url: "https://ataie.me" }],
+    authors: [{ name: "Abbas Ataie", url: "https://abbasataie.com" }],
     creator: "Abbas Ataie",
     publisher: "Abbas Ataie",
     openGraph: {
@@ -171,7 +171,7 @@ export default function ResearchPage({ params }: ResearchPageProps) {
       url: "https://www.ue-germany.com",
     },
     datePublished: project.year,
-    image: `https://ataie.me${project.ogImage || "/research-og.png"}`,
+    image: `https://abbasataie.com${project.ogImage || "/research-og.png"}`,
     keywords: project.keywords.join(", "),
     about: {
       "@type": "Thing",
@@ -180,7 +180,7 @@ export default function ResearchPage({ params }: ResearchPageProps) {
     inLanguage: "en-US",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://ataie.me/research/${params.id}`,
+      "@id": `https://abbasataie.com/research/${params.id}`,
     },
   };
 

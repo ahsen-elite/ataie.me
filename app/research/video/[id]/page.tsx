@@ -26,8 +26,8 @@ export async function generateMetadata({
 
   const title = `${videoData.title} | Research Video | Abbas Ataie`;
   const description = videoData.description;
-  const videoUrl = `https://ataie.me/research/video/${params.id}`;
-  const imageUrl = `https://ataie.me/research/studey-research-thumbnail.jpg`;
+  const videoUrl = `https://abbasataie.com/research/video/${params.id}`;
+  const imageUrl = `https://abbasataie.com/research/studey-research-thumbnail.jpg`;
 
   return {
     title,
@@ -42,7 +42,7 @@ export async function generateMetadata({
       "Abbas Ataie",
       ...videoData.title.toLowerCase().split(" "),
     ],
-    authors: [{ name: "Abbas Ataie", url: "https://ataie.me" }],
+    authors: [{ name: "Abbas Ataie", url: "https://abbasataie.com" }],
     creator: "Abbas Ataie",
     publisher: "Abbas Ataie",
     openGraph: {
@@ -62,7 +62,7 @@ export async function generateMetadata({
       ],
       videos: [
         {
-          url: `https://ataie.me${videoData.videoSrc}`,
+          url: `https://abbasataie.com${videoData.videoSrc}`,
           width: 1920,
           height: 1080,
           type: "video/mp4",
@@ -119,20 +119,20 @@ export default function VideoPage({ params }: VideoPageProps) {
     "@type": "VideoObject",
     name: videoData.title,
     description: videoData.description,
-    thumbnailUrl: `https://ataie.me${videoData.thumbnail}`,
+    thumbnailUrl: `https://abbasataie.com${videoData.thumbnail}`,
     uploadDate: `${videoData.year}-01-01`,
     duration: `PT${videoData.duration.replace(":", "M")}S`,
-    contentUrl: `https://ataie.me${videoData.videoSrc}`,
-    embedUrl: `https://ataie.me/research/video/${params.id}`,
+    contentUrl: `https://abbasataie.com${videoData.videoSrc}`,
+    embedUrl: `https://abbasataie.com/research/video/${params.id}`,
     author: {
       "@type": "Person",
       name: "Abbas Ataie",
-      url: "https://ataie.me",
+      url: "https://abbasataie.com",
     },
     publisher: {
       "@type": "Organization",
       name: "Abbas Ataie",
-      url: "https://ataie.me",
+      url: "https://abbasataie.com",
     },
     genre: videoData.category,
     keywords: [

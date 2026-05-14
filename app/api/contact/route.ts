@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     // Configure these in your .env.local file:
-    // RESEND_FROM_EMAIL - The verified sender email (e.g., "Contact Form <noreply@ataie.me>" or "noreply@ataie.me")
+    // RESEND_FROM_EMAIL - The verified sender email (e.g., "Contact Form <noreply@abbasataie.com>" or "noreply@abbasataie.com")
     // RESEND_TO_EMAIL - The recipient email (e.g., "itsabbas.ataie@gmail.com")
     //
     // For testing: Use "onboarding@resend.dev" as from and your verified email as to
