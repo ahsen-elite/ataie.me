@@ -49,11 +49,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams: { success?: string; error?: string };
+};
+
+export default function ContactPage({ searchParams }: ContactPageProps) {
+  const success = searchParams.success === "1";
+  const errorParam = searchParams.error;
+  const error =
+    typeof errorParam === "string" && errorParam.length > 0
+      ? errorParam
+      : undefined;
+
   return (
     <main className="min-h-screen flex flex-col">
       <div className="flex-1 max-w-[1200px] mx-auto w-full  px-4 sm:px-6 lg:px-8">
-        <ContactForm />
+        <ContactForm success={success} error={error} />
       </div>
     </main>
   );

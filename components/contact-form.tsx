@@ -1,68 +1,16 @@
-"use client";
-
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { submitContactForm } from "@/app/contact/actions";
 
-export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+type ContactFormProps = {
+  success?: boolean;
+  error?: string;
+};
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
-    };
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to send message");
-      }
-
-      toast({
-        title: "Message sent!",
-        description: "I'll get back to you as soon as possible.",
-      });
-      (e.target as HTMLFormElement).reset();
-    } catch (error) {
-      console.error("Error sending message:", error);
-      toast({
-        title: "Error",
-        description:
-          error instanceof Error
-            ? error.message
-            : "Failed to send message. Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+export default function ContactForm({ success, error }: ContactFormProps) {
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" aria-hidden="true" />,
@@ -88,12 +36,7 @@ export default function ContactForm() {
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600">
             Let's Work Together
           </h1>
@@ -101,23 +44,34 @@ export default function ContactForm() {
             Have a project in mind? I'm always open to discussing new projects,
             creative ideas, or opportunities to be part of your vision.
           </p>
-        </motion.div>
+        </div>
+
+        {success && (
+          <div
+            className="mb-8 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-center text-sm text-green-700 dark:text-green-300"
+            role="status"
+          >
+            Message sent! I'll get back to you as soon as possible.
+          </div>
+        )}
+        {error && (
+          <div
+            className="mb-8 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-center text-sm text-destructive"
+            role="alert"
+          >
+            {error}
+          </div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             <div className="bg-blue-500/5 rounded-2xl p-8 backdrop-blur-sm">
               <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
               <div className="space-y-6">
-                {contactInfo.map((info, index) => (
+                {contactInfo.map((info) => (
                   <Link
                     key={info.label}
-                    href="/contact"
+                    href={info.href}
                     className="flex items-center gap-4 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-all group cursor-pointer"
                   >
                     <div className="p-3 rounded-lg bg-blue-500/10 text-blue-500 group-hover:scale-110 transition-transform">
@@ -142,42 +96,29 @@ export default function ContactForm() {
             <div className="bg-blue-500/5 rounded-2xl p-8 backdrop-blur-sm">
               <h2 className="text-2xl font-semibold mb-6">Connect with Me</h2>
               <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
+                {socialLinks.map((social) => (
+                  <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 p-4 rounded-xl bg-background/50 hover:bg-background/80 text-blue-500 transition-all group"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    className="flex-1 p-4 rounded-xl bg-background/50 hover:bg-background/80 text-blue-500 transition-all group hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <div className="flex flex-col items-center gap-2">
                       <div className="p-3 rounded-lg bg-blue-500/10 group-hover:scale-110 transition-transform">
                         {social.icon}
                       </div>
-                      <span className="text-sm font-medium">
-                        {social.label}
-                      </span>
+                      <span className="text-sm font-medium">{social.label}</span>
                     </div>
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-blue-500/5 rounded-2xl p-8 backdrop-blur-sm"
-          >
+          <div className="bg-blue-500/5 rounded-2xl p-8 backdrop-blur-sm">
             <h2 className="text-2xl font-semibold mb-6">Send a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form id="contact-form" action={submitContactForm} className="space-y-6">
               <div className="space-y-4">
                 <div>
                   <label
@@ -232,25 +173,16 @@ export default function ContactForm() {
               <Button
                 type="submit"
                 className="w-full bg-blue-500 hover:bg-blue-600 h-12 text-base font-medium group"
-                disabled={isSubmitting}
-                aria-label={
-                  isSubmitting ? "Sending message..." : "Send message"
-                }
+                aria-label="Send message"
               >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    Send Message
-                    <Send
-                      className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
-                      aria-hidden="true"
-                    />
-                  </>
-                )}
+                Send Message
+                <Send
+                  className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
               </Button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
