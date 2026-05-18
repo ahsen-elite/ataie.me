@@ -149,7 +149,7 @@ export default function ContactForm({ success, error }: ContactFormProps) {
                     type="email"
                     required
                     className="bg-background/50 border-blue-500/20 focus:border-blue-500/50 transition-colors"
-                    placeholder="me@abbasataie.com"
+                    placeholder="me@www.abbasataie.com"
                     aria-label="Your email address"
                   />
                 </div>

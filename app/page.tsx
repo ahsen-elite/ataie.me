@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Abbas Ataie | Software Engineer & Data Scientist",
     description:
       "Portfolio of Abbas Ataie - Software Engineer & Data Scientist with 6+ years of experience. Specializing in Full-Stack Development, Data Science, Machine Learning, Cloud Architecture, and Technical Leadership.",
-    url: "https://abbasataie.com",
+    url: "https://www.abbasataie.com",
     siteName: "Abbas Ataie",
     images: [
       {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     images: ["/opengraph-image.png"],
   },
   alternates: {
-    canonical: "https://abbasataie.com",
+    canonical: "https://www.abbasataie.com",
   },
   robots: {
     index: true,

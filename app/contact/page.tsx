@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     ],
     siteName: "Abbas Ataie",
     type: "website",
-    url: "https://abbasataie.com/contact",
+    url: "https://www.abbasataie.com/contact",
     locale: "en_US",
   },
   twitter: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     images: ["/contact-og.png"],
   },
   alternates: {
-    canonical: "https://abbasataie.com/contact",
+    canonical: "https://www.abbasataie.com/contact",
   },
   keywords: [
     "Contact Abbas Ataie",

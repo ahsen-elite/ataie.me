@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Learn about Abbas Ataie - Software Engineer & Data Scientist with 6+ years of experience. Founder of Roshanayee, Micro1 Certified Senior Full-stack Developer, currently pursuing Master's in Data Science at University of Europe.",
     type: "profile",
-    url: "https://abbasataie.com/about",
+    url: "https://www.abbasataie.com/about",
     siteName: "Abbas Ataie",
     locale: "en_US",
     images: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     images: ["/about-og.png"],
   },
   alternates: {
-    canonical: "https://abbasataie.com/about",
+    canonical: "https://www.abbasataie.com/about",
   },
   robots: {
     index: true,

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     ],
     siteName: "Abbas Ataie",
     type: "website",
-    url: "https://abbasataie.com/mentoring",
+    url: "https://www.abbasataie.com/mentoring",
     locale: "en_US",
   },
   twitter: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     images: ["/mentoring-og.png"],
   },
   alternates: {
-    canonical: "https://abbasataie.com/mentoring",
+    canonical: "https://www.abbasataie.com/mentoring",
   },
   robots: {
     index: true,

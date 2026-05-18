@@ -48,7 +48,7 @@ A modern, responsive personal portfolio website built with Next.js 13, TypeScrip
 ## 📁 Project Structure
 
 ```
-abbasataie.com/
+www.abbasataie.com/
 ├── app/                    # Next.js 13 App Router pages
 │   ├── about/             # About page
 │   ├── contact/           # Contact page
@@ -82,8 +82,8 @@ abbasataie.com/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/abbasataie.com.git
-   cd abbasataie.com
+   git clone https://github.com/yourusername/www.abbasataie.com.git
+   cd www.abbasataie.com
    ```
 
 2. **Install dependencies**
@@ -171,7 +171,7 @@ The website uses a custom theme system with Tailwind CSS. You can customize colo
 Create a `.env.local` file for any environment-specific configurations:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://abbasataie.com
+NEXT_PUBLIC_SITE_URL=https://www.abbasataie.com
 
 # Resend Email Configuration
 # Get your API key from https://resend.com/api-keys
@@ -180,7 +180,7 @@ RESEND_API_KEY=re_your_api_key_here
 # Email addresses (optional - defaults provided)
 # For testing: Use "onboarding@resend.dev" as from and your verified email as to
 # For production: Verify your domain at https://resend.com/domains
-RESEND_FROM_EMAIL=Contact Form <noreply@abbasataie.com>
+RESEND_FROM_EMAIL=Contact Form <noreply@www.abbasataie.com>
 RESEND_TO_EMAIL=
 ```
 
@@ -199,7 +199,7 @@ RESEND_TO_EMAIL=
 3. **For Production:**
    - Verify your domain at [resend.com/domains](https://resend.com/domains)
    - Add DNS records as instructed by Resend
-   - Update `RESEND_FROM_EMAIL` to use your verified domain (e.g., `Contact Form <noreply@abbasataie.com>`)
+   - Update `RESEND_FROM_EMAIL` to use your verified domain (e.g., `Contact Form <noreply@www.abbasataie.com>`)
    - Once domain is verified, you can send to any email address
 
 ### SEO Configuration
@@ -268,7 +268,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🔗 Links
 
-- **Website**: [https://abbasataie.com](https://abbasataie.com)
+- **Website**: [https://www.abbasataie.com](https://www.abbasataie.com)
 - **LinkedIn**: [Abbas Ataie](https://linkedin.com/in/abbas-ataie-72a4431b9)
 - **GitHub**: [@abbasatayee](https://github.com/abbasatayee)
 - **YouTube**: [Roshanayee](https://youtube.com/@roshanayee)

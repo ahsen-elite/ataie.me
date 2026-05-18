@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Research | Abbas Ataie",
     description:
       "Research studies and academic work by Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
-    url: "https://abbasataie.com/research",
+    url: "https://www.abbasataie.com/research",
     siteName: "Abbas Ataie",
     locale: "en_US",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     images: ["/research-og.png"],
   },
   alternates: {
-    canonical: "https://abbasataie.com/research",
+    canonical: "https://www.abbasataie.com/research",
   },
   robots: {
     index: true,
