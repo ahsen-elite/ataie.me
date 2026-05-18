@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="pt-24 pb-16">
+    <div className="pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
         <h1 className="text-2xl font-bold text-foreground mb-4">
           Video Not Found
@@ -19,6 +19,6 @@ export default function NotFound() {
           </Button>
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

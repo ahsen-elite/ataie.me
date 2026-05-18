@@ -5,7 +5,7 @@ import HomeRecentResearch from "@/components/home-recent-research";
 import HomeSpecializations from "@/components/home-specializations";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: { absolute: "Abbas Ataie | Software Engineer & Data Scientist" },
   description:
     "Portfolio of Abbas Ataie - Software Engineer & Data Scientist with 6+ years of experience. Specializing in Full-Stack Development, Data Science, Machine Learning, Cloud Architecture, and Technical Leadership. Explore projects, research, and professional services.",
   keywords: [

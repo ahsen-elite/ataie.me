@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Academic Studies",
   ],
   openGraph: {
-    title: "Research | Abbas Ataie",
+    title: "Research",
     description:
       "Research studies and academic work by Abbas Ataie. Explore my research in data science, student performance analysis, and educational technology.",
     url: "https://www.abbasataie.com/research",

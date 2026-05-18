@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 const Contact = () => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
-  const email = "abbas.ataie.montazer@gmail.com";
+  const email = "itsabbas.ataie@gmail.com";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email);
@@ -68,7 +68,7 @@ const Contact = () => {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/abbas-ataie-72a4431b9/"
+              href="https://www.linkedin.com/in/abbas-ataie/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"

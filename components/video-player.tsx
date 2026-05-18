@@ -361,9 +361,9 @@ export default function VideoPlayer({ videoData }: VideoPlayerProps) {
 
             {/* Title */}
             <div className="mt-3 hidden md:block">
-              <h1 className="text-xl font-semibold text-white">
+              <p className="text-xl font-semibold text-white">
                 {videoData.title}
-              </h1>
+              </p>
               <p className="text-white/80 text-sm mt-1">
                 {videoData.description}
               </p>

@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import videosData from "@/data/videos.json";
-
 import Script from "next/script";
 import VideoPlayer from "@/components/video-player";
+import { SITE_URL, toIsoDuration, yearToIsoDate } from "@/lib/seo";
 
 interface VideoPageProps {
   params: {
@@ -11,7 +11,6 @@ interface VideoPageProps {
   };
 }
 
-// Generate metadata for the page
 export async function generateMetadata({
   params,
 }: VideoPageProps): Promise<Metadata> {
@@ -19,15 +18,16 @@ export async function generateMetadata({
 
   if (!videoData) {
     return {
-      title: "Video Not Found | Abbas Ataie",
+      title: "Video Not Found",
       description: "The requested video could not be found.",
+      robots: { index: false, follow: true },
     };
   }
 
-  const title = `${videoData.title} | Research Video | Abbas Ataie`;
+  const title = `${videoData.title} | Research Video`;
   const description = videoData.description;
-  const videoUrl = `https://www.abbasataie.com/research/video/${params.id}`;
-  const imageUrl = `https://www.abbasataie.com/research/studey-research-thumbnail.jpg`;
+  const videoUrl = `${SITE_URL}/research/video/${params.id}`;
+  const imageUrl = `${SITE_URL}${videoData.thumbnail}`;
 
   return {
     title,
@@ -37,12 +37,10 @@ export async function generateMetadata({
       "research",
       "video",
       "data science",
-      "machine learning",
-      "web development",
       "Abbas Ataie",
       ...videoData.title.toLowerCase().split(" "),
     ],
-    authors: [{ name: "Abbas Ataie", url: "https://www.abbasataie.com" }],
+    authors: [{ name: "Abbas Ataie", url: SITE_URL }],
     creator: "Abbas Ataie",
     publisher: "Abbas Ataie",
     openGraph: {
@@ -62,7 +60,7 @@ export async function generateMetadata({
       ],
       videos: [
         {
-          url: `https://www.abbasataie.com${videoData.videoSrc}`,
+          url: `${SITE_URL}${videoData.videoSrc}`,
           width: 1920,
           height: 1080,
           type: "video/mp4",
@@ -70,7 +68,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "player",
+      card: "summary_large_image",
       title,
       description,
       creator: "@abbasataie",
@@ -93,13 +91,12 @@ export async function generateMetadata({
     },
     other: {
       "video:duration": videoData.duration,
-      "video:release_date": videoData.year,
+      "video:release_date": yearToIsoDate(videoData.year),
       "video:tag": videoData.category,
     },
   };
 }
 
-// Generate static params for all videos
 export async function generateStaticParams() {
   return videosData.videos.map((video) => ({
     id: video.id,
@@ -113,26 +110,25 @@ export default function VideoPage({ params }: VideoPageProps) {
     notFound();
   }
 
-  // Generate structured data for the video
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     name: videoData.title,
     description: videoData.description,
-    thumbnailUrl: `https://www.abbasataie.com${videoData.thumbnail}`,
-    uploadDate: `${videoData.year}-01-01`,
-    duration: `PT${videoData.duration.replace(":", "M")}S`,
-    contentUrl: `https://www.abbasataie.com${videoData.videoSrc}`,
-    embedUrl: `https://www.abbasataie.com/research/video/${params.id}`,
+    thumbnailUrl: `${SITE_URL}${videoData.thumbnail}`,
+    uploadDate: yearToIsoDate(videoData.year),
+    duration: toIsoDuration(videoData.duration),
+    contentUrl: `${SITE_URL}${videoData.videoSrc}`,
+    embedUrl: `${SITE_URL}/research/video/${params.id}`,
     author: {
       "@type": "Person",
       name: "Abbas Ataie",
-      url: "https://www.abbasataie.com",
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
       name: "Abbas Ataie",
-      url: "https://www.abbasataie.com",
+      url: SITE_URL,
     },
     genre: videoData.category,
     keywords: [
@@ -140,8 +136,6 @@ export default function VideoPage({ params }: VideoPageProps) {
       "research",
       "video",
       "data science",
-      "machine learning",
-      "web development",
       ...videoData.title.toLowerCase().split(" "),
     ],
   };
@@ -155,11 +149,10 @@ export default function VideoPage({ params }: VideoPageProps) {
           __html: JSON.stringify(structuredData),
         }}
       />
-      <main className="pt-24 pb-16">
+      <div className="pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <VideoPlayer videoData={videoData} />
 
-          {/* Video info */}
           <div className="mt-6 text-center">
             <h1 className="text-2xl font-bold text-foreground mb-2">
               {videoData.title}
@@ -180,7 +173,7 @@ export default function VideoPage({ params }: VideoPageProps) {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

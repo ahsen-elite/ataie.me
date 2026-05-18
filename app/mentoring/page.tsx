@@ -11,11 +11,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Mentoring | Abbas Ataie",
+  title: "Mentoring",
   description:
     "Get personalized mentorship in software development, data science, career guidance, and technical leadership from an experienced software engineer and data scientist.",
   openGraph: {
-    title: "Mentoring | Abbas Ataie",
+    title: "Mentoring",
     description:
       "Get personalized mentorship in software development, data science, career guidance, and technical leadership from an experienced software engineer and data scientist.",
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mentoring | Abbas Ataie",
+    title: "Mentoring",
     description:
       "Get personalized mentorship in software development, data science, career guidance, and technical leadership from an experienced software engineer and data scientist.",
     images: ["/mentoring-og.png"],

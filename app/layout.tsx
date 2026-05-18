@@ -154,17 +154,16 @@ const jsonLd = {
   jobTitle: "Software Engineer & Data Scientist",
   description:
     "Software Engineer and Data Scientist with 6+ years of experience in Full-Stack Development, Data Science, Machine Learning, Cloud Architecture, and Technical Leadership. Specializing in React, Next.js, Node.js, TypeScript, Python, and AWS solutions.",
-  email: "contact@www.abbasataie.com",
+  email: "itsabbas.ataie@gmail.com",
   nationality: {
     "@type": "Country",
     name: "Afghanistan",
   },
   sameAs: [
     "https://twitter.com/abbasataie",
-    "https://github.com/abbasatayee",
-    "https://linkedin.com/in/abbas-ataie-72a4431b9",
+    "https://github.com/abbasataie",
+    "https://www.linkedin.com/in/abbas-ataie/",
     "https://www.youtube.com/@abbas-ataie",
-    "https://roshanayee.com",
   ],
   worksFor: [
     {
@@ -240,19 +239,18 @@ const organizationJsonLd = {
   logo: "https://www.abbasataie.com/opengraph-image.png",
   sameAs: [
     "https://twitter.com/abbasataie",
-    "https://github.com/abbasatayee",
-    "https://linkedin.com/in/abbas-ataie-72a4431b9",
+    "https://github.com/abbasataie",
+    "https://www.linkedin.com/in/abbas-ataie-72a4431b9/",
     "https://www.youtube.com/@abbas-ataie",
   ],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Professional Inquiry",
-    email: "contact@www.abbasataie.com",
-    availableLanguage: ["English", "German", "Dari"],
+    email: "itsabbas.ataie@gmail.com",
+    availableLanguage: ["English", "German", "Persian/Dari"],
   },
 };
 
-// Website structured data with search action
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -263,14 +261,6 @@ const websiteJsonLd = {
   publisher: {
     "@type": "Person",
     name: "Abbas Ataie",
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://www.abbasataie.com/research?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
   },
 };
 
@@ -324,7 +314,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="pt-24 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] text-foreground ">
+          <div className="pt-24 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] text-foreground ">
             <Header />
 
             {children}
@@ -332,7 +322,7 @@ export default function RootLayout({
             <Contact />
             <Footer />
             <ScrollToTop />
-          </main>
+          </div>
           <Toaster />
         </ThemeProvider>
       </body>
